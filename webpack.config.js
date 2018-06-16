@@ -1,3 +1,13 @@
+/**
+ * https://medium.com/@BrodaNoel/how-to-create-a-react-component-and-publish-it-in-npm-668ad7d363ce
+ *
+ * https://github.com/cssinjs/jss
+ *
+ * https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/withStyles.js
+ *
+ * https://github.com/JSxMachina/react-grid-system/blob/master/src/grid/Col/style.js
+ */
+
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
