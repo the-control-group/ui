@@ -1,0 +1,47 @@
+{
+	"name": "ui",
+	"version": "1.0.0",
+	"description": "UI kit based on ReactJS for TCG projects",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "eslint ./src"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/the-control-group/ui.git"
+	},
+	"author": "The Control Group",
+	"license": "UNLICENSED",
+	"private": "true",
+	"bugs": {
+		"url": "https://github.com/the-control-group/ui/issues"
+	},
+	"homepage": "https://github.com/the-control-group/ui#readme",
+	"devDependencies": {
+		"autoprefixer": "^8.1.0",
+		"babel-core": "^6.26.0",
+		"babel-eslint": "^8.2.2",
+		"babel-loader": "^7.1.4",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-preset-env": "^1.6.1",
+		"babel-preset-react": "^6.24.1",
+		"classnames": "^2.2.5",
+		"css-loader": "^0.28.11",
+		"cssnano": "^3.10.0",
+		"eslint": "^4.19.0",
+		"eslint-plugin-react": "^7.7.0",
+		"file-loader": "^1.1.11",
+		"less": "^3.0.1",
+		"less-loader": "^4.1.0",
+		"normalize.css": "^8.0.0",
+		"prop-types": "^15.6.1",
+		"react": "^16.2.0",
+		"react-devtools": "^3.1.0",
+		"react-dom": "^16.2.0",
+		"style-loader": "^0.20.3",
+		"url-loader": "^1.0.1",
+		"webpack": "^4.1.1",
+		"webpack-cli": "^2.0.12",
+		"webpack-dev-server": "^3.1.1"
+	}
+}
