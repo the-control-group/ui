@@ -1,0 +1,35 @@
+/**
+ * Button styles
+ */
+
+.Button {
+	background: blue;
+	color: white;
+	border: 1px solid transparent;
+	font-size: 16px;
+	padding: 10px 12px;
+	display: inline-block;
+	text-transform: uppercase;
+	outline: none;
+	cursor: pointer;
+
+	&.outline {
+		background: transparent;
+		border-color: blue;
+		color: blue;
+	}
+
+	&.bare {
+		background: transparent;
+		color: blue;
+	}
+
+	&.big {
+		width: 100%;
+		display: block;
+	}
+
+	&.mini {
+		max-width: 10em;
+	}
+}
