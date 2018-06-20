@@ -15,5 +15,7 @@ storiesOf('Elements', module)
 			<Button big>Big Button</Button>
 			<br /><br />
 			<Button mini>Mini Button</Button>
+			<br /><br />
+			<Button secondary outline>Secondary</Button>
 		</div>
 	));

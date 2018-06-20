@@ -1,5 +1,9 @@
 import { configure } from '@storybook/react';
 
+import '../lib/styles/variables.less';
+import '../lib/styles/baseline.less';
+import '../docs/storybook.less';
+
 const req = require.context('../docs', true, /.doc.js$/);
 
 function loadStories() {

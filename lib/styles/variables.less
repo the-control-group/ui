@@ -1,0 +1,73 @@
+:root {
+	/**
+	 * ------------------------------------
+	 * Common
+	 * ------------------------------------
+	 */
+
+	/**
+	 * Colors
+	 */
+
+	// colors
+	--color-red: firebrick;
+	--color-pink: lightcoral;
+	--color-orange: orange;
+	--color-yellow: gold;
+	--color-purple: darkmagenta;
+	--color-green: forestgreen;
+	--color-blue: dodgerblue;
+
+	// neutrals
+	--color-brown: tan;
+	--color-slate: lightslategray;
+	--color-black: #000000;
+	--color-white: #ffffff;
+
+	// greys
+	--color-gray-lightest: #f7f7f7;
+	--color-gray-lighter: #f3f3f3;
+	--color-gray-light: #e1e1e1;
+	--color-gray-medium: #b1b1b1;
+	--color-gray-dark: #919191;
+	--color-gray-darker: #3E3E3E;
+	--color-gray-darkest: #222222;
+
+	/**
+	 * Fonts
+	 */
+
+	--font-serif: serif;
+	--font-sans-serif: 'Helvetica', Arial, sans-serif;
+
+	/**
+	 * Spacing
+	 */
+
+	@base-unit: 16px; // don't use this outside this document
+
+	--xx-small: @base-unit/3; // 4
+	--x-small: @base-unit/2; // 8
+	--small: @base-unit; // 16
+	--medium: @base-unit*1.5; // 24
+	--large: @base-unit*2; // 32
+	--x-large: @base-unit*3; // 48
+	--xx-large: @base-unit*4; // 64
+
+	/**
+	 * ------------------------------------
+	 * UI Elements
+	 * ------------------------------------
+	 */
+
+	/**
+	 * Buttons
+	 */
+
+	--ui-button-background: var(--color-green);
+	--ui-button-background-secondary: var(--color-blue);
+	--ui-button-color: var(--color-white);
+	--ui-button-font: var(--font-sans-serif);
+	--ui-button-font-size: 0.9em;
+	--ui-button-font-weight: 600;
+}
