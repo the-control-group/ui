@@ -9,14 +9,17 @@
 	 * Colors
 	 */
 
-	// colors
+	--color-green: hsla(155, 45%, 55%, 1);
+	--color-green-darker: hsla(155, 45%, 45%, 1);
+	--color-green-darkest: hsla(155, 45%, 40%, 1);
+	--color-blue: hsla(198, 74%, 47%, 1);
+	--color-blue-darker: hsla(198, 74%, 37%, 1);
+	--color-blue-darkest: hsla(198, 74%, 30%, 1);
 	--color-red: firebrick;
 	--color-pink: lightcoral;
 	--color-orange: orange;
 	--color-yellow: gold;
 	--color-purple: darkmagenta;
-	--color-green: forestgreen;
-	--color-blue: dodgerblue;
 
 	// neutrals
 	--color-brown: tan;
@@ -39,6 +42,18 @@
 
 	--font-serif: serif;
 	--font-sans-serif: 'Helvetica', Arial, sans-serif;
+
+	/**
+	 * Font sizes
+	 */
+
+	--font-xx-small: 0.8em;
+	--font-x-small: 0.9em;
+	--font-small: 1em;
+	--font-medium: 1.5em;
+	--font-large: 2em;
+	--font-x-large: 2.4em;
+	--font-xx-large: 3em;
 
 	/**
 	 * Spacing
@@ -64,10 +79,16 @@
 	 * Buttons
 	 */
 
-	--ui-button-background: var(--color-green);
-	--ui-button-background-secondary: var(--color-blue);
-	--ui-button-color: var(--color-white);
+	--ui-button-color: var(--color-green);
+	--ui-button-color-focus: var(--color-green-darker);
+	--ui-button-color-active: var(--color-green-darkest);
+
+	--ui-button-secondary-color: var(--color-blue);
+	--ui-button-secondary-color-focus: var(--color-blue-darker);
+	--ui-button-secondary-color-active: var(--color-blue-darkest);
+
 	--ui-button-font: var(--font-sans-serif);
-	--ui-button-font-size: 0.9em;
+	--ui-button-font-size: var(--font-x-small);
 	--ui-button-font-weight: 600;
+	--ui-button-text-transform: uppercase;
 }

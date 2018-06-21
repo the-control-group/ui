@@ -4,51 +4,89 @@
 
 .Button {
 	display: inline-block;
-	padding: 0.6em 1em;
+	padding: var(--small);
 	border: 1px solid transparent;
 	outline: none;
 	cursor: pointer;
-	text-transform: uppercase;
 
-	background: var(--ui-button-background);
-	color: var(--ui-button-color);
 	font-family: var(--ui-button-font);
 	font-weight: var(--ui-button-font-weight);
 	font-size: var(--ui-button-font-size);
+	text-transform: var(--ui-button-text-transform);
 
-	&.secondary {
-		background: var(--ui-button-background-secondary);
+	transition: 0.2s background-color, 0.2s border-color, 0.2s color;
 
-		&.outline {
-			color: var(--ui-button-background-secondary);
-			border-color: var(--ui-button-background-secondary);
+	// color scheme for button types
+	&.primary {
+		background-color: var(--ui-button-color);
+		border-color: var(--ui-button-color);
+		color: var(--ui-button-color);
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: var(--ui-button-color-focus);
+			border-color: var(--ui-button-color-focus);
+			color: var(--color-white);
 		}
 
-		&.bare {
-			color: var(--ui-button-background-secondary);
+		&:active {
+			background-color: var(--ui-button-color-active);
+			border-color: var(--ui-button-color-active);
 		}
 	}
 
-	// styles
+	&.secondary {
+		background-color: var(--ui-button-secondary-color);
+		border-color: var(--ui-button-secondary-color);
+		color: var(--ui-button-secondary-color);
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: var(--ui-button-secondary-color-focus);
+			border-color: var(--ui-button-secondary-color-focus);
+			color: var(--color-white);
+		}
+
+		&:active {
+			background-color: var(--ui-button-secondary-color-active);
+			border-color: var(--ui-button-secondary-color-active);
+		}
+	}
+
+	// variants
+	&.standard {
+		color: var(--color-white);
+	}
+
 	&.outline {
-		background: transparent;
-		border-color: var(--ui-button-background);
-		color: var(--ui-button-background);
+		background-color: transparent;
 	}
 
 	&.bare {
-		background: transparent;
-		color: var(--ui-button-background);
+		background-color: transparent;
+		border-color: transparent;
 	}
 
 	// sizes
-	&.big {
-		width: 100%;
+	&.full {
 		display: block;
+		width: 100%;
 	}
 
 	&.mini {
-		max-width: 10em;
-		padding: 0.4em 0.6em;
+		min-width: 8em;
+		padding: var(--x-small);
+	}
+
+	// states
+	&:disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	&.loading {
+		cursor: progress;
 	}
 }

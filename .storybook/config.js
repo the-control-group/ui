@@ -1,6 +1,7 @@
 import { configure } from '@storybook/react';
 
 import '../lib/styles/variables.less';
+import '../docs/theme.less';
 import '../lib/styles/baseline.less';
 import '../docs/storybook.less';
 
