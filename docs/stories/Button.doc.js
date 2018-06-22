@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Button } from '../../src';
-import { generatePropTable } from '../util/';
+import PropsTable from '../util/PropsTable';
 
 storiesOf('Elements', module)
 	.add('Button', () => (
@@ -76,17 +76,19 @@ storiesOf('Elements', module)
 			<div className="story-component-group story-prop-table">
 				<h2>PropTypes:</h2>
 
-				{generatePropTable([
-					// [propName, propType, defaultValue, isRequired, description]
-					['children', 'node', '-', 'yes', '-'],
-					['type', 'string', 'button', '-', 'DOM attribute'],
-					['loading', 'bool', 'false', '-', 'state'],
-					['mini', 'bool', 'false', '-', 'size'],
-					['full', 'bool', 'false', '-', 'size'],
-					['outline', 'bool', 'false', '-', 'style'],
-					['bare', 'bool', 'false', '-', 'style'],
-					['secondary', 'bool', 'false', '-', 'secondary button styles']
-				])}
+				<PropsTable
+					propsData={[
+						// [propName, propType, defaultValue, isRequired, description]
+						['children', 'node', '-', 'yes', '-'],
+						['type', 'string', 'button', '-', 'DOM attribute'],
+						['loading', 'bool', 'false', '-', 'state'],
+						['mini', 'bool', 'false', '-', 'size'],
+						['full', 'bool', 'false', '-', 'size'],
+						['outline', 'bool', 'false', '-', 'style'],
+						['bare', 'bool', 'false', '-', 'style'],
+						['secondary', 'bool', 'false', '-', 'secondary button styles']
+					]}
+				/>
 			</div>
 		</div>
 	));

@@ -12,12 +12,6 @@ module.exports = {
 	plugins: [
 		'react'
 	],
-	globals: {
-		APP_ID: false,
-		API_HOST: false,
-		API_KEY: false,
-		fetch: false
-	},
 	extends: [
 		'eslint:recommended',
 		'plugin:react/recommended'

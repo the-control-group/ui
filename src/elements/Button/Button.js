@@ -2,7 +2,7 @@
  * Button
  */
 
-import './Button.less';
+import './button.less';
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -36,7 +36,7 @@ const Button = (props) => {
 	return (
 		<Common
 			{...other}
-			classes={`Button ${combinedClasses}`}
+			classes={`ui-button ${combinedClasses}`}
 			tag="button"
 			type={type}
 		>
