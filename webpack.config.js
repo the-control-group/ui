@@ -7,7 +7,7 @@ const config = {
 	entry: path.join(__dirname, 'src'),
 	output: {
 		path: path.resolve(__dirname, 'lib'),
-		filename: 'pubrec-ui-min.js',
+		filename: 'index.js',
 		libraryTarget: 'umd'
 	},
 	module: {
