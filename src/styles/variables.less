@@ -59,7 +59,7 @@
 	 * Spacing
 	 */
 
-	@base-unit: 16px; // don't use this outside this document
+	@base-unit: 16px;
 
 	--xx-small: @base-unit/3; // 4
 	--x-small: @base-unit/2; // 8
@@ -79,6 +79,7 @@
 	 * Buttons
 	 */
 
+	// colors
 	--ui-button-color: var(--color-green);
 	--ui-button-color-focus: var(--color-green-darker);
 	--ui-button-color-active: var(--color-green-darkest);
@@ -87,8 +88,14 @@
 	--ui-button-secondary-color-focus: var(--color-blue-darker);
 	--ui-button-secondary-color-active: var(--color-blue-darkest);
 
+	// fonts
 	--ui-button-font: var(--font-sans-serif);
 	--ui-button-font-size: var(--font-x-small);
 	--ui-button-font-weight: 600;
 	--ui-button-text-transform: uppercase;
+
+	// borders
+	--ui-button-border-radius: 0px;
+	--ui-button-border: 1px solid transparent;
+	--ui-button-secondary-border: 1px solid transparent;
 }

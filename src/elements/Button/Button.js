@@ -36,10 +36,9 @@ const Button = (props) => {
 	return (
 		<Common
 			{...other}
-			cName="Button"
+			classes={`Button ${combinedClasses}`}
 			tag="button"
 			type={type}
-			classes={combinedClasses}
 		>
 			{children}
 		</Common>
@@ -48,7 +47,7 @@ const Button = (props) => {
 
 Button.propTypes = {
 	children: PropTypes.node.isRequired,
-	type: PropTypes.bool,
+	type: PropTypes.string,
 	loading: PropTypes.bool,
 	mini: PropTypes.bool,
 	full: PropTypes.bool,

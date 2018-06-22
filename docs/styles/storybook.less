@@ -1,0 +1,88 @@
+/**
+ * Storybook documentation viewer styles
+ */
+
+#root {
+	padding: 1em;
+}
+
+[class*='story-'] {
+	> h1,
+	> h2,
+	> h3,
+	> h4,
+	> h5,
+	> h6,
+	> p,
+	> span,
+	> table {
+		font-family: sans-serif;
+	}
+
+	> h1 {
+		margin-top: 0;
+	}
+
+	> h2 {
+		font-weight: 400;
+	}
+
+	> h1 ~ p,
+	> h2 ~ p {
+		margin: -1em 0 1em;
+		color: #444;
+	}
+
+	code,
+	pre {
+		display: inline-block;
+		opacity: 0.8;
+		background: #f2f3f5;
+		color: #444;
+		border-radius: 3px;
+		padding: 0.5em;
+		margin: 0;
+	}
+
+	code {
+		display: block;
+		width: max-content;
+		margin: 0.6em 0 0;
+	}
+}
+
+.story-heading {
+	border-bottom: 1px solid #ddd;
+}
+
+.story-component-group {
+	.component {
+		margin-bottom: 2em;
+	}
+}
+
+.story-prop-table {
+	border-top: 1px solid #ddd;
+
+	table {
+		border-spacing: 0;
+		border-collapse: collapse;
+
+		thead {
+			font-weight: 600;
+		}
+
+		tr {
+			border-top: 1px solid #ccc;
+
+			&:nth-child(2n) {
+				background-color: #f8f8f8;
+			}
+		}
+
+		td {
+			padding: 6px 13px;
+			border: 1px solid #ddd;
+		}
+	}
+}

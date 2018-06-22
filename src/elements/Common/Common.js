@@ -1,34 +1,31 @@
 /**
  * Common
  *
- * All other UI elements render down to this component in order to share features and properties
+ * All other UI elements render down to this component in order to share common features and properties
  */
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 const Common = (props) => {
 	const {
 		children,
 		classes,
 		tag,
-		cName,
 		...other
 	} = props;
 
 	const Tag = tag;
 
-	const combinedClasses = classNames(
-		cName,
-		classes
-	);
+	const attributes = {
+		onClick: other.onClick,
+		disabled: other.disabled
+	};
 
 	return (
 		<Tag
-			className={combinedClasses}
-			onClick={other.onClick}
-			disabled={other.disabled}
+			className={classes}
+			{...attributes}
 		>
 			{children}
 		</Tag>
@@ -38,8 +35,7 @@ const Common = (props) => {
 Common.propTypes = {
 	children: PropTypes.node.isRequired,
 	classes: PropTypes.string,
-	tag: PropTypes.string,
-	cName: PropTypes.string
+	tag: PropTypes.string
 };
 
 export default Common;
