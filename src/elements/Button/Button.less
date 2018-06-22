@@ -1,0 +1,95 @@
+/**
+ * Button styles
+ */
+
+.ui-button {
+	display: inline-block;
+	padding: var(--small);
+
+	border-radius: var(--ui-button-border-radius);
+	outline: none;
+
+	font-family: var(--ui-button-font);
+	font-weight: var(--ui-button-font-weight);
+	font-size: var(--ui-button-font-size);
+	text-transform: var(--ui-button-text-transform);
+
+	transition: 0.15s background-color, 0.15s border-color, 0.15s color;
+	cursor: pointer;
+
+	// color scheme for button types
+	&.primary {
+		border: var(--ui-button-border);
+		background-color: var(--ui-button-color);
+		border-color: var(--ui-button-color);
+		color: var(--ui-button-color);
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: var(--ui-button-color-focus);
+			border-color: var(--ui-button-color-focus);
+			color: var(--color-white);
+		}
+
+		&:active {
+			background-color: var(--ui-button-color-active);
+			border-color: var(--ui-button-color-active);
+		}
+	}
+
+	&.secondary {
+		border: var(--ui-button-secondary-border);
+		background-color: var(--ui-button-secondary-color);
+		border-color: var(--ui-button-secondary-color);
+		color: var(--ui-button-secondary-color);
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: var(--ui-button-secondary-color-focus);
+			border-color: var(--ui-button-secondary-color-focus);
+			color: var(--color-white);
+		}
+
+		&:active {
+			background-color: var(--ui-button-secondary-color-active);
+			border-color: var(--ui-button-secondary-color-active);
+		}
+	}
+
+	// variants
+	&.standard {
+		color: var(--color-white);
+	}
+
+	&.outline {
+		background-color: transparent;
+	}
+
+	&.bare {
+		background-color: transparent;
+		border-color: transparent;
+	}
+
+	// sizes
+	&.full {
+		display: block;
+		width: 100%;
+	}
+
+	&.mini {
+		min-width: 8em;
+		padding: var(--x-small);
+	}
+
+	// states
+	&:disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	&.loading {
+		cursor: progress;
+	}
+}
