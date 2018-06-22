@@ -2,7 +2,7 @@
 	"name": "ui",
 	"version": "1.0.0",
 	"description": "UI kit based on ReactJS for TCG projects",
-	"main": "lib/pubrec-ui-min.js",
+	"main": "src/index.js",
 	"scripts": {
 		"start": "start-storybook -p 9001 -c ./docs/.storybook",
 		"build": "webpack --mode production"
