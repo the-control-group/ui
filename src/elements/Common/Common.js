@@ -6,20 +6,30 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const Common = (props) => {
 	const {
 		children,
-		classes,
 		tag,
-		block = '',
-		inline = '',
-		inlineBlock = '',
-		left = '',
-		right = '',
-		center = '',
-		floatRight = '',
-		floatLeft = '',
+		classes = '',
+		id = '',
+		disabled = false,
+		onClick = () => {},
+		onKeyDown = () => {},
+		onFocus = () => {},
+		onBlur = () => {},
+		onChange = () => {},
+		onSubmit = () => {},
+		onScroll = () => {},
+		block = false,
+		inline = false,
+		inlineBlock = false,
+		left = false,
+		right = false,
+		center = false,
+		floatRight = false,
+		floatLeft = false,
 		padding = '',
 		paddingTop = '',
 		paddingBottom = '',
@@ -36,22 +46,23 @@ const Common = (props) => {
 	const Tag = tag;
 
 	const attributes = {
-		id: other.id,
-		disabled: other.disabled,
-		onClick: other.onClick,
-		onKeyDown: other.onKeyDown,
-		onKeyPress: other.onKeyPress,
-		onKeyUp: other.onKeyUp,
-		onFocus: other.onFocus,
-		onBlur: other.onBlur,
-		onChange: other.onChange,
-		onInput: other.onInput,
-		onInvalid: other.onInvalid,
-		onSubmit: other.onSubmit,
-		onScroll: other.onScroll
+		id,
+		disabled,
+		onClick,
+		onKeyDown,
+		onFocus,
+		onBlur,
+		onChange,
+		onSubmit,
+		onScroll
 	};
 
-	const styles = {};
+	const combinedClasses = classNames(
+		classes,
+		other.className
+	);
+
+	const styles = { ...other.style };
 	if(block) styles.display = 'block';
 	if(inline) styles.display = 'block';
 	if(inlineBlock) styles.display = 'inline-block';
@@ -73,8 +84,8 @@ const Common = (props) => {
 
 	return (
 		<Tag
-			className={classes}
-			style={{ ...styles, ...other.style }}
+			className={combinedClasses}
+			style={styles}
 			{...attributes}
 		>
 			{children}
@@ -84,14 +95,23 @@ const Common = (props) => {
 
 Common.propTypes = {
 	children: PropTypes.node.isRequired,
+	tag: PropTypes.string.isRequired,
 	classes: PropTypes.string,
-	tag: PropTypes.string,
-	block: PropTypes.string,
-	inline: PropTypes.string,
-	inlineBlock: PropTypes.string,
-	left: PropTypes.string,
-	right: PropTypes.string,
-	center: PropTypes.string,
+	id: PropTypes.string,
+	disabled: PropTypes.bool,
+	onClick: PropTypes.func,
+	onKeyDown: PropTypes.func,
+	onFocus: PropTypes.func,
+	onBlur: PropTypes.func,
+	onChange: PropTypes.func,
+	onSubmit: PropTypes.func,
+	onScroll: PropTypes.func,
+	block: PropTypes.bool,
+	inline: PropTypes.bool,
+	inlineBlock: PropTypes.bool,
+	left: PropTypes.bool,
+	right: PropTypes.bool,
+	center: PropTypes.bool,
 	floatRight: PropTypes.string,
 	floatLeft: PropTypes.string,
 	padding: PropTypes.string,
