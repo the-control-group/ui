@@ -1,8 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import PropsTable from '../components/PropsTable';
+
 import { Button } from '../../src';
-import PropsTable from '../util/PropsTable';
 
 storiesOf('Elements', module)
 	.add('Button', () => (

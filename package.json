@@ -2,10 +2,10 @@
 	"name": "ui",
 	"version": "1.0.0",
 	"description": "UI kit based on ReactJS for TCG projects",
-	"main": "src/index.js",
+	"main": "lib/index.js",
 	"scripts": {
 		"start": "start-storybook -p 9001 -c ./docs/.storybook",
-		"build": "webpack --mode production"
+		"prepublish": "rm -rf ./lib && webpack --mode production"
 	},
 	"repository": {
 		"type": "git",
@@ -13,7 +13,6 @@
 	},
 	"author": "The Control Group",
 	"license": "UNLICENSED",
-	"private": "true",
 	"bugs": {
 		"url": "https://github.com/the-control-group/ui/issues"
 	},
@@ -33,7 +32,7 @@
 		"eslint": "^4.19.1",
 		"eslint-plugin-react": "^7.9.1",
 		"file-loader": "^1.1.11",
-		"less": "^3.0.4",
+		"less": "2.7.2",
 		"less-loader": "^4.1.0",
 		"prop-types": "^15.6.1",
 		"raw-loader": "^0.5.1",

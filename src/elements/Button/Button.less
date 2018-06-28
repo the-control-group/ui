@@ -2,65 +2,88 @@
  * Button styles
  */
 
+// general variables
+@ui-button-border: var(--ui-button-border, 1px solid transparent);
+@ui-button-border-radius: var(--ui-button-border-radius, 0px);
+@ui-button-font-family: var(--ui-button-font-family, var(--ui-font-sans-serif, sans-serif));
+@ui-button-font-weight: var(--ui-button-font-weight, 600);
+@ui-button-font-size: var(--ui-button-font-size, var(--ui-font-x-small, 0.9em));
+@ui-button-text-transform: var(--ui-button-text-transform, uppercase);
+@ui-button-letter-spacing: var(--ui-button-letter-spacing, 0.5px);
+@ui-button-padding: var(--ui-button-padding, var(--ui-small, 16px));
+@ui-button-transition: var(--ui-button-transition, 0.15s background-color, 0.15s border-color, 0.15s color);
+
+// primary button variables
+@ui-button-color: var(--ui-button-color, var(--ui-color-gray-dark, #919191));
+@ui-button-color-focus: var(--ui-button-color-focus, var(--ui-color-gray-darker, #3E3E3E));
+@ui-button-color-active: var(--ui-button-color-active, var(--ui-color-gray-darkest, #222222));
+
+// secondary button variables
+@ui-button-secondary-color: var(--ui-button-secondary-color, var(--ui-color-gray-dark, #919191));
+@ui-button-secondary-color-focus: var(--ui-button-secondary-color-focus, var(--ui-color-gray-darker, #3E3E3E));
+@ui-button-secondary-color-active: var(--ui-button-secondary-color-active, var(--ui-color-gray-darkest, #222222));
+@ui-button-secondary-border: var(--ui-button-secondary-border, 1px solid transparent);
+
 .ui-button {
 	display: inline-block;
-	padding: var(--small);
+	padding: @ui-button-padding;
 
-	border-radius: var(--ui-button-border-radius);
+	border-radius: @ui-button-border-radius;
 	outline: none;
 
-	font-family: var(--ui-button-font);
-	font-weight: var(--ui-button-font-weight);
-	font-size: var(--ui-button-font-size);
-	text-transform: var(--ui-button-text-transform);
+	font-family: @ui-button-font-family;
+	font-weight: @ui-button-font-weight;
+	font-size: @ui-button-font-size;
+	text-transform: @ui-button-text-transform;
+	letter-spacing: @ui-button-letter-spacing;
 
-	transition: 0.15s background-color, 0.15s border-color, 0.15s color;
+	transition: @ui-button-transition;
 	cursor: pointer;
 
 	// color scheme for button types
 	&.primary {
-		border: var(--ui-button-border);
-		background-color: var(--ui-button-color);
-		border-color: var(--ui-button-color);
-		color: var(--ui-button-color);
+		border: @ui-button-border;
+		background-color: @ui-button-color;
+		border-color: @ui-button-color;
+		color: @ui-button-color;
 
 		&:hover,
 		&:focus,
 		&:active {
-			background-color: var(--ui-button-color-focus);
-			border-color: var(--ui-button-color-focus);
-			color: var(--color-white);
+			background-color: @ui-button-color-focus;
+			border-color: @ui-button-color-focus;
+			color: var(--ui-color-white);
 		}
 
 		&:active {
-			background-color: var(--ui-button-color-active);
-			border-color: var(--ui-button-color-active);
+			background-color: @ui-button-color-active;
+			border-color: @ui-button-color-active;
 		}
 	}
 
 	&.secondary {
-		border: var(--ui-button-secondary-border);
-		background-color: var(--ui-button-secondary-color);
-		border-color: var(--ui-button-secondary-color);
-		color: var(--ui-button-secondary-color);
+		border: @ui-button-secondary-border;
+		background-color: @ui-button-secondary-color;
+		border-color: @ui-button-secondary-color;
+		color: @ui-button-secondary-color;
 
 		&:hover,
 		&:focus,
 		&:active {
-			background-color: var(--ui-button-secondary-color-focus);
-			border-color: var(--ui-button-secondary-color-focus);
-			color: var(--color-white);
+			background-color: @ui-button-secondary-color-focus;
+			border-color: @ui-button-secondary-color-focus;
+			color: var(--ui-color-white);
 		}
 
 		&:active {
-			background-color: var(--ui-button-secondary-color-active);
-			border-color: var(--ui-button-secondary-color-active);
+			background-color: @ui-button-secondary-color-active;
+			border-color: @ui-button-secondary-color-active;
 		}
 	}
 
 	// variants
 	&.standard {
-		color: var(--color-white);
+		color: var(--ui-color-white);
 	}
 
 	&.outline {
@@ -80,7 +103,7 @@
 
 	&.mini {
 		min-width: 8em;
-		padding: var(--x-small);
+		padding: var(--ui-x-small);
 	}
 
 	// states

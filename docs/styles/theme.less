@@ -1,3 +1,13 @@
-:root {
-	--ui-button-font: 'Lato';
+body {
+	@green: #56bf93;
+	@blue: #209DD2;
+
+	--ui-button-font-family: 'Lato';
+	--ui-button-color: @green;
+	--ui-button-color-focus: darken(@green, 10%);
+	--ui-button-color-active: darken(@green, 18%);
+
+	--ui-button-secondary-color: @blue;
+	--ui-button-secondary-color-focus: darken(@blue, 10%);
+	--ui-button-secondary-color-active: darken(@blue, 18%);
 }
