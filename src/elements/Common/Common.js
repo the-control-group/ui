@@ -74,7 +74,7 @@ const Common = (props) => {
 	return (
 		<Tag
 			className={classes}
-			style={{...styles, ...other.style}}
+			style={{ ...styles, ...other.style }}
 			{...attributes}
 		>
 			{children}
