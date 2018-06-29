@@ -6,6 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const Common = ({
 	children,
@@ -54,13 +55,9 @@ const Common = ({
 			'disabled',
 			'onClick',
 			'onKeyDown',
-			'onKeyPress',
-			'onKeyUp',
 			'onFocus',
 			'onBlur',
 			'onChange',
-			'onInput',
-			'onInvalid',
 			'onSubmit',
 			'onScroll'
 		];
@@ -81,9 +78,14 @@ const Common = ({
 		if(other[v]) attributes[v] = other[v];
 	});
 
+	const combinedClasses = classNames(
+		classes,
+		other.className
+	);
+
 	return (
 		<Tag
-			className={classes}
+			className={combinedClasses}
 			style={styles}
 			{...attributes}
 		>

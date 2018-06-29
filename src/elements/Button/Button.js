@@ -24,6 +24,7 @@ const Button = ({
 	const style = outline ? 'outline' : bare ? 'bare' : 'standard';
 
 	const combinedClasses = classNames(
+		'ui-button',
 		secondary ? 'secondary' : 'primary',
 		style,
 		mini && 'mini',
@@ -34,7 +35,7 @@ const Button = ({
 	return (
 		<Common
 			{...other}
-			classes={`ui-button ${combinedClasses}`}
+			classes={combinedClasses}
 			tag="button"
 			type={type}
 		>

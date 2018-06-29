@@ -18,17 +18,17 @@ storiesOf('Elements', module)
 
 				<div className="component">
 					<Button>Normal Button</Button>
-					<code>{'<Button>Normal Button</Button>'}</code>
+					<code className="usage">{'<Button>Normal Button</Button>'}</code>
 				</div>
 
 				<div className="component">
 					<Button outline>Outline Button</Button>
-					<code>{'<Button outline>Outline Button</Button>'}</code>
+					<code className="usage">{'<Button outline>Outline Button</Button>'}</code>
 				</div>
 
 				<div className="component">
 					<Button bare>Bare Button</Button>
-					<code>{'<Button bare>Bare Button</Button>'}</code>
+					<code className="usage">{'<Button bare>Bare Button</Button>'}</code>
 				</div>
 			</div>
 
@@ -37,12 +37,12 @@ storiesOf('Elements', module)
 
 				<div className="component">
 					<Button full>Full Width Button</Button>
-					<code>{'<Button full>Full Width Button</Button>'}</code>
+					<code className="usage">{'<Button full>Full Width Button</Button>'}</code>
 				</div>
 
 				<div className="component">
 					<Button mini>Mini Button</Button>
-					<code>{'<Button mini>Mini Button</Button>'}</code>
+					<code className="usage">{'<Button mini>Mini Button</Button>'}</code>
 				</div>
 			</div>
 
@@ -51,12 +51,12 @@ storiesOf('Elements', module)
 
 				<div className="component">
 					<Button loading>Loading State</Button>
-					<code>{'<Button loading>Loading State</Button>'}</code>
+					<code className="usage">{'<Button loading>Loading State</Button>'}</code>
 				</div>
 
 				<div className="component">
 					<Button disabled>Disabled State</Button>
-					<code>{'<Button disabled>Disabled State</Button>'}</code>
+					<code className="usage">{'<Button disabled>Disabled State</Button>'}</code>
 				</div>
 			</div>
 
@@ -70,7 +70,7 @@ storiesOf('Elements', module)
 					<Button bare secondary>Secondary Bare Button</Button> &nbsp;
 					<Button mini secondary>Secondary Mini Button</Button>
 
-					<code>{'e.g. <Button outline secondary>Secondary Button</Button>'}</code>
+					<code className="usage">{'e.g. <Button outline secondary>Secondary Button</Button>'}</code>
 				</div>
 			</div>
 
