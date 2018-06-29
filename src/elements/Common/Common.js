@@ -53,7 +53,7 @@ const Common = (props) => {
 
 	const styles = {};
 	if(block) styles.display = 'block';
-	if(inline) styles.display = 'block';
+	if(inline) styles.display = 'inline';
 	if(inlineBlock) styles.display = 'inline-block';
 	if(left) styles.textAlign = 'left';
 	if(right) styles.textAlign = 'right';
