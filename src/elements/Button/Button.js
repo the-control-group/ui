@@ -10,19 +10,17 @@ import classNames from 'classnames';
 
 import Common from '../Common/Common';
 
-const Button = (props) => {
-	const {
-		children,
-		type = 'button',
-		loading = false,
-		mini = false,
-		full = false,
-		outline = false,
-		bare = false,
-		secondary = false,
-		...other
-	} = props;
-
+const Button = ({
+	children,
+	type = 'button',
+	loading,
+	mini,
+	full,
+	outline,
+	bare,
+	secondary,
+	...other
+}) => {
 	const style = outline ? 'outline' : bare ? 'bare' : 'standard';
 
 	const combinedClasses = classNames(
