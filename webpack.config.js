@@ -1,4 +1,5 @@
-const path = require('path');
+const path = require('path'),
+	CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const config = {
 	resolve: {
@@ -34,7 +35,10 @@ const config = {
 				use: 'url-loader'
 			}
 		]
-	}
+	},
+	plugins: [
+		new CleanWebpackPlugin(['lib'])
+	]
 };
 
 module.exports = config;
