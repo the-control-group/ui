@@ -4,7 +4,8 @@
 	"description": "UI kit based on ReactJS for TCG projects",
 	"main": "lib/index.js",
 	"scripts": {
-		"start": "start-storybook -p 9001 -c ./docs/.storybook",
+		"start": "start-storybook -p 9001 -c ./storybook/.storybook",
+		"storybook": "build-storybook -c ./storybook/.storybook -o docs",
 		"prepublish": "webpack --mode production"
 	},
 	"repository": {
