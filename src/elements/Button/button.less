@@ -17,12 +17,14 @@
 @ui-button-color: var(--ui-button-color, var(--ui-color-gray-dark, #919191));
 @ui-button-color-focus: var(--ui-button-color-focus, var(--ui-color-gray-darker, #3E3E3E));
 @ui-button-color-active: var(--ui-button-color-active, var(--ui-color-gray-darkest, #222222));
+@ui-button-font-color: var(--ui-button-font-color, var(--ui-color-white, #ffffff));
 
 // secondary button variables
 @ui-button-secondary-color: var(--ui-button-secondary-color, var(--ui-color-gray-dark, #919191));
 @ui-button-secondary-color-focus: var(--ui-button-secondary-color-focus, var(--ui-color-gray-darker, #3E3E3E));
 @ui-button-secondary-color-active: var(--ui-button-secondary-color-active, var(--ui-color-gray-darkest, #222222));
 @ui-button-secondary-border: var(--ui-button-secondary-border, 1px solid transparent);
+@ui-button-secondary-font-color: var(--ui-button-secondary-font-color, var(--ui-color-white, #ffffff));
 
 .ui-button {
 	display: inline-block;
@@ -52,7 +54,7 @@
 		&:active {
 			background-color: @ui-button-color-focus;
 			border-color: @ui-button-color-focus;
-			color: var(--ui-color-white);
+			color: @ui-button-font-color;
 		}
 
 		&:active {
@@ -72,7 +74,7 @@
 		&:active {
 			background-color: @ui-button-secondary-color-focus;
 			border-color: @ui-button-secondary-color-focus;
-			color: var(--ui-color-white);
+			color: @ui-button-secondary-font-color;
 		}
 
 		&:active {
@@ -83,7 +85,11 @@
 
 	// variants
 	&.standard {
-		color: var(--ui-color-white);
+		color: @ui-button-font-color;
+
+		&.seoncdary {
+			color: @ui-button-secondary-font-color
+		}
 	}
 
 	&.outline {
