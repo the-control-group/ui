@@ -1,0 +1,27 @@
+/**
+ * Grid
+ */
+
+.ui-grid {
+	display: flex;
+	max-width: 100%;
+	justify-content: space-between;
+	flex-direction: row;
+
+	&.stacked {
+		flex-direction: column;
+	}
+
+	&.stacked.swap {
+		flex-direction: column-reverse;
+	}
+
+	&.swap {
+		flex-direction: row-reverse;
+	}
+
+	& > * {
+		max-width: 100%;
+		position: relative;
+	}
+}
