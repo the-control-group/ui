@@ -32,14 +32,12 @@ const customWidthExample = `/**
 const stackedExample = `<Grid stackLarge>
 	<Section>col #1</Section>
 	<Section>col #2</Section>
-</Grid>
-`;
+</Grid>`;
 
 const swappedExample = `<Grid swapLarge stackLarge>
 	<Section>1st in source</Section>
 	<Section>2nd in source</Section>
-</Grid>
-`;
+</Grid>`;
 
 const gutterExample = `<Grid
 	gutterSmall="medium"
@@ -48,8 +46,7 @@ const gutterExample = `<Grid
 >
 	<Section>medium gutter</Section>
 	<Section>medium gutter</Section>
-</Grid>
-`;
+</Grid>`;
 
 storiesOf('Elements', module)
 	.add('Grid', () => (
