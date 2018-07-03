@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "UI kit based on ReactJS for TCG projects",
 	"main": "lib/index.js",
-	"files": "lib",
+	"files": ["lib"],
 	"scripts": {
 		"start": "start-storybook -p 9001 -c ./storybook/.storybook",
 		"storybook": "build-storybook -c ./storybook/.storybook -o docs",
@@ -47,6 +47,6 @@
 		"webpack-cli": "^3.0.8"
 	},
 	"peerDependencies": {
-		"react": ">=15"
+		"react": ">=16"
 	}
 }
