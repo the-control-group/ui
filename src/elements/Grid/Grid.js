@@ -13,8 +13,8 @@ import Common from '../Common/Common';
 /**
  * Render the grid's children as grid items
  */
-const renderGridItems = (items, widths, stacked, gutter) => {
-	return Children.map(items, (child, i) => {
+const renderGridItems = (items, widths, stacked, gutter) => (
+	Children.map(items, (child, i) => {
 		if(!child) return null;
 
 		const width = widths[i]
@@ -23,7 +23,11 @@ const renderGridItems = (items, widths, stacked, gutter) => {
 				? `calc(${100 / items.length}% - var(--ui-${gutter}))` // evenly space elements
 				: '100%'; // 100% for everything else
 
-		const classes = classNames('ui-grid-item', child.props.className),
+		const classes = classNames(
+				'ui-grid-item',
+				child.props.className,
+				child.props.centerY && 'center-y'
+			),
 			style = { ...child.props.style };
 
 		if(!stacked) style.flex = `0 0 ${width}`;
@@ -32,8 +36,8 @@ const renderGridItems = (items, widths, stacked, gutter) => {
 			style,
 			className: classes
 		});
-	});
-};
+	})
+);
 
 /**
  * Evaulate the client's inner width and return a breakpoint name
