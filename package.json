@@ -3,10 +3,11 @@
 	"version": "1.0.0",
 	"description": "UI kit based on ReactJS for TCG projects",
 	"main": "lib/index.js",
-	"files": ["lib"],
+	"files": [
+		"lib"
+	],
 	"scripts": {
-		"start": "start-storybook -p 9001 -c ./storybook/.storybook",
-		"storybook": "build-storybook -c ./storybook/.storybook -o docs",
+		"start": "docz dev",
 		"prepublish": "webpack --mode production"
 	},
 	"repository": {
@@ -32,6 +33,7 @@
 		"babel-preset-react": "^6.24.1",
 		"clean-webpack-plugin": "^0.1.19",
 		"css-loader": "^0.28.11",
+		"docz": "^0.5.1",
 		"eslint": "^4.19.1",
 		"eslint-plugin-react": "^7.9.1",
 		"file-loader": "^1.1.11",
