@@ -11,6 +11,9 @@ const config = {
 		filename: 'index.js',
 		libraryTarget: 'umd'
 	},
+	optimization: {
+		minimize: false
+	},
 	module: {
 		rules: [
 			{
@@ -20,7 +23,10 @@ const config = {
 					{
 						loader: 'babel-loader',
 						options: {
-							presets: ['react', ['env', {modules: false}]],
+							presets: ['react', ['env', {
+								node: 'current',
+								modules: false
+							}]],
 							plugins: ['transform-object-rest-spread', 'transform-decorators-legacy']
 						}
 					}
