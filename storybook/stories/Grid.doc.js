@@ -21,12 +21,12 @@ const customWidthExample = `/**
  */
 
 <Grid
-	itemWidthsLarge={['70','30']}
-	itemWidthsMedium={['60','40']}
-	itemWidthsSmall={['50','50']}
+	itemWidthsLarge={[7,3]}
+	itemWidthsMedium={[6,4]}
+	itemWidthsSmall={[6,6]}
 >
-	<Section>70% large, 60% medium, 50% small</Section>
-	<Section>30% large, 40% medium, 50% small</Section>
+	<Section>7 cols large, 6 cols medium, 6 cols small</Section>
+	<Section>3 cols large, 4 cols medium, 6 cols small</Section>
 </Grid>`;
 
 const stackedExample = `<Grid stackLarge>
@@ -89,24 +89,24 @@ storiesOf('Elements', module)
 
 				<Section className="component">
 					<Grid
-						itemWidthsLarge={['70', '30']}
-						itemWidthsMedium={['60', '40']}
-						itemWidthsSmall={['50', '50']}
+						itemWidthsLarge={[7, 3]}
+						itemWidthsMedium={[6, 4]}
+						itemWidthsSmall={[6, 6]}
 						marginBottom="small"
 					>
-						<Section>70% large, 60% medium, 50% small</Section>
-						<Section>30% large, 40% medium, 50% small</Section>
+						<Section>7 cols large, 6 cols medium, 6 cols small</Section>
+						<Section>3 cols large, 4 cols medium, 6 cols small</Section>
 					</Grid>
 
-					<Grid itemWidthsLarge={['20', '60', '20']} marginBottom="small">
-						<Section>20% large</Section>
-						<Section>60% large</Section>
-						<Section>20% large</Section>
+					<Grid itemWidthsLarge={[2, 6, 2]} marginBottom="small">
+						<Section>2 cols large</Section>
+						<Section>6 cols large</Section>
+						<Section>2 cols large</Section>
 					</Grid>
 
-					<Grid itemWidthsLarge={['25', '75']} marginBottom="small">
-						<Section>25% large</Section>
-						<Section>75% large</Section>
+					<Grid itemWidthsLarge={[2.5, 7.5]} marginBottom="small">
+						<Section>2.5 cols large</Section>
+						<Section>7.5 cols large</Section>
 					</Grid>
 
 					<code className="multi">{customWidthExample}</code>

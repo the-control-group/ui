@@ -1,8 +1,8 @@
 /**
- * Section
+ * Div
  */
 
-import './section.less';
+import './div.less';
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -10,18 +10,18 @@ import classNames from 'classnames';
 
 import Common from '../Common/Common';
 
-const Section = ({
+const Div = ({
 	children,
 	item,
 	card,
-	subsection,
+	section,
 	...other
 }) => {
 	const combinedClasses = classNames(
-		'ui-section',
+		'ui-div',
 		item && 'item',
 		card && 'card',
-		subsection && 'subsection'
+		section && 'section'
 	);
 
 	return (
@@ -35,11 +35,11 @@ const Section = ({
 	);
 };
 
-Section.propTypes = {
+Div.propTypes = {
 	children: PropTypes.node.isRequired,
 	card: PropTypes.bool,
 	item: PropTypes.bool,
-	subsection: PropTypes.bool
+	section: PropTypes.bool
 };
 
-export default Section;
+export default Div;

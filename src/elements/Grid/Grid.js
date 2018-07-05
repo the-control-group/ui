@@ -13,24 +13,25 @@ import Common from '../Common/Common';
 /**
  * Render the grid's children as grid items
  */
-const renderGridItems = (items, widths, stacked, gutter) => (
+const renderGridItems = (items, widths, stacked, gutterStyle) => (
 	Children.map(items, (child, i) => {
 		if(!child) return null;
 
-		const width = widths[i]
-			? `calc(${widths[i]}% - var(--ui-${gutter}))` // use provided item widths
-			: (items.length)
-				? `calc(${100 / items.length}% - var(--ui-${gutter}))` // evenly space elements
-				: '100%'; // 100% for everything else
+		const colSize = widths[i]
+			? widths[i]
+			: 1;
 
 		const classes = classNames(
 				'ui-grid-item',
 				child.props.className,
 				child.props.centerY && 'center-y'
 			),
-			style = { ...child.props.style };
+			style = {
+				...child.props.style,
+				...gutterStyle
+			};
 
-		if(!stacked) style.flex = `0 0 ${width}`;
+		if(!stacked) style.flex = `${colSize} 1 0`;
 
 		return cloneElement(child, {
 			style,
@@ -78,24 +79,24 @@ const Grid = ({
 		itemWidthsObj = { itemWidthsSmall, itemWidthsMedium, itemWidthsLarge },
 		gutterObj = { gutterSmall, gutterMedium, gutterLarge },
 		stackedObj = { stackSmall, stackMedium, stackLarge },
-		swapObj = { swapSmall, swapMedium, swapLarge };
-
-	const widths = itemWidthsObj['itemWidths' + breakpoint],
+		swapObj = { swapSmall, swapMedium, swapLarge },
+		widths = itemWidthsObj['itemWidths' + breakpoint],
 		gutter = gutterObj['gutter' + breakpoint],
 		stacked = stackedObj['stack' + breakpoint],
 		swapped = swapObj['swap' + breakpoint];
 
 	const combinedClasses = classNames(
-		stacked && 'stacked',
-		swapped && 'swap'
-	);
-
-	/**
-	 * Remove any children that come in as false
-	 */
-	const filteredChildren = children.constructor === Array
-		? children.filter(el => el)
-		: children;
+			stacked && 'stacked',
+			swapped && 'swap'
+		),
+		gutterStyle = {
+			marginLeft: `var(--ui-${gutter})`,
+			marginRight: `var(--ui-${gutter})`
+		},
+		outterGutterStyle = {
+			marginLeft: `calc(var(--ui-${gutter}) * -1)`,
+			marginRight: `calc(var(--ui-${gutter}) * -1)`
+		};
 
 	/**
 	 * Render the grid items (`renderGridItems` defined below)
@@ -104,9 +105,10 @@ const Grid = ({
 		<Common
 			{...other}
 			classes={`ui-grid ${combinedClasses}`}
+			style={{ ...outterGutterStyle }}
 			tag="div"
 		>
-			{renderGridItems(filteredChildren, widths, stacked, gutter)}
+			{renderGridItems(children, widths, stacked, gutterStyle)}
 		</Common>
 	);
 };
