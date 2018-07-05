@@ -5,9 +5,9 @@ import PropsTable from '../components/PropsTable';
 
 import { Div } from '../../src';
 
-const cardSectionExample = `<Div card>
-	<Div section>Card section #1</Div>
-	<Div section>Card section #2</Div>
+const cardSubsectionExample = `<Div card>
+	<Div subsection>Card subsection #1</Div>
+	<Div subsection>Card subsection #2</Div>
 </Div>`;
 
 storiesOf('Elements', module)
@@ -41,7 +41,7 @@ storiesOf('Elements', module)
 						</Div>
 					</div>
 
-					<code>{'<Div item>This is a section item</Div>'}</code>
+					<code>{'<Div item>This is a div item</Div>'}</code>
 				</div>
 			</div>
 
@@ -60,18 +60,18 @@ storiesOf('Elements', module)
 
 			<div className="story-component-group">
 				<h2>Card Subsections:</h2>
-				<p>card section stuff</p>
+				<p>Subsections are used for subdividing sections within a div with borders/other styles</p>
 
 				<div className="component">
 					<div className="card-example">
 						<Div card>
-							<Div section>Card section #1</Div>
-							<Div section>Card section #2</Div>
-							<Div section>Card section #3</Div>
+							<Div subsection>Card subsection #1</Div>
+							<Div subsection>Card subsection #2</Div>
+							<Div subsection>Card subsection #3</Div>
 						</Div>
 					</div>
 
-					<code className="multi">{cardSectionExample}</code>
+					<code className="multi">{cardSubsectionExample}</code>
 				</div>
 			</div>
 
@@ -84,7 +84,7 @@ storiesOf('Elements', module)
 						['children', 'node', '-', 'yes', '-'],
 						['item', 'bool', '-', '-', 'creates an item with styles'],
 						['card', 'bool', '-', '-', 'creates a 3D card style'],
-						['section', 'bool', '-', '-', 'creates a section within a container with styles']
+						['subsection', 'bool', '-', '-', 'creates a subsection within a container with styles']
 					]}
 				/>
 			</div>

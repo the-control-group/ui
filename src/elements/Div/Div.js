@@ -14,14 +14,14 @@ const Div = ({
 	children,
 	item,
 	card,
-	section,
+	subsection,
 	...other
 }) => {
 	const combinedClasses = classNames(
 		'ui-div',
 		item && 'item',
 		card && 'card',
-		section && 'section'
+		subsection && 'subsection'
 	);
 
 	return (
@@ -39,7 +39,7 @@ Div.propTypes = {
 	children: PropTypes.node.isRequired,
 	card: PropTypes.bool,
 	item: PropTypes.bool,
-	section: PropTypes.bool
+	subsection: PropTypes.bool
 };
 
 export default Div;
