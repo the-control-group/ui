@@ -52,6 +52,9 @@ const getBreakpoint = () => {
 	return 'Small';
 };
 
+/**
+ * Grid component
+ */
 const Grid = ({
 	children,
 	itemWidthsSmall = [],
