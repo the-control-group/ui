@@ -11,7 +11,6 @@ import classNames from 'classnames';
 const Common = ({
 	children,
 	classes,
-	placeholder,
 	tag,
 	...other
 }) => {
@@ -60,7 +59,9 @@ const Common = ({
 			'onBlur',
 			'onChange',
 			'onSubmit',
-			'onScroll'
+			'onScroll',
+			'type',
+			'placeholder'
 		];
 
 	/**
@@ -91,7 +92,7 @@ const Common = ({
 				style={styles}
 				{...attributes}
 			>
-				{children}
+				{children && children}
 			</Tag>
 		);
 	}
@@ -100,7 +101,6 @@ const Common = ({
 		<Tag
 			className={combinedClasses}
 			style={styles}
-			placeholder={placeholder}
 			{...attributes}
 		/>
 	);

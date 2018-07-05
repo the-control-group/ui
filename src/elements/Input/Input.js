@@ -10,6 +10,15 @@ import classNames from 'classnames';
 
 import Common from '../Common/Common';
 
+const Label = ({ children }) => (
+	<Common
+		tag="label"
+		className="ui-input-label"
+	>
+		{children}
+	</Common>
+);
+
 const Input = ({
 	type,
 	label,
@@ -23,11 +32,7 @@ const Input = ({
 	if(type === 'select') {
 		return (
 			<Fragment>
-				<Common
-					tag="label"
-				>
-					{label}
-				</Common>
+				<Label>{label}</Label>
 
 				<Common
 					classes={combinedClasses}
@@ -42,11 +47,7 @@ const Input = ({
 
 	return (
 		<Fragment>
-			<Common
-				tag="label"
-			>
-				{label}
-			</Common>
+			<Label>{label}</Label>
 
 			<Common
 				classes={combinedClasses}
@@ -70,6 +71,5 @@ Input.propTypes = {
 		}
 	}
 };
-
 
 export default Input;
