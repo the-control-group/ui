@@ -11,6 +11,7 @@ import classNames from 'classnames';
 const Common = ({
 	children,
 	classes,
+	placeholder,
 	tag,
 	...other
 }) => {
@@ -83,19 +84,30 @@ const Common = ({
 		other.className
 	);
 
+	if(children) {
+		return (
+			<Tag
+				className={combinedClasses}
+				style={styles}
+				{...attributes}
+			>
+				{children}
+			</Tag>
+		);
+	}
+
 	return (
 		<Tag
 			className={combinedClasses}
 			style={styles}
+			placeholder={placeholder}
 			{...attributes}
-		>
-			{children}
-		</Tag>
+		/>
 	);
 };
 
 Common.propTypes = {
-	children: PropTypes.node.isRequired,
+	children: PropTypes.node,
 	classes: PropTypes.string,
 	tag: PropTypes.string
 };

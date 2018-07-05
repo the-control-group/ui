@@ -1,0 +1,67 @@
+/**
+ * Input styles
+ */
+
+// general variables
+@ui-input-border: var(--ui-input-border, 2px solid var(--ui-color-gray-medium));
+@ui-input-border-focus: var(--ui-input-border-focus, 2px solid var(--ui-color-gray-dark));
+@ui-input-border-radius: var(--ui-input-border-radius, 0px);
+
+@ui-input-font-family: var(--ui-input-font-family, var(--ui-font-sans-serif, sans-serif));
+@ui-input-font-weight: var(--ui-input-font-weight, 500);
+@ui-input-font-size: var(--ui-input-font-size, var(--ui-font-x-small, .9em));
+@ui-input-text-transform: var(--ui-input-text-transform, capitalize);
+@ui-input-letter-spacing: var(--ui-input-letter-spacing, .5px);
+
+@ui-input-max-width: var(--ui-input-max-width, 390px);
+@ui-input-padding: var(--ui-input-padding, .75em .5em);
+@ui-input-background: var(--ui-input-background, var(----ui-color-white));
+
+@ui-input-select-padding: var(--ui-input-select-padding, .75em 2em .75em .5em);
+@ui-input-select-background: var(--ui-input-select-background, url('../../img/arrow-down.svg') no-repeat right .5em center);
+@ui-input-select-background-size: var(--ui-input-select-background-size, .75em);;
+
+@ui-input-label-font-weight: var(--ui-input-label-font-weight, 500);
+@ui-input-label-font-size: var(--ui-input-label-font-size, .8em);
+@ui-input-label-margin: var(--ui-input-label-margin, 0 0 .5em);
+
+label {
+	display: block;
+	margin: @ui-input-label-margin;
+	font-family: @ui-input-font-family;
+	font-size: @ui-input-label-font-size;
+	font-weight: @ui-input-label-font-weight;
+}
+
+.ui-input {
+	display: inline-block;
+	width: 100%;
+	padding: @ui-input-padding;
+	max-width: @ui-input-max-width;
+
+	border: @ui-input-border;
+	border-radius: @ui-input-border-radius;
+	outline: none;
+
+	font-family: @ui-input-font-family;
+	font-weight: @ui-input-font-weight;
+	font-size: @ui-input-font-size;
+	text-transform: @ui-input-text-transform;
+	letter-spacing: @ui-input-letter-spacing;
+
+	background: @ui-input-background;
+
+	// states
+	&:focus {
+		border: @ui-input-border-focus;
+	}
+}
+
+select {
+	&.ui-input {
+		-webkit-appearance: none;
+		padding: @ui-input-select-padding;
+		background: @ui-input-select-background;
+		background-size: @ui-input-select-background-size;
+	}
+}
