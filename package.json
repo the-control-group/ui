@@ -3,11 +3,14 @@
 	"version": "1.0.0",
 	"description": "UI kit based on ReactJS for TCG projects",
 	"main": "lib/index.js",
-	"files": ["lib"],
+	"files": [
+		"lib"
+	],
 	"scripts": {
 		"start": "start-storybook -p 9001 -c ./storybook/.storybook",
 		"storybook": "build-storybook -c ./storybook/.storybook -o docs",
-		"prepublish": "webpack --mode production"
+		"build": "webpack --mode production",
+		"prepublish": "npm run build"
 	},
 	"repository": {
 		"type": "git",

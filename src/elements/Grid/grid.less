@@ -1,0 +1,32 @@
+/**
+ * Grid
+ */
+
+.ui-grid {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+
+	// parent properties
+	&.swap {
+		flex-direction: row-reverse;
+	}
+
+	&.stacked {
+		flex-direction: column;
+	}
+
+	&.stacked.swap {
+		flex-direction: column-reverse;
+	}
+
+	// child properties
+	& > * {
+		max-width: 100%;
+		position: relative;
+	}
+
+	.center-y {
+		align-self: center;
+	}
+}
