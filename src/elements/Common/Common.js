@@ -85,24 +85,14 @@ const Common = ({
 		other.className
 	);
 
-	if(children) {
-		return (
-			<Tag
-				className={combinedClasses}
-				style={styles}
-				{...attributes}
-			>
-				{children && children}
-			</Tag>
-		);
-	}
-
 	return (
 		<Tag
 			className={combinedClasses}
 			style={styles}
 			{...attributes}
-		/>
+		>
+			{children && children}
+		</Tag>
 	);
 };
 
