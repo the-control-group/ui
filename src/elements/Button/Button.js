@@ -46,12 +46,19 @@ const Button = ({
 
 Button.propTypes = {
 	children: PropTypes.node.isRequired,
+	/** DOM `type` attribute */
 	type: PropTypes.string,
+	/** loading state */
 	loading: PropTypes.bool,
+	/** mini size */
 	mini: PropTypes.bool,
+	/** full width size */
 	full: PropTypes.bool,
+	/** outline style */
 	outline: PropTypes.bool,
+	/** bare style */
 	bare: PropTypes.bool,
+	/** secondary button styles */
 	secondary: PropTypes.bool
 };
 
