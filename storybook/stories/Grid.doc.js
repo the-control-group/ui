@@ -3,16 +3,16 @@ import { storiesOf } from '@storybook/react';
 
 import PropsTable from '../components/PropsTable';
 
-import { Grid, Section } from '../../src';
+import { Grid, Div } from '../../src';
 
 const equalWidthExample = `/**
- * Note: These examples use our \`Section\` component as example
+ * Note: These examples use our \`Div\` component as example
  * children, however, any element is valid to use as a child.
  */
 
 <Grid>
-	<Section>col #1</Section>
-	<Section>col #2</Section>
+	<Div>col #1</Div>
+	<Div>col #2</Div>
 </Grid>`;
 
 const customWidthExample = `/**
@@ -25,18 +25,18 @@ const customWidthExample = `/**
 	itemWidthsMedium={[6,4]}
 	itemWidthsSmall={[6,6]}
 >
-	<Section>7 cols large, 6 cols medium, 6 cols small</Section>
-	<Section>3 cols large, 4 cols medium, 6 cols small</Section>
+	<Div>7 cols large, 6 cols medium, 6 cols small</Div>
+	<Div>3 cols large, 4 cols medium, 6 cols small</Div>
 </Grid>`;
 
 const stackedExample = `<Grid stackLarge>
-	<Section>col #1</Section>
-	<Section>col #2</Section>
+	<Div>col #1</Div>
+	<Div>col #2</Div>
 </Grid>`;
 
 const swappedExample = `<Grid swapLarge stackLarge>
-	<Section>1st in source</Section>
-	<Section>2nd in source</Section>
+	<Div>1st in source</Div>
+	<Div>2nd in source</Div>
 </Grid>`;
 
 const gutterExample = `<Grid
@@ -44,97 +44,97 @@ const gutterExample = `<Grid
 	gutterMedium="medium"
 	gutterLarge="medium"
 >
-	<Section>medium gutter</Section>
-	<Section>medium gutter</Section>
+	<Div>medium gutter</Div>
+	<Div>medium gutter</Div>
 </Grid>`;
 
 storiesOf('Elements', module)
 	.add('Grid', () => (
-		<Section>
-			<Section className="story-heading">
+		<Div>
+			<Div className="story-heading">
 				<h1>Grid</h1>
 				<p>Grid system using flexbox</p>
-			</Section>
+			</Div>
 
-			<Section className="story-component-group grid-example">
+			<Div className="story-component-group grid-example">
 				<h2>Equal Width:</h2>
 				<p>Passing nothing into <pre>{'<Grid>'}</pre>, you will get equal width columns based on the number of elements as its children.</p>
 
-				<Section className="component">
+				<Div className="component">
 					<Grid marginBottom="small">
-						<Section>col #1</Section>
-						<Section>col #2</Section>
+						<Div>col #1</Div>
+						<Div>col #2</Div>
 					</Grid>
 
 					<Grid marginBottom="small">
-						<Section>col #1</Section>
-						<Section>col #2</Section>
-						<Section>col #3</Section>
+						<Div>col #1</Div>
+						<Div>col #2</Div>
+						<Div>col #3</Div>
 					</Grid>
 
 					<Grid marginBottom="small">
-						<Section>col #1</Section>
-						<Section>col #2</Section>
-						<Section>col #3</Section>
-						<Section>col #4</Section>
+						<Div>col #1</Div>
+						<Div>col #2</Div>
+						<Div>col #3</Div>
+						<Div>col #4</Div>
 					</Grid>
 
 					<code className="multi">{equalWidthExample}</code>
-				</Section>
-			</Section>
+				</Div>
+			</Div>
 
-			<Section className="story-component-group grid-example">
+			<Div className="story-component-group grid-example">
 				<h2>Specific Widths:</h2>
 				<p><pre>{'<Grid>'}</pre> takes 3 different arrays corresponding to different resolutions (<pre>itemWidthsSmall</pre>, <pre>itemWidthsMedium</pre>, and <pre>itemWidthsLarge</pre>), where the elements are numbers that will be treated as percentages to create custom arrangements of columns. If you want columns to be equally sized at a specific resolution, simply leave that one out for brevity.</p>
 
-				<Section className="component">
+				<Div className="component">
 					<Grid
 						itemWidthsLarge={[7, 3]}
 						itemWidthsMedium={[6, 4]}
 						itemWidthsSmall={[6, 6]}
 						marginBottom="small"
 					>
-						<Section>7 cols large, 6 cols medium, 6 cols small</Section>
-						<Section>3 cols large, 4 cols medium, 6 cols small</Section>
+						<Div>7 cols large, 6 cols medium, 6 cols small</Div>
+						<Div>3 cols large, 4 cols medium, 6 cols small</Div>
 					</Grid>
 
 					<Grid itemWidthsLarge={[2, 6, 2]} marginBottom="small">
-						<Section>2 cols large</Section>
-						<Section>6 cols large</Section>
-						<Section>2 cols large</Section>
+						<Div>2 cols large</Div>
+						<Div>6 cols large</Div>
+						<Div>2 cols large</Div>
 					</Grid>
 
 					<Grid itemWidthsLarge={[2.5, 7.5]} marginBottom="small">
-						<Section>2.5 cols large</Section>
-						<Section>7.5 cols large</Section>
+						<Div>2.5 cols large</Div>
+						<Div>7.5 cols large</Div>
 					</Grid>
 
 					<code className="multi">{customWidthExample}</code>
-				</Section>
-			</Section>
+				</Div>
+			</Div>
 
-			<Section className="story-component-group grid-example">
+			<Div className="story-component-group grid-example">
 				<h2>Stacking:</h2>
 				<p><pre>stackSmall</pre>, <pre>stackMedium</pre>, and <pre>stackLarge</pre> will turn each child into a 100% wide row and stack them vertically.</p>
 
-				<Section className="component">
+				<Div className="component">
 					<Grid stackLarge marginBottom="small">
-						<Section marginBottom="small">col #1</Section>
-						<Section>col #2</Section>
+						<Div marginBottom="small">col #1</Div>
+						<Div>col #2</Div>
 					</Grid>
 
 					<code className="multi">{stackedExample}</code>
-				</Section>
-			</Section>
+				</Div>
+			</Div>
 
-			<Section className="story-component-group grid-example">
+			<Div className="story-component-group grid-example">
 				<h2>Swapping:</h2>
 				<p><pre>swapSmall</pre>, <pre>swapMedium</pre>, and <pre>swapLarge</pre> will reverse the order of columns at the specified resolution. This can be used alongside the stacking properties to reverse the row order as well.</p>
 
-				<Section className="component">
+				<Div className="component">
 					<Grid swapLarge>
-						<Section>1st in source</Section>
-						<Section>2nd in source</Section>
+						<Div>1st in source</Div>
+						<Div>2nd in source</Div>
 					</Grid>
 
 					<hr className="story-divider" />
@@ -148,27 +148,27 @@ storiesOf('Elements', module)
 						stackSmall
 						marginBottom="small"
 					>
-						<Section>1st in source</Section>
-						<Section marginBottom="small">2nd in source</Section>
+						<Div>1st in source</Div>
+						<Div marginBottom="small">2nd in source</Div>
 					</Grid>
 
 					<code className="multi">{swappedExample}</code>
-				</Section>
-			</Section>
+				</Div>
+			</Div>
 
-			<Section className="story-component-group grid-example">
+			<Div className="story-component-group grid-example">
 				<h2>Gutter Widths:</h2>
 				<p><pre>gutterSmall</pre>, <pre>gutterMedium</pre>, and <pre>gutterLarge</pre> takes a named space string and adjusts the gutter width. Defaults to <pre>x-small</pre></p>.
 
-				<Section className="component">
+				<Div className="component">
 					<Grid
 						gutterSmall="xx-small"
 						gutterMedium="xx-small"
 						gutterLarge="xx-small"
 						marginBottom="small"
 					>
-						<Section>xx-small gutter</Section>
-						<Section>xx-small gutter</Section>
+						<Div>xx-small gutter</Div>
+						<Div>xx-small gutter</Div>
 					</Grid>
 
 					<Grid
@@ -177,8 +177,8 @@ storiesOf('Elements', module)
 						gutterLarge="x-small"
 						marginBottom="small"
 					>
-						<Section>x-small gutter</Section>
-						<Section>x-small gutter</Section>
+						<Div>x-small gutter</Div>
+						<Div>x-small gutter</Div>
 					</Grid>
 
 					<Grid
@@ -187,8 +187,8 @@ storiesOf('Elements', module)
 						gutterLarge="small"
 						marginBottom="small"
 					>
-						<Section>small gutter</Section>
-						<Section>small gutter</Section>
+						<Div>small gutter</Div>
+						<Div>small gutter</Div>
 					</Grid>
 
 					<Grid
@@ -197,8 +197,8 @@ storiesOf('Elements', module)
 						gutterLarge="medium"
 						marginBottom="small"
 					>
-						<Section>medium gutter</Section>
-						<Section>medium gutter</Section>
+						<Div>medium gutter</Div>
+						<Div>medium gutter</Div>
 					</Grid>
 
 					<Grid
@@ -207,8 +207,8 @@ storiesOf('Elements', module)
 						gutterLarge="large"
 						marginBottom="small"
 					>
-						<Section>large gutter</Section>
-						<Section>large gutter</Section>
+						<Div>large gutter</Div>
+						<Div>large gutter</Div>
 					</Grid>
 
 					<Grid
@@ -217,8 +217,8 @@ storiesOf('Elements', module)
 						gutterLarge="x-large"
 						marginBottom="small"
 					>
-						<Section>x-large gutter</Section>
-						<Section>x-large gutter</Section>
+						<Div>x-large gutter</Div>
+						<Div>x-large gutter</Div>
 					</Grid>
 
 					<Grid
@@ -227,15 +227,15 @@ storiesOf('Elements', module)
 						gutterLarge="xx-large"
 						marginBottom="small"
 					>
-						<Section>xx-large gutter</Section>
-						<Section>xx-large gutter</Section>
+						<Div>xx-large gutter</Div>
+						<Div>xx-large gutter</Div>
 					</Grid>
 
 					<code className="multi">{gutterExample}</code>
-				</Section>
-			</Section>
+				</Div>
+			</Div>
 
-			<Section className="story-component-group story-prop-table">
+			<Div className="story-component-group story-prop-table">
 				<h2>PropTypes:</h2>
 
 				<PropsTable
@@ -256,6 +256,6 @@ storiesOf('Elements', module)
 						['gutterLarge', 'string', 'x-small', '-', 'Gutter width for large screens, using named spacing variables']
 					]}
 				/>
-			</Section>
-		</Section>
+			</Div>
+		</Div>
 	));
