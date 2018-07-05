@@ -1,6 +1,7 @@
 import { css } from 'docz-plugin-css';
 
 export default {
+<<<<<<< HEAD
 	themeConfig: {
 		styles: {
 			container: {
@@ -20,6 +21,8 @@ export default {
 			}
 		}
 	},
+=======
+>>>>>>> b1bc055f9b4a7e31252b90ef3dc0877e4d440fd7
 	plugins: [
 		css({
 			preprocessor: 'less',

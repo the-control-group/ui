@@ -8,8 +8,12 @@
 	],
 	"scripts": {
 		"start": "docz dev",
+<<<<<<< HEAD
 		"build": "webpack --mode production",
 		"prepublish": "npm run build"
+=======
+		"prepublish": "webpack --mode production"
+>>>>>>> b1bc055f9b4a7e31252b90ef3dc0877e4d440fd7
 	},
 	"repository": {
 		"type": "git",
