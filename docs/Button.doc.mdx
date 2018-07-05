@@ -10,9 +10,55 @@ import { Button } from '../src';
 ## Styles
 
 <Playground>
-	<Button>test</Button>
+	<Button>Standard Button</Button>
 </Playground>
 
-## Button
+###
+
+<Playground>
+	<Button outline>Outline Button</Button>
+</Playground>
+
+###
+
+<Playground>
+	<Button bare>Bare Button</Button>
+</Playground>
+
+## Sizes
+
+<Playground>
+	<Button full>Full Width Button</Button>
+</Playground>
+
+###
+
+<Playground>
+	<Button mini>Mini Button</Button>
+</Playground>
+
+## States
+
+<Playground>
+	<Button loading>Loading State</Button>
+</Playground>
+
+###
+
+<Playground>
+	<Button disabled>Disabled State</Button>
+</Playground>
+
+## Secondary Buttons
+You can use the `secondary` flag on any kind of button to apply the secondary theme rules to it. Some examples:
+
+<Playground>
+	<Button secondary>Secondary Button</Button> &nbsp;
+	<Button outline secondary>Secondary Outline Button</Button>
+	<Button bare secondary>Secondary Bare Button</Button>
+	<Button mini secondary>Secondary Mini Button</Button>
+</Playground>
+
+## PropTypes
 
 <PropsTable of={Button} />
