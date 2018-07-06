@@ -1,8 +1,10 @@
 import { css } from 'docz-plugin-css';
+import { babel } from 'docz-plugin-babel6';
 
 export default {
 	title: 'PubRec UI',
 	base: '/ui/',
+	dest: '/docs/dist',
 	themeConfig: {
 		styles: {
 			container: {
@@ -29,6 +31,7 @@ export default {
 		css({
 			preprocessor: 'less',
 			cssmodules: true
-		})
+		}),
+		babel()
 	]
 };
