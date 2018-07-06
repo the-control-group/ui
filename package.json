@@ -8,6 +8,7 @@
 	],
 	"scripts": {
 		"start": "docz dev",
+		"docs": "docz build",
 		"build": "webpack --mode production",
 		"prepublish": "npm run build"
 	},
@@ -22,8 +23,6 @@
 	},
 	"homepage": "https://github.com/the-control-group/ui#readme",
 	"devDependencies": {
-		"@storybook/addon-options": "^3.4.8",
-		"@storybook/react": "^4.0.0-alpha.10",
 		"babel-core": "^6.26.3",
 		"babel-eslint": "^8.2.3",
 		"babel-loader": "^7.1.4",

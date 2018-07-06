@@ -1,6 +1,8 @@
 import { css } from 'docz-plugin-css';
 
 export default {
+	title: 'PubRec UI',
+	base: '/ui/',
 	themeConfig: {
 		styles: {
 			container: {

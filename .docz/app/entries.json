@@ -1,0 +1,217 @@
+{
+  "docs/Button.doc.mdx": {
+    "name": "Button",
+    "id": "01CHRM4HK9SDBMP0217PFB5R9J",
+    "filepath": "docs/Button.doc.mdx",
+    "slug": "docs-button-doc",
+    "route": "/docs-button-doc",
+    "order": 0,
+    "menu": null,
+    "headings": [
+      {
+        "depth": 1,
+        "slug": "button",
+        "value": "Button"
+      },
+      {
+        "depth": 3,
+        "slug": "standardized-button-styles-sizes-and-states",
+        "value": "Standardized button styles sizes and states"
+      },
+      {
+        "depth": 2,
+        "slug": "styles",
+        "value": "Styles"
+      },
+      {
+        "depth": 2,
+        "slug": "sizes",
+        "value": "Sizes"
+      },
+      {
+        "depth": 2,
+        "slug": "states",
+        "value": "States"
+      },
+      {
+        "depth": 2,
+        "slug": "secondary-buttons",
+        "value": "Secondary buttons"
+      },
+      {
+        "depth": 2,
+        "slug": "proptypes",
+        "value": "Proptypes"
+      }
+    ]
+  },
+  "docs/Common.doc.mdx": {
+    "name": "Common",
+    "id": "01CHRM4HKBV6HEZAG45QPEFSTW",
+    "filepath": "docs/Common.doc.mdx",
+    "slug": "docs-common-doc",
+    "route": "/docs-common-doc",
+    "order": 0,
+    "menu": null,
+    "headings": [
+      {
+        "depth": 1,
+        "slug": "common",
+        "value": "Common"
+      },
+      {
+        "depth": 3,
+        "slug": "common-component-that-all-other-ui-elements-are-built-on-exposing-commonly-used-properties",
+        "value": "Common component that all other ui elements are built on exposing commonly used properties"
+      },
+      {
+        "depth": 2,
+        "slug": "attributes",
+        "value": "Attributes"
+      },
+      {
+        "depth": 2,
+        "slug": "styles",
+        "value": "Styles"
+      },
+      {
+        "depth": 2,
+        "slug": "proptypes",
+        "value": "Proptypes"
+      }
+    ]
+  },
+  "docs/Div.doc.mdx": {
+    "name": "Div",
+    "id": "01CHRM4HKBK13BF65V1SRYS66E",
+    "filepath": "docs/Div.doc.mdx",
+    "slug": "docs-div-doc",
+    "route": "/docs-div-doc",
+    "order": 0,
+    "menu": null,
+    "headings": [
+      {
+        "depth": 1,
+        "slug": "div",
+        "value": "Div"
+      },
+      {
+        "depth": 3,
+        "slug": "container-styles-and-properties",
+        "value": "Container styles and properties"
+      },
+      {
+        "depth": 2,
+        "slug": "generic",
+        "value": "Generic"
+      },
+      {
+        "depth": 2,
+        "slug": "items",
+        "value": "Items"
+      },
+      {
+        "depth": 2,
+        "slug": "card",
+        "value": "Card"
+      },
+      {
+        "depth": 2,
+        "slug": "card-subsection",
+        "value": "Card subsection"
+      },
+      {
+        "depth": 2,
+        "slug": "proptypes",
+        "value": "Proptypes"
+      }
+    ]
+  },
+  "docs/Grid.doc.mdx": {
+    "name": "Grid",
+    "id": "01CHRM4HKBG4TJFJCQ0M2CXS3F",
+    "filepath": "docs/Grid.doc.mdx",
+    "slug": "docs-grid-doc",
+    "route": "/docs-grid-doc",
+    "order": 0,
+    "menu": null,
+    "headings": [
+      {
+        "depth": 1,
+        "slug": "grid",
+        "value": "Grid"
+      },
+      {
+        "depth": 3,
+        "slug": "grid-system-using-flexbox",
+        "value": "Grid system using flexbox"
+      },
+      {
+        "depth": 2,
+        "slug": "equal-width",
+        "value": "Equal width"
+      },
+      {
+        "depth": 2,
+        "slug": "specific-widthcolumns",
+        "value": "Specific widthcolumns"
+      },
+      {
+        "depth": 2,
+        "slug": "stacking",
+        "value": "Stacking"
+      },
+      {
+        "depth": 2,
+        "slug": "swapping",
+        "value": "Swapping"
+      },
+      {
+        "depth": 2,
+        "slug": "gutter-widths",
+        "value": "Gutter widths"
+      },
+      {
+        "depth": 2,
+        "slug": "proptypes",
+        "value": "Proptypes"
+      }
+    ]
+  },
+  "docs/Input.doc.mdx": {
+    "name": "Input",
+    "id": "01CHRM4HKCZVS7HJ33JKWXWR3J",
+    "filepath": "docs/Input.doc.mdx",
+    "slug": "docs-input-doc",
+    "route": "/docs-input-doc",
+    "order": 0,
+    "menu": null,
+    "headings": [
+      {
+        "depth": 1,
+        "slug": "input",
+        "value": "Input"
+      },
+      {
+        "depth": 3,
+        "slug": "standard-user-inputs",
+        "value": "Standard user inputs"
+      },
+      {
+        "depth": 2,
+        "slug": "text-input",
+        "value": "Text input"
+      },
+      {
+        "depth": 2,
+        "slug": "select-input",
+        "value": "Select input"
+      },
+      {
+        "depth": 2,
+        "slug": "proptypes",
+        "value": "Proptypes"
+      }
+    ]
+  }
+}
