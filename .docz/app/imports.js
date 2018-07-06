@@ -1,6 +1,8 @@
 export const imports = {
   'docs/Button.doc.mdx': () =>
     import(/* webpackPrefetch: true, webpackChunkName: "docs-button-doc" */ 'docs/Button.doc.mdx'),
+  'docs/Common.doc.mdx': () =>
+    import(/* webpackPrefetch: true, webpackChunkName: "docs-common-doc" */ 'docs/Common.doc.mdx'),
   'docs/Div.doc.mdx': () =>
     import(/* webpackPrefetch: true, webpackChunkName: "docs-div-doc" */ 'docs/Div.doc.mdx'),
   'docs/Grid.doc.mdx': () =>
