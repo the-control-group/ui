@@ -4,7 +4,7 @@ import { babel } from 'docz-plugin-babel6';
 export default {
 	title: 'PubRec UI',
 	base: '/ui/',
-	dest: '/docs/dist',
+	dest: '/docs/',
 	themeConfig: {
 		styles: {
 			container: {
