@@ -9,7 +9,10 @@ export default {
 			pre: {
 				padding: ['0.5em', '0.5em'],
 				border: 'none',
-				width: '100%'
+				borderRadius: '5px !important',
+				width: '100%',
+				marginBottom: '2em !important',
+				backgroundColor: '#f7f7f7'
 			},
 			code: {
 				borderRadius: '4px'

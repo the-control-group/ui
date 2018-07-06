@@ -1,0 +1,50 @@
+---
+name: Div
+---
+
+import './styles/theme.less';
+import './styles/docz.less';
+
+import { Playground, PropsTable } from 'docz'
+import { Div } from '../src';
+
+# Div
+### Container styles and properties.
+
+## Generic:
+Use `Div` with no other props as a replacement for `div` in order to expose common UI properties to your containers.
+
+<Playground>
+	<Div>This is a Div</Div>
+</Playground>
+
+## Items:
+item stuff
+
+<Playground>
+	<Div item>Div item #1</Div>
+	<Div item>Div item #2</Div>
+	<Div item>Div item #3</Div>
+</Playground>
+
+## Card:
+card stuff
+
+<Playground>
+	<Div card>This is a Div card</Div>
+</Playground>
+
+## Card Subsection:
+card subsection stuff
+
+<Playground>
+	<Div card>
+		<Div subsection>This is a Div subsection</Div>
+		<Div subsection>This is a Div subsection</Div>
+		<Div subsection>This is a Div subsection</Div>
+	</Div>
+</Playground>
+
+## PropTypes:
+
+<PropsTable of={Div} />

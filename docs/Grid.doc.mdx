@@ -2,21 +2,165 @@
 name: Grid
 ---
 
+import './styles/theme.less';
+import './styles/docz.less';
+
 import { Playground, PropsTable } from 'docz'
-import { Grid } from '../src';
+import { Grid, Div } from '../src';
 
 # Grid
+### Grid system using flexbox.
 
-## Styles
-
-<Grid>
-	<div>col #1</div>
-	<div>col #2</div>
-</Grid>
+## Equal Width:
+Passing nothing into `<Grid>`, you will get equal width columns based on the number of elements as its children.
 
 <Playground>
 	<Grid>
-		<div>col #1</div>
-		<div>col #2</div>
+		<Div>col #1</Div>
+		<Div>col #2</Div>
+	</Grid>
+	‌‌
+	<Grid>
+		<Div>col #1</Div>
+		<Div>col #2</Div>
+		<Div>col #3</Div>
+	</Grid>
+	‌‌
+	<Grid>
+		<Div>col #1</Div>
+		<Div>col #2</Div>
+		<Div>col #3</Div>
+		<Div>col #4</Div>
 	</Grid>
 </Playground>
+
+## Specific Width/Columns:
+`<Grid>` takes 3 different arrays corresponding to different resolutions (`itemWidthsSmall`, `itemWidthsMedium`, and `itemWidthsLarge`), the elements of which are integers that act as columns. If you want columns to be equally sized at a specific resolution, simply leave out that resolution in question.
+
+<Playground>
+	<Grid
+		itemWidthsLarge={[7, 5]}
+		itemWidthsMedium={[8, 4]}
+		itemWidthsSmall={[9, 3]}
+	>
+		<Div>Large: 7 cols — Medium: 8 cols — Small: 9 cols</Div>
+		<Div>Large: 5 cols — Medium: 4 cols — Small: 3 cols</Div>
+	</Grid>
+	‌
+	<Grid
+		itemWidthsLarge={[8, 4]}
+		itemWidthsMedium={[3, 9]}
+	>
+		<Div>Large: 8 cols — Medium: 3 cols — Small: 6 cols</Div>
+		<Div>Large: 4 cols — Medium: 9 cols — Small: 6 cols</Div>
+	</Grid>
+	‌
+	<Grid
+		itemWidthsLarge={[4, 8]}
+		itemWidthsMedium={[8, 4]}
+	>
+		<Div>Large: 4 cols — Medium: 8 cols — Small: 6 cols</Div>
+		<Div>Large: 8 cols — Medium: 4 cols — Small: 6 cols</Div>
+	</Grid>
+</Playground>
+
+## Stacking:
+`stackSmall`, `stackMedium`, and `stackLarge` will stack the elements top-to-bottom at full-width.
+
+<Playground>
+	<Grid
+		stackSmall
+		stackMedium
+		stackLarge
+	>
+		<Div>col #1</Div>
+		<Div>col #2</Div>
+	</Grid>
+</Playground>
+
+
+## Swapping:
+`swapSmall`, `swapMedium`, and `swapLarge` will reverse the order of elements at the specified resolution.
+
+<Playground>
+	<Grid
+		swapSmall
+		swapMedium
+		swapLarge
+	>
+		<Div>1st in source</Div>
+		<Div>2nd in source</Div>
+	</Grid>
+</Playground>
+
+## Gutter Widths:
+`gutterSmall`, `gutterMedium`, and `gutterLarge` takes a named spacing string and adjusts the gutter width accordingly. Defaults to `x-small`.
+
+<Playground>
+	<Grid
+		gutterSmall="xx-small"
+		gutterMedium="xx-small"
+		gutterLarge="xx-small"
+	>
+		<Div>xx-small gutter</Div>
+		<Div>xx-small gutter</Div>
+	</Grid>
+	‌
+	<Grid
+		gutterSmall="x-small"
+		gutterMedium="x-small"
+		gutterLarge="x-small"
+	>
+		<Div>x-small gutter</Div>
+		<Div>x-small gutter</Div>
+	</Grid>
+	‌
+	<Grid
+		gutterSmall="small"
+		gutterMedium="small"
+		gutterLarge="small"
+	>
+		<Div>small gutter</Div>
+		<Div>small gutter</Div>
+	</Grid>
+	‌
+	<Grid
+		gutterSmall="medium"
+		gutterMedium="medium"
+		gutterLarge="medium"
+	>
+		<Div>medium gutter</Div>
+		<Div>medium gutter</Div>
+	</Grid>
+	‌
+	<Grid
+		gutterSmall="large"
+		gutterMedium="large"
+		gutterLarge="large"
+	>
+		<Div>large gutter</Div>
+		<Div>large gutter</Div>
+	</Grid>
+	‌
+	<Grid
+		gutterSmall="x-large"
+		gutterMedium="x-large"
+		gutterLarge="x-large"
+	>
+		<Div>x-large gutter</Div>
+		<Div>x-large gutter</Div>
+	</Grid>
+	‌
+	<Grid
+		gutterSmall="xx-large"
+		gutterMedium="xx-large"
+		gutterLarge="xx-large"
+	>
+		<Div>xx-large gutter</Div>
+		<Div>xx-large gutter</Div>
+	</Grid>
+</Playground>
+
+## PropTypes:
+
+<PropsTable of={Grid} />
