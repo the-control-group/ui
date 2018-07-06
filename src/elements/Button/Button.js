@@ -14,6 +14,7 @@ const Button = ({
 	children,
 	type = 'button',
 	loading,
+	disabled,
 	mini,
 	full,
 	outline,
@@ -38,6 +39,7 @@ const Button = ({
 			classes={combinedClasses}
 			tag="button"
 			type={type}
+			disabled={disabled}
 		>
 			{children}
 		</Common>
@@ -46,12 +48,21 @@ const Button = ({
 
 Button.propTypes = {
 	children: PropTypes.node.isRequired,
+	/** DOM button `type` attribute */
 	type: PropTypes.string,
+	/** Loading state */
 	loading: PropTypes.bool,
-	mini: PropTypes.bool,
+	/** Disabled state */
+	disabled: PropTypes.bool,
+	/** Full width size */
 	full: PropTypes.bool,
+	/** Mini size */
+	mini: PropTypes.bool,
+	/** Outline style */
 	outline: PropTypes.bool,
+	/** Bare style */
 	bare: PropTypes.bool,
+	/** Secondary button styles */
 	secondary: PropTypes.bool
 };
 

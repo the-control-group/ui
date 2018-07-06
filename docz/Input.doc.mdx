@@ -1,0 +1,27 @@
+---
+name: Input
+---
+
+import './styles/theme.less';
+import './styles/docz.less';
+
+import { Playground, PropsTable } from 'docz'
+import { Input } from '../src';
+
+# Input
+### Standard user inputs.
+
+## Text Input:
+<Playground>
+	<Input type="text" label="Text Input" placeholder="Text Input Example" />
+</Playground>
+
+## Select Input:
+
+<Playground>
+	<Input type="select" label="Select Example" options={['Option #1', 'Option #2', 'Option #3']} />
+</Playground>
+
+## PropTypes:
+
+<PropsTable of={Input} />

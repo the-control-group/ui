@@ -59,10 +59,18 @@ const Input = ({
 	);
 };
 
+Label.propTypes = {
+	children: PropTypes.node.isRequired
+};
+
 Input.propTypes = {
+	/** HTML DOM attribute */
 	type: PropTypes.string,
+	/** Text label for input */
 	label: PropTypes.string,
+	/** Placeholder for input */
 	placeholder: PropTypes.string,
+	/** Array of options for type of `select` */
 	options: (props, propName) => {
 		if (props.type === 'select' && (props[propName] === undefined)) {
 			return new Error(

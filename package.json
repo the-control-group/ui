@@ -7,8 +7,8 @@
 		"lib"
 	],
 	"scripts": {
-		"start": "start-storybook -p 9001 -c ./storybook/.storybook",
-		"storybook": "build-storybook -c ./storybook/.storybook -o docs",
+		"start": "docz dev",
+		"docs": "docz build",
 		"build": "webpack --mode production",
 		"prepublish": "npm run build"
 	},
@@ -23,8 +23,6 @@
 	},
 	"homepage": "https://github.com/the-control-group/ui#readme",
 	"devDependencies": {
-		"@storybook/addon-options": "^3.4.8",
-		"@storybook/react": "^4.0.0-alpha.10",
 		"babel-core": "^6.26.3",
 		"babel-eslint": "^8.2.3",
 		"babel-loader": "^7.1.4",
@@ -33,8 +31,12 @@
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.7.0",
 		"babel-preset-react": "^6.24.1",
+		"classnames": "^2.2.6",
 		"clean-webpack-plugin": "^0.1.19",
 		"css-loader": "^0.28.11",
+		"docz": "^0.5.1",
+		"docz-plugin-babel6": "^0.5.2",
+		"docz-plugin-css": "^0.5.2",
 		"eslint": "^4.19.1",
 		"eslint-plugin-react": "^7.9.1",
 		"file-loader": "^1.1.11",

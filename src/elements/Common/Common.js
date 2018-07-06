@@ -53,15 +53,15 @@ const Common = ({
 		attributeValues = [
 			'id',
 			'disabled',
+			'type',
+			'placeholder',
 			'onClick',
 			'onKeyDown',
 			'onFocus',
 			'onBlur',
 			'onChange',
 			'onSubmit',
-			'onScroll',
-			'type',
-			'placeholder'
+			'onScroll'
 		];
 
 	/**
@@ -98,8 +98,10 @@ const Common = ({
 
 Common.propTypes = {
 	children: PropTypes.node,
-	classes: PropTypes.string,
-	tag: PropTypes.string
+	/** HTML element to return */
+	tag: PropTypes.string,
+	/** String of class names */
+	classes: PropTypes.string
 };
 
 export default Common;
