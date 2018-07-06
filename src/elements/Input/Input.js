@@ -23,10 +23,12 @@ const Input = ({
 	type,
 	label,
 	options = [],
-	placeholder
+	placeholder,
+	...other
 }) => {
 	const combinedClasses = classNames(
-		'ui-input'
+		'ui-input',
+		other.classes
 	);
 
 	if(type === 'select') {

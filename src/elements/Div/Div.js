@@ -19,6 +19,7 @@ const Div = ({
 }) => {
 	const combinedClasses = classNames(
 		'ui-div',
+		other.classes,
 		item && 'item',
 		card && 'card',
 		subsection && 'subsection'
