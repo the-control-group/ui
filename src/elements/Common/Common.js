@@ -59,7 +59,9 @@ const Common = ({
 			'onBlur',
 			'onChange',
 			'onSubmit',
-			'onScroll'
+			'onScroll',
+			'type',
+			'placeholder'
 		];
 
 	/**
@@ -89,13 +91,13 @@ const Common = ({
 			style={styles}
 			{...attributes}
 		>
-			{children}
+			{children && children}
 		</Tag>
 	);
 };
 
 Common.propTypes = {
-	children: PropTypes.node.isRequired,
+	children: PropTypes.node,
 	classes: PropTypes.string,
 	tag: PropTypes.string
 };
