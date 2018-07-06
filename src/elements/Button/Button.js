@@ -26,6 +26,7 @@ const Button = ({
 
 	const combinedClasses = classNames(
 		'ui-button',
+		other.classes,
 		secondary ? 'secondary' : 'primary',
 		style,
 		mini && 'mini',

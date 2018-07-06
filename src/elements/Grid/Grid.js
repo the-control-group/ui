@@ -86,6 +86,7 @@ const Grid = ({
 		swapped = swapObj['swap' + breakpoint];
 
 	const combinedClasses = classNames(
+			other.classes,
 			stacked && 'stacked',
 			swapped && 'swap'
 		),
