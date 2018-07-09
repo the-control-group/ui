@@ -17,7 +17,6 @@
 // inline list variables
 @ui-list-inline-padding: var(--ui-list-inline-padding, 0);
 @ui-list-item-inline-margin: var(--ui-list-item-inline-margin, 0 var(--ui-large, 2em) 0 0);
-@ui-list-item-inline-list-style: var(--ui-list-item-inline-list-style, none);
 
 .ui-list {
 	font-family: @ui-list-font-family;
@@ -40,7 +39,7 @@
 
 		li {
 			display: inline-block;
-			list-style: @ui-list-item-inline-list-style;
+			list-style: none;
 			margin: @ui-list-item-inline-margin;
 
 			&:last-child {
