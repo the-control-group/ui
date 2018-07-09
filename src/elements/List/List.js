@@ -36,7 +36,9 @@ const List = ({
 
 List.propTypes = {
 	children: PropTypes.node.isRequired,
+	/** Creates list without padding and without list-style */
 	bare: PropTypes.bool,
+	/** Creates inline list without list-style */
 	inline: PropTypes.bool
 };
 

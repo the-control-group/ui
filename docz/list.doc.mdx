@@ -1,0 +1,45 @@
+---
+name: List
+---
+
+import './styles/theme.less';
+import './styles/docz.less';
+
+import { Playground, PropsTable } from 'docz'
+import { List } from '../src';
+
+# List
+### Standard lists.
+
+## Standard list:
+<Playground>
+	<List>
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+	</List>
+</Playground>
+
+## Inline list:
+
+<Playground>
+	<List inline>
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+	</List>
+</Playground>
+
+## Bare list:
+
+<Playground>
+	<List bare>
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+	</List>
+</Playground>
+
+## PropTypes:
+
+<PropsTable of={List} />
