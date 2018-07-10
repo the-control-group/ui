@@ -13,47 +13,42 @@ import Common from '../Common/Common';
 const Text = (props) => {
 	const {
 		heading,
-		label,
 		span,
-		p,
 		children,
 
 		// labels
-		caption = false,
-		red = false,
-		blue = false,
-		green = false,
-		yellow = false,
-		bold = false,
-		italic = false,
-		uppercase = false,
-		lowercase = false,
-		title = false,
-		subtitle = false,
+		red,
+		blue,
+		green,
+		yellow,
+		bold,
+		italic,
+		uppercase,
+		lowercase,
+		title,
+		subtitle,
 
 		// font size
-		smallest = false,
-		smaller = false,
-		small = false,
-		medium = false,
-		large = false,
-		larger = false,
-		largest = false
+		smallest,
+		smaller,
+		small,
+		medium,
+		large,
+		larger,
+		largest,
+		...other
 	} = props;
 
 	const combinedClasses = classNames(
-	    'ui-text',
-	    props.classes,
-	    caption && 'caption'
+		'ui-text',
+		other.classes
 	);
 
-	const tag = (span)
+	const tag = (heading)
+		? `h${heading}`
+		: (span)
 		? 'span'
-		: (heading)
-	    ? `h${heading}`
-	    : (label)
-	    ? 'label'
-	    : 'p';
+		: 'p';
 
 	const style = {};
 
@@ -77,7 +72,7 @@ const Text = (props) => {
 		<Common
 			cName="Text"
 			tag={tag}
-			{...props}
+			{...other}
 			classes={combinedClasses}
 			style={style}
 		>
@@ -92,12 +87,6 @@ Text.propTypes = {
 	heading: PropTypes.string,
 	/** String of class names */
 	classes: PropTypes.string,
-	/** Gray uppercase caption */
-	caption: PropTypes.bool,
-	/** Title */
-	title: PropTypes.bool,
-	/** Subtitle */
-	subtitle: PropTypes.bool,
 	/** Red/warning text */
 	red: PropTypes.bool,
 	/** Brand Blue text */
