@@ -12,16 +12,18 @@ import Common from '../Common/Common';
 
 const Text = (props) => {
 	const {
+		heading,
+		label,
+		span,
+		p,
 		children,
 
-		// headings
-		level = '',
-		appearance = '',
-
 		// labels
-		label = false,
 		caption = false,
 		red = false,
+		blue = false,
+		green = false,
+		yellow = false,
 		bold = false,
 		italic = false,
 		uppercase = false,
@@ -39,20 +41,19 @@ const Text = (props) => {
 		largest = false
 	} = props;
 
-	const classes = classNames(
-		props.classes,
-		appearance && `h${appearance}`,
-		level && 'Heading',
-		label && 'Label',
-		caption && 'caption',
-		title && 'title',
-		subtitle && 'subtitle'
+	const combinedClasses = classNames(
+	    'ui-text',
+	    props.classes,
+	    caption && 'caption'
 	);
 
-	const tag =
-		level ? `h${level}` :
-		label ? 'span' :
-		'p';
+	const tag = (span)
+		? 'span'
+		: (heading)
+	    ? `h${heading}`
+	    : (label)
+	    ? 'label'
+	    : 'p';
 
 	const style = {};
 
@@ -64,6 +65,9 @@ const Text = (props) => {
 	if(larger) style.fontSize = 'var(--ui-font-x-large)';
 	if(largest) style.fontSize = 'var(--ui-font-xx-large)';
 	if(red) style.color = 'var(--color-red, red)';
+	if(blue) style.color = 'var(--ui-color-blue)';
+	if(green) style.color = 'var(--ui-color-green)';
+	if(yellow) style.color = 'var(--ui-color-yellow)';
 	if(bold) style.fontWeight = '600';
 	if(italic) style.fontStyle = 'italic';
 	if(uppercase) style.textTransform = 'uppercase';
@@ -74,7 +78,7 @@ const Text = (props) => {
 			cName="Text"
 			tag={tag}
 			{...props}
-			classes={classes}
+			classes={combinedClasses}
 			style={style}
 		>
 			{children}
@@ -84,12 +88,10 @@ const Text = (props) => {
 
 Text.propTypes = {
 	children: PropTypes.node.isRequired,
+	/** Heading Level */
+	heading: PropTypes.string,
 	/** String of class names */
 	classes: PropTypes.string,
-	/** Heading level */
-	level: PropTypes.string,
-	appearance: PropTypes.string,
-	label: PropTypes.bool,
 	/** Gray uppercase caption */
 	caption: PropTypes.bool,
 	/** Title */
@@ -98,6 +100,12 @@ Text.propTypes = {
 	subtitle: PropTypes.bool,
 	/** Red/warning text */
 	red: PropTypes.bool,
+	/** Brand Blue text */
+	blue: PropTypes.bool,
+	/** Brand Green text */
+	green: PropTypes.bool,
+	/** Brand Yellow text */
+	yellow: PropTypes.bool,
 	/** Bold text */
 	bold: PropTypes.bool,
 	/** Italic Text */
