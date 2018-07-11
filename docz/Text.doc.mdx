@@ -1,0 +1,56 @@
+---
+name: Text
+---
+
+import './styles/theme.less';
+import './styles/docz.less';
+
+import { Playground, PropsTable } from 'docz'
+import { Text } from '../src';
+
+# Text
+### Standard text and text styles.
+
+## P:
+<Playground>
+	<Text>P</Text>
+</Playground>
+
+## Span:
+<Playground>
+	<Text span>Span</Text>
+</Playground>
+
+## Headings:
+<Playground>
+	<Text heading="1">Heading 1</Text>
+	<Text heading="2">Heading 2</Text>
+	<Text heading="3">Heading 3</Text>
+	<Text heading="4">Heading 4</Text>
+	<Text heading="5">Heading 5</Text>
+	<Text heading="6">Heading 6</Text>
+</Playground>
+
+## Font Size:
+<Playground>
+	<Text smallest>Smallest</Text>
+	<Text smaller>Smaller</Text>
+	<Text small>Small</Text>
+	<Text medium>Medium</Text>
+	<Text large>Large</Text>
+	<Text larger>Larger</Text>
+	<Text largest>Largest</Text>
+</Playground>
+
+## Text Styles:
+<Playground>
+	<Text bold>Bold</Text>
+	<Text italic>Italic</Text>
+	<Text uppercase>Uppercase</Text>
+	<Text lowercase>Lowercase</Text>
+</Playground>
+
+## PropTypes:
+
+<PropsTable of={Text} />
+
