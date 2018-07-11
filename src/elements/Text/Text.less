@@ -4,16 +4,16 @@
 
 // general variables
 @ui-text-font-family: var(--ui-text-font-family, var(--ui-font-sans-serif, sans-serif));
-@ui-text-brand-black: var(--ui-color-black);
 @ui-text-paragraph-margin: var(--ui-text-paragraph-margin, 0 0 var(--ui-small, 16px));
+@ui-text-letter-spacing: var(--ui-text-letter-spacing, 0.05em);;
 
 .ui-text {
 	// general text styles
-	color: @ui-text-brand-black;
 	font-family: @ui-text-font-family;
+	color: var(--ui-color-black);
 
 	h1&, h2&, h3&, h4&, h5&, h6& {
-		letter-spacing: 0.05em;
+		letter-spacing: @ui-text-letter-spacing;
 	}
 
 	h1& {

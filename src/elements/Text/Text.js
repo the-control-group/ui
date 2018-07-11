@@ -17,10 +17,6 @@ const Text = (props) => {
 		children,
 
 		// labels
-		red,
-		blue,
-		green,
-		yellow,
 		bold,
 		italic,
 		uppercase,
@@ -59,10 +55,6 @@ const Text = (props) => {
 	if(large) style.fontSize = 'var(--ui-font-large)';
 	if(larger) style.fontSize = 'var(--ui-font-x-large)';
 	if(largest) style.fontSize = 'var(--ui-font-xx-large)';
-	if(red) style.color = 'var(--color-red, red)';
-	if(blue) style.color = 'var(--ui-color-blue)';
-	if(green) style.color = 'var(--ui-color-green)';
-	if(yellow) style.color = 'var(--ui-color-yellow)';
 	if(bold) style.fontWeight = '600';
 	if(italic) style.fontStyle = 'italic';
 	if(uppercase) style.textTransform = 'uppercase';
@@ -87,14 +79,6 @@ Text.propTypes = {
 	heading: PropTypes.string,
 	/** String of class names */
 	classes: PropTypes.string,
-	/** Red/warning text */
-	red: PropTypes.bool,
-	/** Brand Blue text */
-	blue: PropTypes.bool,
-	/** Brand Green text */
-	green: PropTypes.bool,
-	/** Brand Yellow text */
-	yellow: PropTypes.bool,
 	/** Bold text */
 	bold: PropTypes.bool,
 	/** Italic Text */
