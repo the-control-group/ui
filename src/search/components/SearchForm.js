@@ -41,7 +41,7 @@ class SearchForm extends Component {
 
 	/**
 	 * --------------------------------------------------------------------------------------------
-	 * Refirect to search results page or report page based on search type and input filds values
+	 * Refirect to search results page or report page based on search type and input fields values
 	 * --------------------------------------------------------------------------------------------
 	 */
 
