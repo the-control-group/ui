@@ -61,7 +61,9 @@ const Common = ({
 			'onBlur',
 			'onChange',
 			'onSubmit',
-			'onScroll'
+			'onScroll',
+			'name',
+			'value'
 		];
 
 	/**

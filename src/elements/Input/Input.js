@@ -24,6 +24,9 @@ const Input = ({
 	label,
 	options = [],
 	placeholder,
+	onChange,
+	value,
+	name,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -40,6 +43,8 @@ const Input = ({
 					classes={combinedClasses}
 					tag="select"
 					type={type}
+					name={name}
+					onChange={onChange}
 				>
 					{options.map((option) => <option key={option}>{option}</option>)}
 				</Common>
@@ -55,7 +60,10 @@ const Input = ({
 				classes={combinedClasses}
 				tag="input"
 				type={type}
+				name={name}
 				placeholder={placeholder}
+				onChange={onChange}
+				value={value}
 			/>
 		</Fragment>
 	);
