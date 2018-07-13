@@ -8,15 +8,13 @@ import Div from '../Div/Div';
 
 export default class Tab extends Component {
 	render() {
-		let index = 0;
-
 		const classes = classNames(
 			'tab-panel',
 			this.props.active ? ' active' : ''
 		);
 
 		return (
-			<Div className={classes}>
+			<Div className={classes} id={this.props.numVal}>
 				{ this.props.children }
 			</Div>
 		);
@@ -29,5 +27,6 @@ Tab.defaultProps = {
 
 Tab.propTypes = {
 	children: PropTypes.node.isRequired,
-	active: PropTypes.bool
+	active: PropTypes.bool,
+	numVal: PropTypes.number
 };
