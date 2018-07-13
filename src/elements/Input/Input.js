@@ -23,7 +23,6 @@ const Input = ({
 	type,
 	label,
 	options = [],
-	placeholder,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -52,10 +51,10 @@ const Input = ({
 			<Label>{label}</Label>
 
 			<Common
+				{...other}
 				classes={combinedClasses}
 				tag="input"
 				type={type}
-				placeholder={placeholder}
 			/>
 		</Fragment>
 	);

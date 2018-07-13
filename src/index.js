@@ -6,3 +6,6 @@ export { default as Div } from './elements/Div/Div';
 export { default as Button } from './elements/Button/Button';
 export { default as Input } from './elements/Input/Input';
 export { default as List } from './elements/List/List';
+
+export { getBreakpoint } from './util/helpers';
+export { isMobile } from './util/helpers';

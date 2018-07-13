@@ -1,12 +1,16 @@
 /**
  * Evaulate the client's inner width and return a breakpoint name
  */
-export const getBreakpoint = () => {
-	const viewportWidth = window.innerWidth,
-		largeBreakpoint = 1024,
-		mediumBreakpoint = 800;
+const largeBreakpoint = 1024,
+	mediumBreakpoint = 768,
+	viewportWidth = window.innerWidth;
 
+export const getBreakpoint = () => {
 	if(viewportWidth > largeBreakpoint) return 'Large';
 	if(viewportWidth < largeBreakpoint && viewportWidth > mediumBreakpoint) return 'Medium';
 	return 'Small';
+};
+
+export const isMobile = () => {
+	return viewportWidth < largeBreakpoint;
 };
