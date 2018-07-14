@@ -27,7 +27,7 @@ const config = {
 								node: 'current',
 								modules: false
 							}]],
-							plugins: ['transform-object-rest-spread', 'transform-decorators-legacy']
+							plugins: ['transform-object-rest-spread']
 						}
 					}
 				]
