@@ -47,7 +47,7 @@ class TabbedContainer extends Component {
 		const tabs = React.Children.map(this.props.children, (child) => {
 			return React.cloneElement(child, {
 				active: child.props.active === true ? true : (isActive === index++),
-				numVal: index
+				numVal: String(index - 1)
 			});
 		});
 
@@ -72,7 +72,7 @@ TabbedContainer.propTypes = {
 	children: PropTypes.node.isRequired,
 	active: PropTypes.bool,
 	className: PropTypes.string,
-	numVal: PropTypes.number
+	numVal: PropTypes.string
 };
 
 export default TabbedContainer;
