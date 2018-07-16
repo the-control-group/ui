@@ -21,8 +21,8 @@ const Text = (props) => {
 		italic,
 		uppercase,
 		lowercase,
-		title,
-		subtitle,
+		// title,
+		// subtitle,
 
 		// font size
 		smallest,
@@ -40,11 +40,11 @@ const Text = (props) => {
 		other.classes
 	);
 
-	const tag = (heading)
+	const tag = heading
 		? `h${heading}`
-		: (span)
-		? 'span'
-		: 'p';
+		: span
+			? 'span'
+			: 'p';
 
 	const style = {};
 
@@ -77,6 +77,8 @@ Text.propTypes = {
 	children: PropTypes.node.isRequired,
 	/** Heading Level */
 	heading: PropTypes.string,
+	/** Span tag */
+	span: PropTypes.boolean,
 	/** String of class names */
 	classes: PropTypes.string,
 	/** Bold text */
@@ -101,7 +103,6 @@ Text.propTypes = {
 	larger: PropTypes.bool,
 	/** Extra extra large text */
 	largest: PropTypes.bool
-
 };
 
 export default Text;

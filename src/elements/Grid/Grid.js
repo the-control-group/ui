@@ -8,6 +8,7 @@ import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import { getBreakpoint } from '../../util/helpers';
 import Common from '../Common/Common';
 
 /**
@@ -39,19 +40,6 @@ const renderGridItems = (items, widths, stacked, gutterStyle) => (
 		});
 	})
 );
-
-/**
- * Evaulate the client's inner width and return a breakpoint name
- */
-const getBreakpoint = () => {
-	const viewportWidth = window.innerWidth,
-		largeBreakpoint = 1024,
-		mediumBreakpoint = 800;
-
-	if(viewportWidth > largeBreakpoint) return 'Large';
-	if(viewportWidth < largeBreakpoint && viewportWidth > mediumBreakpoint) return 'Medium';
-	return 'Small';
-};
 
 /**
  * Grid component
