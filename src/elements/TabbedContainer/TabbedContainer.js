@@ -12,7 +12,8 @@ class TabbedContainer extends Component {
 		super(props);
 
 		this.state = {
-			activeIndex: 0
+			// set default showing tab (0 = first tab, 1 = second, etc...)
+			activeIndex: 1
 		};
 	}
 
@@ -26,15 +27,14 @@ class TabbedContainer extends Component {
 
 	renderNavItem(key) {
 		const tab = this.props.children[key],
-			keyNum = Number(key),
-			indexNum = Number(key) + 1;
+			keyNum = Number(key);
 
 		const navItemClasses = classNames(
 			this.state.activeIndex === keyNum ? 'active' : ''
 		);
 
 		return (
-			<li key={ key } className={navItemClasses} id={indexNum}>
+			<li key={ key } className={navItemClasses}>
 				<a href="#" onClick={ this.handleOnClick.bind(this, keyNum) }>{ tab.props.title }</a>
 			</li>
 		);
@@ -46,8 +46,7 @@ class TabbedContainer extends Component {
 
 		const tabs = React.Children.map(this.props.children, (child) => {
 			return React.cloneElement(child, {
-				active: child.props.active === true ? true : (isActive === index++),
-				numVal: String(index - 1)
+				active: child.props.active === true ? true : (isActive === index++)
 			});
 		});
 
@@ -71,8 +70,7 @@ class TabbedContainer extends Component {
 TabbedContainer.propTypes = {
 	children: PropTypes.node.isRequired,
 	active: PropTypes.bool,
-	className: PropTypes.string,
-	numVal: PropTypes.string
+	className: PropTypes.string
 };
 
 export default TabbedContainer;

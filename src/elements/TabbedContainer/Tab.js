@@ -10,8 +10,7 @@ export default class Tab extends Component {
 	render() {
 		const classes = classNames(
 			'tab-panel',
-			this.props.active ? ' active' : '',
-			this.props.numVal
+			this.props.active ? ' active' : ''
 		);
 
 		return (
@@ -28,6 +27,5 @@ Tab.defaultProps = {
 
 Tab.propTypes = {
 	children: PropTypes.node.isRequired,
-	active: PropTypes.bool,
-	numVal: PropTypes.string
+	active: PropTypes.bool
 };
