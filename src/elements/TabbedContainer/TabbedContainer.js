@@ -12,12 +12,16 @@ class TabbedContainer extends Component {
 		super(props);
 
 		this.state = {
-			// set default showing tab (0 = first tab, 1 = second, etc...)
-			activeIndex: 1
+			// set default showing tab (0 = first tab, 1 = second tab, etc...)
+			activeIndex: 0
 		};
+
+		this.handleOnClick = this.handleOnClick.bind(this);
+		this.renderNavItems = this.renderNavItems.bind(this);
+		this.renderOneNavItem = this.renderOneNavItem.bind(this);
 	}
 
-	handleOnClick(key, event) {
+	handleOnClick(event, key) {
 		event.preventDefault();
 
 		this.setState({
@@ -25,8 +29,8 @@ class TabbedContainer extends Component {
 		});
 	}
 
-	renderNavItem(key) {
-		const tab = this.props.children[key],
+	renderNavItems(key) {
+		const tab = this.props.children[key] ? this.props.children[key] : null,
 			keyNum = Number(key);
 
 		const navItemClasses = classNames(
@@ -34,14 +38,25 @@ class TabbedContainer extends Component {
 		);
 
 		return (
-			<li key={ key } className={navItemClasses}>
-				<a href="#" onClick={ this.handleOnClick.bind(this, keyNum) }>{ tab.props.title }</a>
+			<li key={key} className={navItemClasses}>
+				<a href="#" onClick={ (e) => this.handleOnClick(e, keyNum) }>{ tab.props.title }</a>
+			</li>
+		);
+	}
+
+	renderOneNavItem() {
+		const oneTab = React.Children.only(this.props.children);
+
+		return (
+			<li className="active">
+				<a href="#">{ oneTab.props.title }</a>
 			</li>
 		);
 	}
 
 	render() {
-		let index = 0;
+		let index = 0,
+			renderNav;
 		const isActive = this.state.activeIndex;
 
 		const tabs = React.Children.map(this.props.children, (child) => {
@@ -54,10 +69,16 @@ class TabbedContainer extends Component {
 			'tabs-nav'
 		);
 
+		if (this.props.children && this.props.children.length > 0) {
+			renderNav = Object.keys(this.props.children).map(this.renderNavItems.bind(this));
+		} else {
+			renderNav = this.renderOneNavItem();
+		}
+
 		return (
 			<Div className="tabs-wrapper">
 				<List inline className={tabsNavClasses}>
-					{ Object.keys(this.props.children).map(this.renderNavItem.bind(this)) }
+					{renderNav}
 				</List>
 				<Div className="tabs-content">
 					{tabs}
@@ -70,7 +91,8 @@ class TabbedContainer extends Component {
 TabbedContainer.propTypes = {
 	children: PropTypes.node.isRequired,
 	active: PropTypes.bool,
-	className: PropTypes.string
+	className: PropTypes.string,
+	title: PropTypes.string
 };
 
 export default TabbedContainer;
