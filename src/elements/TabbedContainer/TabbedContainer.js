@@ -16,12 +16,12 @@ class TabbedContainer extends Component {
 			activeIndex: 0
 		};
 
-		this.handleOnClick = this.handleOnClick.bind(this);
+		this.changeTabs = this.changeTabs.bind(this);
 		this.renderNavItems = this.renderNavItems.bind(this);
 		this.renderOneNavItem = this.renderOneNavItem.bind(this);
 	}
 
-	handleOnClick(event, key) {
+	changeTabs(event, key) {
 		event.preventDefault();
 
 		this.setState({
@@ -39,7 +39,7 @@ class TabbedContainer extends Component {
 
 		return (
 			<li key={key} className={navItemClasses}>
-				<a href="#" onClick={ (e) => this.handleOnClick(e, keyNum) }>{ tab.props.title }</a>
+				<a href="#" onClick={ (e) => this.changeTabs(e, keyNum) }>{ tab.props.title }</a>
 			</li>
 		);
 	}
