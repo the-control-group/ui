@@ -23,7 +23,7 @@ const Input = ({
 	type,
 	label,
 	options = [],
-	placeholder,
+	// placeholder,
 	...other
 }) => {
 	const combinedClasses = classNames(
