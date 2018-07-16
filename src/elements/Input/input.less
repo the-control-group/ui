@@ -3,8 +3,8 @@
  */
 
 // general variables
-@ui-input-border: var(--ui-input-border, 2px solid var(--ui-color-gray-medium));
-@ui-input-border-focus: var(--ui-input-border-focus, 2px solid var(--ui-color-gray-dark));
+@ui-input-border: var(--ui-input-border, 1px solid var(--ui-color-gray-medium));
+@ui-input-border-focus: var(--ui-input-border-focus, 1px solid var(--ui-color-gray-dark));
 @ui-input-border-radius: var(--ui-input-border-radius, 0px);
 
 @ui-input-font-family: var(--ui-input-font-family, var(--ui-font-sans-serif, sans-serif));
@@ -13,11 +13,10 @@
 @ui-input-text-transform: var(--ui-input-text-transform, capitalize);
 @ui-input-letter-spacing: var(--ui-input-letter-spacing, .5px);
 
-@ui-input-max-width: var(--ui-input-max-width, 390px);
-@ui-input-padding: var(--ui-input-padding, .75em var(--ui-x-small));
+@ui-input-padding: var(--ui-input-padding, var(--ui-small) var(--ui-x-small));
 @ui-input-background: var(--ui-input-background, var(----ui-color-white));
 
-@ui-input-select-padding: var(--ui-input-select-padding, .75em var(--ui-large) .75em var(--ui-x-small));
+@ui-input-select-padding: var(--ui-input-select-padding, var(--ui-small) var(--ui-large) var(--ui-small) var(--ui-x-small));
 @ui-input-select-background: var(--ui-input-select-background, url('../../img/arrow-down.svg') no-repeat right .5em center);
 @ui-input-select-background-size: var(--ui-input-select-background-size, .75em);;
 
@@ -37,7 +36,6 @@
 	display: inline-block;
 	width: 100%;
 	padding: @ui-input-padding;
-	max-width: @ui-input-max-width;
 
 	border: @ui-input-border;
 	border-radius: @ui-input-border-radius;
