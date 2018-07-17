@@ -11,76 +11,44 @@ class TabbedContainer extends Component {
 	constructor(props) {
 		super(props);
 
+		const defaultActiveIndex = Math.max(React.Children.toArray(this.props.children).findIndex(c => c.props.defaultActive), 0);
+
 		this.state = {
-			// set default showing tab (0 = first tab, 1 = second tab, etc...)
-			activeIndex: 0
+			activeIndex: defaultActiveIndex
 		};
 
 		this.changeTabs = this.changeTabs.bind(this);
-		this.renderNavItems = this.renderNavItems.bind(this);
-		this.renderOneNavItem = this.renderOneNavItem.bind(this);
 	}
 
-	changeTabs(event, key) {
-		event.preventDefault();
+	changeTabs(e) {
+		e.preventDefault();
 
 		this.setState({
-			activeIndex: key
+			activeIndex: Number(e.target.dataset.tab)
 		});
-	}
-
-	renderNavItems(key) {
-		const tab = this.props.children[key] ? this.props.children[key] : null,
-			keyNum = Number(key);
-
-		const navItemClasses = classNames(
-			this.state.activeIndex === keyNum ? 'active' : ''
-		);
-
-		return (
-			<li key={key} className={navItemClasses}>
-				<a href="#" onClick={ (e) => this.changeTabs(e, keyNum) }>{ tab.props.title }</a>
-			</li>
-		);
-	}
-
-	renderOneNavItem() {
-		const oneTab = React.Children.only(this.props.children);
-
-		return (
-			<li className="active">
-				<a href="#">{ oneTab.props.title }</a>
-			</li>
-		);
 	}
 
 	render() {
-		let index = 0,
-			renderNav;
-		const isActive = this.state.activeIndex;
+		const { activeIndex } = this.state,
+			{ children } = this.props;
 
-		const tabs = React.Children.map(this.props.children, (child) => {
+		const tabs = React.Children.map(children, (child, i) => {
 			return React.cloneElement(child, {
-				active: child.props.active === true ? true : (isActive === index++)
+				active: child.props.active || activeIndex === i
 			});
 		});
 
-		const tabsNavClasses = classNames(
-			'tabs-nav'
-		);
-
-		if (this.props.children && this.props.children.length > 0) {
-			renderNav = Object.keys(this.props.children).map(this.renderNavItems.bind(this));
-		} else {
-			renderNav = this.renderOneNavItem();
-		}
-
 		return (
-			<Div className="tabs-wrapper">
-				<List inline className={tabsNavClasses}>
-					{renderNav}
+			<Div className="ui-tab-container">
+				<List inline className="tabs-nav">
+					{ React.Children.map(children, (child, i) => (
+						<li key={child.props.title} className={classNames({active: i === activeIndex})}>
+							<a href="#" data-tab={i} onClick={this.changeTabs}>{ child.props.title }</a>
+						</li>
+					))
+					}
 				</List>
-				<Div className="tabs-content">
+				<Div className="ui-tabs-content">
 					{tabs}
 				</Div>
 			</Div>
@@ -89,10 +57,7 @@ class TabbedContainer extends Component {
 }
 
 TabbedContainer.propTypes = {
-	children: PropTypes.node.isRequired,
-	active: PropTypes.bool,
-	className: PropTypes.string,
-	title: PropTypes.string
+	children: PropTypes.node.isRequired
 };
 
 export default TabbedContainer;
