@@ -8,6 +8,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import { getBreakpoint } from '../../util/helpers';
+
 const Common = ({
 	children,
 	classes,
@@ -61,7 +63,9 @@ const Common = ({
 			'onBlur',
 			'onChange',
 			'onSubmit',
-			'onScroll'
+			'onScroll',
+			'name',
+			'value'
 		];
 
 	/**
@@ -82,6 +86,7 @@ const Common = ({
 
 	const combinedClasses = classNames(
 		classes,
+		other['classes' + getBreakpoint()],
 		other.className
 	);
 

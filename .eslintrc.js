@@ -52,6 +52,7 @@ module.exports = {
 		'space-infix-ops': 2,
 		strict: 2,
 		yoda: 2,
+		'react/jsx-curly-spacing': [2, {when: 'never', children: true}],
 		'react/no-unescaped-entities': 0
 	}
 };
