@@ -25,8 +25,10 @@ const renderGridItems = (items, widths, stacked, gutterStyle) => (
 		const classes = classNames(
 				'ui-grid-item',
 				child.props.className,
-				child.props.centerY && 'center-y',
-				child.props.bottom && 'bottom'
+				{
+					'center-y': child.props.centerY,
+					bottom: child.props.bottom
+				}
 			),
 			style = {
 				...child.props.style,
