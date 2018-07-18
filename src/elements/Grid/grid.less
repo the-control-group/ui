@@ -14,6 +14,10 @@
 
 	&.stacked {
 		flex-direction: column;
+
+		.bottom {
+			align-self: auto;
+		}
 	}
 
 	&.stacked.swap {
@@ -28,5 +32,9 @@
 
 	.center-y {
 		align-self: center;
+	}
+
+	.bottom {
+		align-self: flex-end;
 	}
 }
