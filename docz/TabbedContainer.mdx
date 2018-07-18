@@ -1,0 +1,37 @@
+---
+name: Tabbed Container
+---
+
+import './styles/theme.less';
+import './styles/docz.less';
+
+import { Playground, PropsTable } from 'docz';
+
+import { TabbedContainer } from '../src';
+import { Tab } from '../src';
+
+
+# Tabbed Container
+### Tabbed container and tab.
+
+## Tabbed Container:
+<Playground>
+	<TabbedContainer>
+		<Tab defaultActive title="Search By Name">
+			Search By Name content
+		</Tab>
+		<Tab title="Search By Phone">
+			Search By Phone content
+		</Tab>
+		<Tab title="Search By Email">
+			Search By Email content
+		</Tab>
+		<Tab title="Search By Address">
+			Search By Address content
+		</Tab>
+	</TabbedContainer>
+</Playground>
+
+## PropTypes:
+<PropsTable of={TabbedContainer} />
+
