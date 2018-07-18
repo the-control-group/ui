@@ -10,19 +10,18 @@
 @ui-input-font-family: var(--ui-input-font-family, var(--ui-font-sans-serif, sans-serif));
 @ui-input-font-weight: var(--ui-input-font-weight, 500);
 @ui-input-font-size: var(--ui-input-font-size, var(--ui-font-x-small, .9em));
-@ui-input-text-transform: var(--ui-input-text-transform, capitalize);
 @ui-input-letter-spacing: var(--ui-input-letter-spacing, .5px);
 
-@ui-input-padding: var(--ui-input-padding, var(--ui-small) var(--ui-x-small));
-@ui-input-background: var(--ui-input-background, var(----ui-color-white));
+@ui-input-padding: var(--ui-input-padding, var(--ui-small, 16px) var(--ui-x-small, 8px));
+@ui-input-background: var(--ui-input-background, var(--ui-color-white));
 
-@ui-input-select-padding: var(--ui-input-select-padding, var(--ui-small) var(--ui-large) var(--ui-small) var(--ui-x-small));
-@ui-input-select-background: var(--ui-input-select-background, url('../../img/arrow-down.svg') no-repeat right .5em center);
+@ui-input-select-padding: var(--ui-input-select-padding, var(--ui-small, 16px) var(--ui-large, 32px) var(--ui-small, 16px) var(--ui-x-small, 8px));
+@ui-input-select-background: var(--ui-input-select-background, var(--ui-color-white, #ffffff) url('../../img/arrow-down.svg') no-repeat right .5em center);
 @ui-input-select-background-size: var(--ui-input-select-background-size, .75em);;
 
 @ui-input-label-font-weight: var(--ui-input-label-font-weight, 500);
 @ui-input-label-font-size: var(--ui-input-label-font-size, .8em);
-@ui-input-label-margin: var(--ui-input-label-margin, 0 0 var(--ui-x-small));
+@ui-input-label-margin: var(--ui-input-label-margin, 0 0 var(--ui-x-small, 8px));
 
 .ui-input-label {
 	display: block;
@@ -44,7 +43,6 @@
 	font-family: @ui-input-font-family;
 	font-weight: @ui-input-font-weight;
 	font-size: @ui-input-font-size;
-	text-transform: @ui-input-text-transform;
 	letter-spacing: @ui-input-letter-spacing;
 
 	background: @ui-input-background;

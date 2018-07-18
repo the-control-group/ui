@@ -19,11 +19,11 @@ const Label = ({ children }) => (
 	</Common>
 );
 
+
 const Input = ({
 	type,
 	label,
-	options = [],
-	// placeholder,
+	options = {},
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -42,7 +42,7 @@ const Input = ({
 					tag="select"
 					type={type}
 				>
-					{options.map((option) => <option key={option}>{option}</option>)}
+					{Object.keys(options).map((keyName, keyIndex) => <option key={keyIndex} value={keyName}>{options[keyName]}</option>)};
 				</Common>
 			</Fragment>
 		);
@@ -73,11 +73,11 @@ Input.propTypes = {
 	label: PropTypes.string,
 	/** Placeholder for input */
 	placeholder: PropTypes.string,
-	/** Array of options for type of `select` */
+	/** Object of options for type of `select` */
 	options: (props, propName) => {
 		if (props.type === 'select' && (props[propName] === undefined)) {
 			return new Error(
-				'Options array is required for select input.'
+				'Options object is required for select input.'
 			);
 		}
 	}
