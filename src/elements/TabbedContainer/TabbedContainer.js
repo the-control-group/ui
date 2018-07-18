@@ -34,13 +34,13 @@ class TabbedContainer extends Component {
 
 		const tabs = React.Children.map(children, (child, i) => {
 			return React.cloneElement(child, {
-				active: child.props.active || activeIndex === i
+				active: activeIndex === i
 			});
 		});
 
 		return (
 			<Div className="ui-tab-container">
-				<List inline className="tabs-nav">
+				<List inline className="ui-tabs-nav">
 					{ React.Children.map(children, (child, i) => (
 						<li key={child.props.title} className={classNames({active: i === activeIndex})}>
 							<a href="#" data-tab={i} onClick={this.changeTabs}>{ child.props.title }</a>

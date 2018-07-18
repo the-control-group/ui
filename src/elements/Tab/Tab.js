@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Div from '../Div/Div';
 
 const Tab = (props) => {
-	const classes = classNames('tab-panel', {active: props.active});
+	const classes = classNames('ui-tab-panel', {active: props.active});
 
 	return (
 		<Div className={classes}>
