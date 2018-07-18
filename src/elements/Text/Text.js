@@ -78,7 +78,7 @@ Text.propTypes = {
 	/** Heading Level */
 	heading: PropTypes.string,
 	/** Span tag */
-	span: PropTypes.boolean,
+	span: PropTypes.bool,
 	/** String of class names */
 	classes: PropTypes.string,
 	/** Bold text */
