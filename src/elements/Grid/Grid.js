@@ -14,7 +14,7 @@ import Common from '../Common/Common';
 /**
  * Render the grid's children as grid items
  */
-const renderGridItems = (items, widths, stacked, gutterStyle) => (
+const renderGridItems = (items, widths = [], stacked, gutterStyle) => (
 	Children.map(items, (child, i) => {
 		if(!child) return null;
 
@@ -49,13 +49,15 @@ const renderGridItems = (items, widths, stacked, gutterStyle) => (
  */
 const Grid = ({
 	children,
-	itemWidths = [],
+	itemWidths,
 	itemWidthsSmall,
 	itemWidthsMedium,
 	itemWidthsLarge,
+	stack,
 	stackSmall,
 	stackMedium,
 	stackLarge,
+	swap,
 	swapSmall,
 	swapMedium,
 	swapLarge,
@@ -76,8 +78,12 @@ const Grid = ({
 			? itemWidthsObj['itemWidths' + breakpoint]
 			: itemWidths,
 		gutter = gutterObj['gutter' + breakpoint],
-		stacked = stackedObj['stack' + breakpoint],
-		swapped = swapObj['swap' + breakpoint];
+		stacked = stackedObj['stack' + breakpoint]
+			? stackedObj['stack' + breakpoint]
+			: stack,
+		swapped = swapObj['swap' + breakpoint]
+			? swapObj['swap' + breakpoint]
+			: swap;
 
 	const combinedClasses = classNames(
 			other.classes,
@@ -118,12 +124,16 @@ Grid.propTypes = {
 	itemWidthsMedium: PropTypes.array,
 	/** Array numbers, describing each element's column count, for large screens */
 	itemWidthsLarge: PropTypes.array,
+	/** Changes flex-direction to `column` on all sreen sizes */
+	stack: PropTypes.bool,
 	/** Changes flex-direction to `column` on small screens */
 	stackSmall: PropTypes.bool,
 	/** Changes flex-direction to `column` on medium screens */
 	stackMedium: PropTypes.bool,
 	/** Changes flex-direction to `column` on large screens */
 	stackLarge: PropTypes.bool,
+	/** Changes flex-direction to `reverse-row`/`reverse-column` if stacked on all scfeen sizes */
+	swap: PropTypes.bool,
 	/** Changes flex-direction to `reverse-row`/`reverse-column` if stacked on small screens */
 	swapSmall: PropTypes.bool,
 	/** Changes flex-direction to `reverse-row`/`reverse-column` if stacked on medium screens */

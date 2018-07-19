@@ -77,7 +77,7 @@ Passing nothing into `<Grid>`, you will get equal width columns based on the num
 </Playground>
 
 ## Stacking:
-`stackSmall`, `stackMedium`, and `stackLarge` will stack the elements top-to-bottom at full-width.
+`stackSmall`, `stackMedium`, and `stackLarge` will stack the elements top-to-bottom at full-width. `stack` will stack elements on all scenn sizes.
 
 <Playground>
 	<Grid
@@ -92,13 +92,11 @@ Passing nothing into `<Grid>`, you will get equal width columns based on the num
 
 
 ## Swapping:
-`swapSmall`, `swapMedium`, and `swapLarge` will reverse the order of elements at the specified resolution.
+`swapSmall`, `swapMedium`, and `swapLarge` will reverse the order of elements at the specified resolution. `swap` will reverse order on all sceen sizes.
 
 <Playground>
 	<Grid
-		swapSmall
-		swapMedium
-		swapLarge
+		swap
 	>
 		<Div>1st in source</Div>
 		<Div>2nd in source</Div>
