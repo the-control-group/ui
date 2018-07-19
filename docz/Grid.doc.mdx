@@ -64,6 +64,19 @@ Passing nothing into `<Grid>`, you will get equal width columns based on the num
 	</Grid>
 </Playground>
 
+## Width/Columns for All Screen Sizes:
+`<Grid>` takes `itemWidth` array, the elements of which are integers that act as columns.
+`itemWidth` array gives columns width for all screen sizes. `itemWidth` can be overwritten for any resolution by `itemWidthsSmall`, `itemWidthsMedium`, and `itemWidthsLarge`.
+
+<Playground>
+	<Grid
+		itemWidths={[7, 5]}
+	>
+		<Div>Any screen size: 7 cols</Div>
+		<Div>Any screen size: 5 cols</Div>
+	</Grid>
+</Playground>
+
 ## Stacking:
 `stackSmall`, `stackMedium`, and `stackLarge` will stack the elements top-to-bottom at full-width.
 

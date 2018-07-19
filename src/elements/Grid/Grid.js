@@ -49,6 +49,7 @@ const renderGridItems = (items, widths, stacked, gutterStyle) => (
  */
 const Grid = ({
 	children,
+	itemWidths = [],
 	itemWidthsSmall = [],
 	itemWidthsMedium = [],
 	itemWidthsLarge = [],
@@ -66,6 +67,10 @@ const Grid = ({
 	/**
 	 * Determine widths/styling depending on resolution
 	 */
+	itemWidthsSmall = (itemWidths && !itemWidthsSmall) ? itemWidths : itemWidthsSmall;
+	itemWidthsMedium = (itemWidths && !itemWidthsMedium) ? itemWidths : itemWidthsMedium;
+	itemWidthsLarge = (itemWidths && !itemWidthsLarge) ? itemWidths : itemWidthsLarge;
+
 	const breakpoint = getBreakpoint(),
 		itemWidthsObj = { itemWidthsSmall, itemWidthsMedium, itemWidthsLarge },
 		gutterObj = { gutterSmall, gutterMedium, gutterLarge },
@@ -107,6 +112,8 @@ const Grid = ({
 
 Grid.propTypes = {
 	children: PropTypes.node.isRequired,
+	/** Array numbers, describing each element's column count, for all screen sizes */
+	itemWidths: PropTypes.array,
 	/** Array numbers, describing each element's column count, for small screens */
 	itemWidthsSmall: PropTypes.array,
 	/** Array numbers, describing each element's column count, for medium screens */
