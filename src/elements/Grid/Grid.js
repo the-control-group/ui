@@ -50,9 +50,9 @@ const renderGridItems = (items, widths, stacked, gutterStyle) => (
 const Grid = ({
 	children,
 	itemWidths = [],
-	itemWidthsSmall = [],
-	itemWidthsMedium = [],
-	itemWidthsLarge = [],
+	itemWidthsSmall,
+	itemWidthsMedium,
+	itemWidthsLarge,
 	stackSmall,
 	stackMedium,
 	stackLarge,
