@@ -67,16 +67,14 @@ const Grid = ({
 	/**
 	 * Determine widths/styling depending on resolution
 	 */
-	itemWidthsSmall = (itemWidths && !itemWidthsSmall) ? itemWidths : itemWidthsSmall;
-	itemWidthsMedium = (itemWidths && !itemWidthsMedium) ? itemWidths : itemWidthsMedium;
-	itemWidthsLarge = (itemWidths && !itemWidthsLarge) ? itemWidths : itemWidthsLarge;
-
 	const breakpoint = getBreakpoint(),
 		itemWidthsObj = { itemWidthsSmall, itemWidthsMedium, itemWidthsLarge },
 		gutterObj = { gutterSmall, gutterMedium, gutterLarge },
 		stackedObj = { stackSmall, stackMedium, stackLarge },
 		swapObj = { swapSmall, swapMedium, swapLarge },
-		widths = itemWidthsObj['itemWidths' + breakpoint],
+		widths = itemWidthsObj['itemWidths' + breakpoint]
+			? itemWidthsObj['itemWidths' + breakpoint]
+			: itemWidths,
 		gutter = gutterObj['gutter' + breakpoint],
 		stacked = stackedObj['stack' + breakpoint],
 		swapped = swapObj['swap' + breakpoint];
