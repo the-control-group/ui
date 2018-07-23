@@ -43,7 +43,9 @@ class TabbedContainer extends Component {
 				<List inline className="ui-tabs-nav">
 					{React.Children.map(children, (child, i) => (
 						<li key={child.props.title} className={classNames({active: i === activeIndex})}>
-							<a href="#" data-tab={i} onClick={this.changeTabs}>{child.props.title}</a>
+							<a href="#" data-tab={i} onClick={this.changeTabs}>
+								{child.props.title}
+							</a>
 						</li>
 					))
 					}
