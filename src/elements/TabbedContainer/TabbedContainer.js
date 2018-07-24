@@ -1,11 +1,13 @@
-import './TabbedContainer.less';
+import './tabbed-container.less';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import { isMobile } from '../../util/helpers';
 import Div from '../Div/Div';
 import List from '../List/List';
+import TabNavItem from '../TabNavItem/TabNavItem';
 
 class TabbedContainer extends Component {
 	constructor(props) {
@@ -17,14 +19,14 @@ class TabbedContainer extends Component {
 			activeIndex: defaultActiveIndex
 		};
 
-		this.changeTabs = this.changeTabs.bind(this);
+		this.changeTab = this.changeTab.bind(this);
 	}
 
-	changeTabs(e) {
+	changeTab(e) {
 		e.preventDefault();
 
 		this.setState({
-			activeIndex: Number(e.target.dataset.tab)
+			activeIndex: Number(e.currentTarget.dataset.tab)
 		});
 	}
 
@@ -32,24 +34,24 @@ class TabbedContainer extends Component {
 		const { activeIndex } = this.state,
 			{ children } = this.props;
 
-		const tabs = React.Children.map(children, (child, i) => {
-			return React.cloneElement(child, {
-				active: activeIndex === i
-			});
-		});
+		const tabs = React.Children.map(children, (child, i) => (
+			React.cloneElement(child, { active: activeIndex === i })
+		));
 
 		return (
-			<Div className="ui-tab-container">
+			<Div className={classNames('ui-tabs-container', { desktop: !isMobile() })}>
 				<List inline className="ui-tabs-nav">
 					{React.Children.map(children, (child, i) => (
-						<li key={child.props.title} className={classNames({active: i === activeIndex})}>
-							<a href="#" data-tab={i} onClick={this.changeTabs}>
-								{child.props.title}
-							</a>
-						</li>
-					))
-					}
+						<TabNavItem
+							{...child.props}
+							tabId={i}
+							changeTab={this.changeTab}
+							active={i === activeIndex}
+							width={`${100 / children.length}%`}
+						/>
+					))}
 				</List>
+
 				<Div className="ui-tabs-content">
 					{tabs}
 				</Div>

@@ -2,7 +2,7 @@
  * Text
  */
 
-import './Text.less';
+import './text.less';
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -12,8 +12,7 @@ import Common from '../Common/Common';
 
 const Text = (props) => {
 	const {
-		heading,
-		span,
+		caption,
 		children,
 
 		// labels
@@ -21,8 +20,6 @@ const Text = (props) => {
 		italic,
 		uppercase,
 		lowercase,
-		// title,
-		// subtitle,
 
 		// font size
 		smallest,
@@ -40,14 +37,11 @@ const Text = (props) => {
 		other.classes
 	);
 
-	const tag = heading
-		? `h${heading}`
-		: span
-			? 'span'
-			: 'p';
+	const tag = caption
+		? 'span'
+		: 'p';
 
 	const style = {};
-
 	if(smallest) style.fontSize = 'var(--ui-font-xx-small)';
 	if(smaller) style.fontSize = 'var(--ui-font-x-small)';
 	if(small) style.fontSize = 'var(--ui-font-small)';
@@ -75,10 +69,8 @@ const Text = (props) => {
 
 Text.propTypes = {
 	children: PropTypes.node.isRequired,
-	/** Heading Level */
-	heading: PropTypes.string,
-	/** Span tag */
-	span: PropTypes.bool,
+	/** Inline caption (span tag) */
+	caption: PropTypes.bool,
 	/** String of class names */
 	classes: PropTypes.string,
 	/** Bold text */

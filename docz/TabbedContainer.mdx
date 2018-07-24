@@ -7,8 +7,7 @@ import './styles/docz.less';
 
 import { Playground, PropsTable } from 'docz';
 
-import { TabbedContainer } from '../src';
-import { Tab } from '../src';
+import { TabbedContainer, TabContent } from '../src';
 
 
 # Tabbed Container
@@ -17,18 +16,18 @@ import { Tab } from '../src';
 ## Tabbed Container:
 <Playground>
 	<TabbedContainer>
-		<Tab defaultActive title="Search By Name">
+		<TabContent defaultActive title={<span>a thing</span>} titleMobile="Name">
 			Search By Name content
-		</Tab>
-		<Tab title="Search By Phone">
+		</TabContent>
+		<TabContent title="Search By Phone" titleMobile="Phone">
 			Search By Phone content
-		</Tab>
-		<Tab title="Search By Email">
+		</TabContent>
+		<TabContent title="Search By Email" titleMobile="Email">
 			Search By Email content
-		</Tab>
-		<Tab title="Search By Address">
+		</TabContent>
+		<TabContent title="Search By Address" titleMobile="Address">
 			Search By Address content
-		</Tab>
+		</TabContent>
 	</TabbedContainer>
 </Playground>
 
