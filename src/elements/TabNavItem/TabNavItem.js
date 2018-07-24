@@ -44,4 +44,4 @@ TabNavItem.propTypes = {
 	width: PropTypes.string
 };
 
-export default TabContent;
+export default TabNavItem;
