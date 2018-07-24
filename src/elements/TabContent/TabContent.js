@@ -1,11 +1,15 @@
+/**
+ * Main content portion of `TabbedContainer` component
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Div from '../Div/Div';
 
-const Tab = (props) => {
-	const classes = classNames('ui-tab-panel', {active: props.active});
+const TabContent = (props) => {
+	const classes = classNames('ui-tab-panel', {'active-tab': props.active});
 
 	return (
 		<Div className={classes}>
@@ -14,13 +18,13 @@ const Tab = (props) => {
 	);
 };
 
-Tab.defaultProps = {
+TabContent.defaultProps = {
 	active: false
 };
 
-Tab.propTypes = {
+TabContent.propTypes = {
 	children: PropTypes.node.isRequired,
 	active: PropTypes.bool
 };
 
-export default Tab;
+export default TabContent;

@@ -22,6 +22,8 @@
 @ui-input-label-font-weight: var(--ui-input-label-font-weight, 500);
 @ui-input-label-font-size: var(--ui-input-label-font-size, .8em);
 @ui-input-label-margin: var(--ui-input-label-margin, 0 0 var(--ui-x-small, 8px));
+@ui-input-label-color: var(--ui-input-label-color, var(--color-black, #000000));
+@ui-input-placeholder-color: var(--ui-input-placeholder-color, var(--ui-color-gray-medium, #b3b3b3));
 
 .ui-input-label {
 	display: block;
@@ -29,6 +31,7 @@
 	font-family: @ui-input-font-family;
 	font-size: @ui-input-label-font-size;
 	font-weight: @ui-input-label-font-weight;
+	color: @ui-input-label-color;
 }
 
 .ui-input {
@@ -57,5 +60,9 @@
 		padding: @ui-input-select-padding;
 		background: @ui-input-select-background;
 		background-size: @ui-input-select-background-size;
+	}
+
+	&::placeholder {
+		color: @ui-input-placeholder-color;
 	}
 }

@@ -86,6 +86,7 @@ const Grid = ({
 			: swap;
 
 	const combinedClasses = classNames(
+			'ui-grid',
 			other.classes,
 			stacked && 'stacked',
 			swapped && 'swap'
@@ -105,8 +106,8 @@ const Grid = ({
 	return (
 		<Common
 			{...other}
-			classes={`ui-grid ${combinedClasses}`}
-			style={{ ...outterGutterStyle }}
+			classes={combinedClasses}
+			style={{ ...other.style, ...outterGutterStyle }}
 			tag="div"
 		>
 			{renderGridItems(children, widths, stacked, gutterStyle)}
