@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 import { isMobile } from '../../util/helpers';
 
-const TabContent = ({ title, titleMobile, active, changeTab, tabId, width }) => {
+const TabNavItem = ({ title, titleMobile, active, changeTab, tabId, width }) => {
 	const classes = classNames('ui-tab-nav-item', { 'active-item': active });
 
 	const style = {};
@@ -32,7 +32,7 @@ const TabContent = ({ title, titleMobile, active, changeTab, tabId, width }) => 
 	);
 };
 
-TabContent.propTypes = {
+TabNavItem.propTypes = {
 	active: PropTypes.bool,
 	title: PropTypes.oneOfType([
 		PropTypes.string,
