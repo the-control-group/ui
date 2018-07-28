@@ -68,6 +68,8 @@ const Common = ({
 			'value'
 		];
 
+	Object.keys(other).forEach(key => key.startsWith('data-') && attributeValues.push(key));
+
 	/**
 	 * Loop through our whitelists add anything that applies
 	 * to our style/attribute objects
