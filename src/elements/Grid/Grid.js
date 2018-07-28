@@ -138,6 +138,14 @@ Grid.propTypes = {
 	itemWidthsMedium: PropTypes.array,
 	/** Array numbers, describing each element's column count, for large screens */
 	itemWidthsLarge: PropTypes.array,
+	/** Number of "block columns" to repeat for all screen sizes */
+	blocks: PropTypes.number,
+	/** Number of "block columns" to repeat, for small screens */
+	blocksSmall: PropTypes.number,
+	/** Number of "block columns" to repeat, for medium screens */
+	blocksMedium: PropTypes.number,
+	/** Number of "block columns" to repeat, for large screens */
+	blocksLarge: PropTypes.number,
 	/** Changes flex-direction to `column` on all sreen sizes */
 	stack: PropTypes.bool,
 	/** Changes flex-direction to `column` on small screens */
@@ -154,6 +162,8 @@ Grid.propTypes = {
 	swapMedium: PropTypes.bool,
 	/** Changes flex-direction to `reverse-row`/`reverse-column` if stacked on large screens */
 	swapLarge: PropTypes.bool,
+	/** Gutter width for all screen sizes, using named spacing variables */
+	gutter: PropTypes.string,
 	/** Gutter width for small screens, using named spacing variables */
 	gutterSmall: PropTypes.string,
 	/** Gutter width for medium screens, using named spacing variables */
