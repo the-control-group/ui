@@ -64,6 +64,18 @@ Passing nothing into `<Grid>`, you will get equal width columns based on the num
 	</Grid>
 </Playground>
 
+## Block Grid:
+Use the block grid when you need a repeating/wrapping set of elements of the same size.
+
+<Playground>
+	<Grid blocks="2">
+		<Div>block #1</Div>
+		<Div>block #2</Div>
+		<Div>block #3</Div>
+		<Div>block #4</Div>
+	</Grid>
+</Playground>
+
 ## Width/Columns for All Screen Sizes:
 `<Grid>` takes `itemWidth` array and gives columns width for all screen sizes. `itemWidth` can be overwritten for specific resolution by `itemWidthsSmall`, `itemWidthsMedium`, and `itemWidthsLarge`.
 
@@ -77,7 +89,7 @@ Passing nothing into `<Grid>`, you will get equal width columns based on the num
 </Playground>
 
 ## Stacking:
-`stackSmall`, `stackMedium`, and `stackLarge` will stack the elements top-to-bottom at full-width. `stack` will stack elements on all scenn sizes.
+`stackSmall`, `stackMedium`, and `stackLarge` will stack the elements top-to-bottom at full-width. `stack` will stack elements on all screen sizes.
 
 <Playground>
 	<Grid

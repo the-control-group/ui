@@ -14,7 +14,7 @@ import Common from '../Common/Common';
 /**
  * Render the grid's children as grid items
  */
-const renderGridItems = (items, widths = [], stacked, gutterStyle) => (
+const renderGridItems = (items, widths = [], blocks, stacked, gutter) => (
 	Children.map(items, (child, i) => {
 		if(!child) return null;
 
@@ -32,10 +32,15 @@ const renderGridItems = (items, widths = [], stacked, gutterStyle) => (
 			),
 			style = {
 				...child.props.style,
-				...gutterStyle
+				marginLeft: `var(--ui-${gutter})`,
+				marginRight: `var(--ui-${gutter})`
 			};
 
-		if(!stacked) style.flex = `${colSize} 1 0`;
+		if(blocks) {
+			style.flex = `0 0 calc(${100 / blocks}% - var(--ui-${gutter})*2)`;
+		} else if(!stacked) {
+			style.flex = `${colSize} 1 0`;
+		}
 
 		return cloneElement(child, {
 			style,
@@ -53,6 +58,10 @@ const Grid = ({
 	itemWidthsSmall,
 	itemWidthsMedium,
 	itemWidthsLarge,
+	blocks,
+	blocksSmall,
+	blocksMedium,
+	blocksLarge,
 	stack,
 	stackSmall,
 	stackMedium,
@@ -61,9 +70,10 @@ const Grid = ({
 	swapSmall,
 	swapMedium,
 	swapLarge,
-	gutterSmall = 'x-small',
-	gutterMedium = 'x-small',
-	gutterLarge = 'x-small',
+	gutter = 'x-small',
+	gutterSmall,
+	gutterMedium,
+	gutterLarge,
 	...other
 }) => {
 	/**
@@ -71,13 +81,19 @@ const Grid = ({
 	 */
 	const breakpoint = getBreakpoint(),
 		itemWidthsObj = { itemWidthsSmall, itemWidthsMedium, itemWidthsLarge },
+		blocksObj = { blocksSmall, blocksMedium, blocksLarge },
 		gutterObj = { gutterSmall, gutterMedium, gutterLarge },
 		stackedObj = { stackSmall, stackMedium, stackLarge },
 		swapObj = { swapSmall, swapMedium, swapLarge },
 		widths = itemWidthsObj['itemWidths' + breakpoint]
 			? itemWidthsObj['itemWidths' + breakpoint]
 			: itemWidths,
-		gutter = gutterObj['gutter' + breakpoint],
+		blockGrid = blocksObj['blocks' + breakpoint]
+			? blocksObj['blocks' + breakpoint]
+			: blocks,
+		gutters = gutterObj['gutter' + breakpoint]
+			? gutterObj['gutter' + breakpoint]
+			: gutter,
 		stacked = stackedObj['stack' + breakpoint]
 			? stackedObj['stack' + breakpoint]
 			: stack,
@@ -89,15 +105,12 @@ const Grid = ({
 			'ui-grid',
 			other.classes,
 			stacked && 'stacked',
-			swapped && 'swap'
+			swapped && 'swap',
+			blockGrid && 'block'
 		),
-		gutterStyle = {
-			marginLeft: `var(--ui-${gutter})`,
-			marginRight: `var(--ui-${gutter})`
-		},
 		outterGutterStyle = {
-			marginLeft: `calc(var(--ui-${gutter}) * -1)`,
-			marginRight: `calc(var(--ui-${gutter}) * -1)`
+			marginLeft: `calc(var(--ui-${gutters}) * -1)`,
+			marginRight: `calc(var(--ui-${gutters}) * -1)`
 		};
 
 	/**
@@ -110,7 +123,7 @@ const Grid = ({
 			style={{ ...other.style, ...outterGutterStyle }}
 			tag="div"
 		>
-			{renderGridItems(children, widths, stacked, gutterStyle)}
+			{renderGridItems(children, widths, blockGrid, stacked, gutters)}
 		</Common>
 	);
 };
@@ -125,6 +138,14 @@ Grid.propTypes = {
 	itemWidthsMedium: PropTypes.array,
 	/** Array numbers, describing each element's column count, for large screens */
 	itemWidthsLarge: PropTypes.array,
+	/** Number of "block columns" to repeat for all screen sizes */
+	blocks: PropTypes.number,
+	/** Number of "block columns" to repeat, for small screens */
+	blocksSmall: PropTypes.number,
+	/** Number of "block columns" to repeat, for medium screens */
+	blocksMedium: PropTypes.number,
+	/** Number of "block columns" to repeat, for large screens */
+	blocksLarge: PropTypes.number,
 	/** Changes flex-direction to `column` on all sreen sizes */
 	stack: PropTypes.bool,
 	/** Changes flex-direction to `column` on small screens */
@@ -141,6 +162,8 @@ Grid.propTypes = {
 	swapMedium: PropTypes.bool,
 	/** Changes flex-direction to `reverse-row`/`reverse-column` if stacked on large screens */
 	swapLarge: PropTypes.bool,
+	/** Gutter width for all screen sizes, using named spacing variables */
+	gutter: PropTypes.string,
 	/** Gutter width for small screens, using named spacing variables */
 	gutterSmall: PropTypes.string,
 	/** Gutter width for medium screens, using named spacing variables */
