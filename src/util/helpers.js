@@ -1,7 +1,7 @@
 /**
  * Evaulate the client's inner width and return a breakpoint name
  */
-const largeBreakpoint = 1024,
+const largeBreakpoint = 1025,
 	mediumBreakpoint = 768,
 	viewportWidth = window.innerWidth;
 
