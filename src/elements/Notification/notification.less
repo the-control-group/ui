@@ -22,6 +22,14 @@
 	padding-right: 1.5em;
 	box-shadow: @ui-notification-box-shadow;
 	z-index: @ui-notification-z-index;
+	transition: opacity 200ms, transform 200ms;
+
+	&.ui-notification-appear-active,
+	&.ui-notification-exit-active,
+	&.ui-notification-exit-done {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
 
 	.ui-notification-close {
 		color: @ui-notification-close-color;

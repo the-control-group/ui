@@ -3,6 +3,7 @@ import './notification.less';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 
 import Common from '../Common/Common';
 
@@ -44,13 +45,16 @@ export default class Notification extends Component {
 		);
 
 		return (
-			<Common
-				{...other}
-				classes={combinedClasses}
-				tag="div"
-			>
-				{children}
-				{!timer && <div className="ui-notification-close" onClick={onDismiss} title="Dismiss">&#x00D7;</div>}
-			</Common>);
+			<CSSTransition in timeout={300} appear classNames="ui-notification">
+				<Common
+					{...other}
+					classes={combinedClasses}
+					tag="div"
+				>
+					{children}
+					{!timer && <div className="ui-notification-close" onClick={onDismiss} title="Dismiss">&#x00D7;</div>}
+				</Common>
+			</CSSTransition>
+		);
 	}
 }
