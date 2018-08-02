@@ -11,7 +11,7 @@
 		"docs": "docz build",
 		"build": "webpack --mode production",
 		"test": "eslint src",
-		"prepublish": "npm run build"
+		"prepublishOnly": "npm run build"
 	},
 	"repository": {
 		"type": "git",
@@ -28,6 +28,7 @@
 		"babel-eslint": "^8.2.6",
 		"babel-loader": "^7.1.5",
 		"babel-plugin-react-transform": "^3.0.0",
+		"babel-plugin-transform-class-properties": "^6.24.1",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.7.0",
 		"babel-preset-react": "^6.24.1",
@@ -42,6 +43,7 @@
 		"less": "^3.8.0",
 		"less-loader": "^4.1.0",
 		"less-plugin-autoprefix": "^2.0.0",
+		"less-plugin-clean-css": "^1.5.1",
 		"prop-types": "^15.6.2",
 		"raw-loader": "^0.5.1",
 		"react": "^16.4.1",
