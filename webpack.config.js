@@ -43,7 +43,7 @@ const config = {
 						loader: 'less-loader',
 						options: {
 							plugins: [
-								new LessPluginAutoPrefix({browsers: ['last 2 versions']}),
+								new LessPluginAutoPrefix(),
 								new LessPluginCleanCSS({advanced: true, keepSpecialComments: 0})
 							]
 						}
