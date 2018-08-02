@@ -1,5 +1,4 @@
 import { css } from 'docz-plugin-css';
-import { babel } from 'docz-plugin-babel6';
 
 export default {
 	title: 'PubRec UI',
@@ -29,9 +28,7 @@ export default {
 	},
 	plugins: [
 		css({
-			preprocessor: 'less',
-			cssmodules: true
-		}),
-		babel()
+			preprocessor: 'less'
+		})
 	]
 };
