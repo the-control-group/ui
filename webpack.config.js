@@ -1,6 +1,7 @@
 const path = require('path'),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
-	LessPluginAutoPrefix = require('less-plugin-autoprefix');
+	LessPluginAutoPrefix = require('less-plugin-autoprefix'),
+	LessPluginCleanCSS = require('less-plugin-clean-css');
 
 const config = {
 	resolve: {
@@ -28,7 +29,7 @@ const config = {
 								node: 'current',
 								modules: false
 							}]],
-							plugins: ['transform-object-rest-spread']
+							plugins: ['transform-object-rest-spread', 'transform-class-properties']
 						}
 					}
 				]
@@ -40,7 +41,12 @@ const config = {
 					'css-loader',
 					{
 						loader: 'less-loader',
-						options: {plugins: [new LessPluginAutoPrefix({browsers: ['last 2 versions']})]}
+						options: {
+							plugins: [
+								new LessPluginAutoPrefix({browsers: ['last 2 versions']}),
+								new LessPluginCleanCSS({advanced: true, keepSpecialComments: 0})
+							]
+						}
 					}
 				]
 			},
