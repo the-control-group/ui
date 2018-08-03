@@ -49,12 +49,19 @@
 	 */
 
 	@base-unit: 16px;
+	@ui-xx-small: (@base-unit / 4);
+	@ui-x-small: (@base-unit / 2); // 8
+	@ui-small: @base-unit; // 16
+	@ui-medium: (@base-unit * 1.5); // 24
+	@ui-large: (@base-unit * 2); // 32
+	@ui-x-large: (@base-unit * 3); // 48
+	@ui-xx-large: (@base-unit * 4); // 64
 
-	--ui-xx-small: @base-unit/4; // 4
-	--ui-x-small: @base-unit/2; // 8
-	--ui-small: @base-unit; // 16
-	--ui-medium: @base-unit*1.5; // 24
-	--ui-large: @base-unit*2; // 32
-	--ui-x-large: @base-unit*3; // 48
-	--ui-xx-large: @base-unit*4; // 64
+	--ui-xx-small: @ui-xx-small;
+	--ui-x-small: @ui-x-small;
+	--ui-small: @ui-small;
+	--ui-medium: @ui-medium;
+	--ui-large: @ui-large;
+	--ui-x-large: @ui-x-large;
+	--ui-xx-large: @ui-xx-large;
 }

@@ -1,7 +1,5 @@
 const path = require('path'),
-	CleanWebpackPlugin = require('clean-webpack-plugin'),
-	LessPluginAutoPrefix = require('less-plugin-autoprefix'),
-	LessPluginCleanCSS = require('less-plugin-clean-css');
+	CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const config = {
 	resolve: {
@@ -39,15 +37,8 @@ const config = {
 				use: [
 					'style-loader',
 					'css-loader',
-					{
-						loader: 'less-loader',
-						options: {
-							plugins: [
-								new LessPluginAutoPrefix(),
-								new LessPluginCleanCSS({advanced: true, keepSpecialComments: 0})
-							]
-						}
-					}
+					'postcss-loader',
+					'less-loader'
 				]
 			},
 			{
