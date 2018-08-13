@@ -10,6 +10,8 @@ import classNames from 'classnames';
 
 import { getBreakpoint } from '../../util/helpers';
 
+const dataAttrRegex = /^data-/;
+
 const Common = ({
 	children,
 	classes,
@@ -68,7 +70,7 @@ const Common = ({
 			'value'
 		];
 
-	Object.keys(other).forEach(key => key.startsWith('data-') && attributeValues.push(key));
+	Object.keys(other).forEach(key => dataAttrRegex.test(key) && attributeValues.push(key));
 
 	/**
 	 * Loop through our whitelists add anything that applies
