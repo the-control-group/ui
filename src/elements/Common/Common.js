@@ -74,8 +74,8 @@ const Common = ({
 	 * Loop through our whitelists add anything that applies
 	 * to our style/attribute objects
 	 */
-	Object.entries(styleFlags).forEach(([k, v]) => {
-		if(other[k]) styles = Object.assign(styles, v);
+	Object.keys(styleFlags).forEach(key => {
+		if(other[key]) styles = Object.assign(styles, styleFlags[key]);
 	});
 
 	styleValues.forEach(v => {
