@@ -2,8 +2,6 @@
  * Input
  */
 
-import './input.less';
-
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -36,14 +34,16 @@ const Input = ({
 			<Fragment>
 				<Label>{label}</Label>
 
-				<Common
-					{...other}
-					classes={combinedClasses}
-					tag="select"
-					type={type}
-				>
-					{Object.keys(options).map((keyName, keyIndex) => <option key={keyIndex} value={keyName}>{options[keyName]}</option>)};
-				</Common>
+				<div className="ui-select-wrap">
+					<Common
+						{...other}
+						classes={combinedClasses}
+						tag="select"
+						type={type}
+					>
+						{Object.keys(options).map((keyName, keyIndex) => <option key={keyIndex} value={keyName}>{options[keyName]}</option>)};
+					</Common>
+				</div>
 			</Fragment>
 		);
 	}

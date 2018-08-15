@@ -2,11 +2,11 @@
  * Tabbed Container
  */
 
-@ui-tabbed-container-nav-background: var(--ui-tabbed-container-nav-background, var(--color-blue, DodgerBlue));
-@ui-tabbed-container-nav-item-color: var(--ui-tabbed-container-nav-item-color, var(--color-white, #fff));
-@ui-tabbed-container-nav-item-box-shadow: var(--ui-tabbed-container-nav-item-box-shadow, 0 0 3px fade(#000, 10%));
-@ui-tabbed-container-content-box-shadow: var(--ui-tabbed-container-content-box-shadow, 0 3px 3px fade(#000, 10%));
-@ui-tabbed-container-content-border-radius: var(--ui-tabbed-container-content-border-radius, 0 0 3px 3px);
+@ui-tabbed-container-nav-background: @ui-color-blue;
+@ui-tabbed-container-nav-item-color: @ui-color-white;
+@ui-tabbed-container-nav-item-box-shadow: 0 0 3px fade(#000, 10%);
+@ui-tabbed-container-content-box-shadow: 0 3px 3px fade(#000, 10%);
+@ui-tabbed-container-content-border-radius: 0 0 3px 3px;
 
 .ui-tabs-container {
 	.ui-tabs-nav {
@@ -19,7 +19,7 @@
 			background: @ui-tabbed-container-nav-item-color;
 			border-right: 1px solid @ui-tabbed-container-nav-background;
 			text-align: center;
-			padding: var(--ui-x-small, 8px);
+			padding: @ui-x-small;
 
 			a {
 				color: @ui-tabbed-container-nav-background;
@@ -64,7 +64,7 @@
 			.ui-tab-nav-item {
 				display: inline-block;
 				min-width: 150px;
-				margin-right: var(--ui-x-small, 8px);
+				margin-right: @ui-x-small;
 				box-shadow: @ui-tabbed-container-nav-item-box-shadow;
 				border: none;
 				background: @ui-tabbed-container-nav-background;
@@ -93,7 +93,7 @@
 
 		.ui-tabs-content {
 			position: relative;
-			padding: var(--ui-small, 16px);
+			padding: @ui-small;
 			box-shadow: @ui-tabbed-container-content-box-shadow;
 			background: @ui-tabbed-container-nav-item-color;
 			border-radius: @ui-tabbed-container-content-border-radius;

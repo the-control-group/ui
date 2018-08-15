@@ -2,8 +2,6 @@
  * Drop Down menu
  */
 
-import './drop-down.less';
-
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

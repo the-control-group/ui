@@ -2,8 +2,6 @@
  * Text
  */
 
-import './text.less';
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -34,7 +32,16 @@ const Text = (props) => {
 
 	const combinedClasses = classNames(
 		'ui-text',
-		other.classes
+		other.classes,
+		{
+			smallest,
+			smaller,
+			small,
+			medium,
+			large,
+			larger,
+			largest
+		}
 	);
 
 	const tag = caption
@@ -42,13 +49,6 @@ const Text = (props) => {
 		: 'p';
 
 	const style = {};
-	if(smallest) style.fontSize = 'var(--ui-font-xx-small)';
-	if(smaller) style.fontSize = 'var(--ui-font-x-small)';
-	if(small) style.fontSize = 'var(--ui-font-small)';
-	if(medium) style.fontSize = 'var(--ui-font-medium)';
-	if(large) style.fontSize = 'var(--ui-font-large)';
-	if(larger) style.fontSize = 'var(--ui-font-x-large)';
-	if(largest) style.fontSize = 'var(--ui-font-xx-large)';
 	if(bold) style.fontWeight = '600';
 	if(italic) style.fontStyle = 'italic';
 	if(uppercase) style.textTransform = 'uppercase';

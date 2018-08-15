@@ -1,5 +1,3 @@
-import './tabbed-container.less';
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -65,4 +63,3 @@ TabbedContainer.propTypes = {
 };
 
 export default TabbedContainer;
-

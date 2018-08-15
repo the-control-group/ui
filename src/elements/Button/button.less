@@ -3,28 +3,28 @@
  */
 
 // general variables
-@ui-button-border: var(--ui-button-border, 1px solid transparent);
-@ui-button-border-radius: var(--ui-button-border-radius, 0px);
-@ui-button-font-family: var(--ui-button-font-family, var(--ui-font-sans-serif, sans-serif));
-@ui-button-font-weight: var(--ui-button-font-weight, 600);
-@ui-button-font-size: var(--ui-button-font-size, var(--ui-font-x-small, 0.9em));
-@ui-button-text-transform: var(--ui-button-text-transform, uppercase);
-@ui-button-letter-spacing: var(--ui-button-letter-spacing, 0.5px);
-@ui-button-padding: var(--ui-button-padding, var(--ui-small, 16px));
-@ui-button-transition: var(--ui-button-transition, 0.15s background-color, 0.15s border-color, 0.15s color);
+@ui-button-border: 1px solid transparent;
+@ui-button-border-radius: 0px;
+@ui-button-font-family: @ui-font-sans-serif;
+@ui-button-font-weight: 600;
+@ui-button-font-size: @ui-font-x-small;
+@ui-button-text-transform: uppercase;
+@ui-button-letter-spacing: 0.5px;
+@ui-button-padding: 1em;
+@ui-button-transition: 150ms background-color, 150ms border-color, 150ms color;
 
 // primary button variables
-@ui-button-color: var(--ui-button-color, var(--ui-color-gray-dark, #919191));
-@ui-button-color-focus: var(--ui-button-color-focus, var(--ui-color-gray-darker, #3E3E3E));
-@ui-button-color-active: var(--ui-button-color-active, var(--ui-color-gray-darkest, #222222));
-@ui-button-font-color: var(--ui-button-font-color, var(--ui-color-white, #ffffff));
+@ui-button-color: @ui-color-gray-dark;
+@ui-button-color-focus: @ui-color-gray-darker;
+@ui-button-color-active: @ui-color-gray-darkest;
+@ui-button-font-color: @ui-color-white;
 
 // secondary button variables
-@ui-button-secondary-color: var(--ui-button-secondary-color, var(--ui-color-gray-dark, #919191));
-@ui-button-secondary-color-focus: var(--ui-button-secondary-color-focus, var(--ui-color-gray-darker, #3E3E3E));
-@ui-button-secondary-color-active: var(--ui-button-secondary-color-active, var(--ui-color-gray-darkest, #222222));
-@ui-button-secondary-border: var(--ui-button-secondary-border, 1px solid transparent);
-@ui-button-secondary-font-color: var(--ui-button-secondary-font-color, var(--ui-color-white, #ffffff));
+@ui-button-secondary-color: @ui-color-gray-dark;
+@ui-button-secondary-color-focus: @ui-color-gray-darker;
+@ui-button-secondary-color-active: @ui-color-gray-darkest;
+@ui-button-secondary-border: 1px solid transparent;
+@ui-button-secondary-font-color: @ui-color-white;
 
 .ui-button {
 	display: inline-block;
@@ -109,7 +109,7 @@
 
 	&.mini {
 		min-width: 7em;
-		padding: var(--ui-x-small);
+		padding: @ui-x-small;
 	}
 
 	// states
