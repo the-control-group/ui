@@ -34,14 +34,16 @@ const Input = ({
 			<Fragment>
 				<Label>{label}</Label>
 
-				<Common
-					{...other}
-					classes={combinedClasses}
-					tag="select"
-					type={type}
-				>
-					{Object.keys(options).map((keyName, keyIndex) => <option key={keyIndex} value={keyName}>{options[keyName]}</option>)};
-				</Common>
+				<div className="ui-select-wrap">
+					<Common
+						{...other}
+						classes={combinedClasses}
+						tag="select"
+						type={type}
+					>
+						{Object.keys(options).map((keyName, keyIndex) => <option key={keyIndex} value={keyName}>{options[keyName]}</option>)};
+					</Common>
+				</div>
 			</Fragment>
 		);
 	}

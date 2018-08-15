@@ -16,8 +16,7 @@
 @ui-input-background: @ui-color-white;
 
 @ui-input-select-padding: @ui-small @ui-large @ui-small @ui-x-small;
-@ui-input-select-background: @ui-color-white url('../../img/arrow-down.svg') no-repeat right .5em center;
-@ui-input-select-background-size: .75em;
+@ui-input-select-background: @ui-color-white;
 
 @ui-input-label-font-weight: 500;
 @ui-input-label-font-size: .8em;
@@ -61,10 +60,25 @@
 	select& {
 		padding: @ui-input-select-padding;
 		background: @ui-input-select-background;
-		background-size: @ui-input-select-background-size;
 	}
 
 	&::placeholder {
 		color: @ui-input-placeholder-color;
+	}
+}
+
+.ui-select-wrap {
+	position: relative;
+
+	&:after {
+		content: '';
+		position: absolute;
+		display: block;
+		pointer-events: none;
+		border: 6px solid transparent;
+		border-top-color: @ui-color-black;
+		right: 0.75em;
+		top: 50%;
+		margin-top: -3px;
 	}
 }
