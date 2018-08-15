@@ -42,18 +42,18 @@ const Common = ({
 			floatRight: { float: 'right' },
 			floatLeft: { float: 'left' }
 		},
-		styleValues = [
-			'padding',
-			'paddingTop',
-			'paddingBottom',
-			'paddingLeft',
-			'paddingRight',
-			'margin',
-			'marginTop',
-			'marginBottom',
-			'marginLeft',
-			'marginRight'
-		],
+		styleValues = {
+			padding: 'padding',
+			paddingTop: 'padding-top',
+			paddingBottom: 'padding-bottom',
+			paddingLeft: 'padding-left',
+			paddingRight: 'padding-right',
+			margin: 'margin',
+			marginTop: 'margin-top',
+			marginBottom: 'margin-bottom',
+			marginLeft: 'margin-left',
+			marginRight: 'margin-right'
+		},
 		attributeValues = [
 			'id',
 			'disabled',
@@ -77,11 +77,12 @@ const Common = ({
 	 * to our style/attribute objects
 	 */
 	Object.keys(styleFlags).forEach(key => {
-		if(other[key]) styles = Object.assign(styles, styleFlags[key]);
+		if(other[key]) styles = {...styles, ...styleFlags[key]};
 	});
 
-	styleValues.forEach(v => {
-		if(other[v]) styles[v] = `var(--ui-${other[v]})`;
+	const styleClasses = [];
+	Object.keys(styleValues).forEach(key => {
+		if(other[key]) styleClasses.push(`common-${styleValues[key]}-${other[key]}`);
 	});
 
 	attributeValues.forEach(v => {
@@ -91,7 +92,8 @@ const Common = ({
 	const combinedClasses = classNames(
 		classes,
 		other['classes' + getBreakpoint()],
-		other.className
+		other.className,
+		styleClasses
 	);
 
 	return (

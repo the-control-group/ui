@@ -2,8 +2,6 @@
  * Grid
  */
 
-import './grid.less';
-
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -25,19 +23,19 @@ const renderGridItems = (items, widths = [], blocks, stacked, gutter) => (
 		const classes = classNames(
 				'ui-grid-item',
 				child.props.className,
+				`gutter-${gutter}`,
 				{
 					'center-y': child.props.centerY,
 					bottom: child.props.bottom
 				}
 			),
 			style = {
-				...child.props.style,
-				marginLeft: `var(--ui-${gutter})`,
-				marginRight: `var(--ui-${gutter})`
+				...child.props.style
 			};
 
 		if(blocks) {
-			style.flex = `0 0 calc(${100 / blocks}% - var(--ui-${gutter})*2)`;
+			// margins plus extra percent ensures that only the desired number of blocks will be placed on the line
+			style.flex = `0 0 ${100 / blocks}%`;
 		} else if(!stacked) {
 			style.flex = `${colSize} 1 0`;
 		}
@@ -102,16 +100,15 @@ const Grid = ({
 			: swap;
 
 	const combinedClasses = classNames(
-			'ui-grid',
-			other.classes,
-			stacked && 'stacked',
-			swapped && 'swap',
-			blockGrid && 'block'
-		),
-		outterGutterStyle = {
-			marginLeft: `calc(var(--ui-${gutters}) * -1)`,
-			marginRight: `calc(var(--ui-${gutters}) * -1)`
-		};
+		'ui-grid',
+		`outer-gutter-${gutters}`,
+		other.classes,
+		{
+			swap: swapped,
+			block: blockGrid,
+			stacked
+		}
+	);
 
 	/**
 	 * Render the grid items (`renderGridItems` defined below)
@@ -120,7 +117,7 @@ const Grid = ({
 		<Common
 			{...other}
 			classes={combinedClasses}
-			style={{ ...other.style, ...outterGutterStyle }}
+			style={{ ...other.style }}
 			tag="div"
 		>
 			{renderGridItems(children, widths, blockGrid, stacked, gutters)}

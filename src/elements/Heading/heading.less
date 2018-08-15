@@ -3,11 +3,11 @@
  */
 
 // general variables
-@ui-heading-font-family: var(--ui-heading-font-family, var(--ui-font-sans-serif, sans-serif));
-@ui-heading-paragraph-margin: var(--ui-heading-paragraph-margin, 0 0 var(--ui-small, 16px));
-@ui-heading-letter-spacing: var(--ui-heading-letter-spacing, 0);
-@ui-heading-color: var(--ui-heading-color, var(--ui-color-black, #000000));
-@ui-heading-base-margin: var(--ui-heading-base-margin, var(--ui-small, 16px));
+@ui-heading-font-family: @ui-font-sans-serif;
+@ui-heading-paragraph-margin: 0 0 @ui-small;
+@ui-heading-letter-spacing: 0;
+@ui-heading-color: @ui-color-black;
+@ui-heading-base-margin: @ui-small;
 
 .ui-heading {
 	// general text styles
@@ -48,6 +48,6 @@
 		font-size: 0.9em;
 		font-weight: 700;
 		text-transform: uppercase;
-		color: var(--ui-color-gray-medium);
+		color: @ui-color-gray-medium;
 	}
 }

@@ -3,20 +3,20 @@
  */
 
 // general variables
-@ui-list-font-family: var(--ui-list-font-family, var(--ui-font-sans-serif, sans-serif));
-@ui-list-font-weight: var(--ui-list-font-weight, 500);
-@ui-list-font-size: var(--ui-list-font-size, var(--ui-font-x-small, 1em));
-@ui-list-text-transform: var(--ui-list-text-transform, none);
-@ui-list-letter-spacing: var(--ui-list-letter-spacing, 0.5px);
-@ui-list-padding: var(--ui-list-padding, var(--ui-small, 16px));
+@ui-list-font-family: @ui-font-sans-serif;
+@ui-list-font-weight: 500;
+@ui-list-font-size: @ui-font-x-small;
+@ui-list-text-transform: none;
+@ui-list-letter-spacing: 0.5px;
+@ui-list-padding: @ui-small;
 
 // bare list variables
-@ui-list-bare-padding: var(--ui-list-bare-padding, 0);
-@ui-list-item-bare-list-style: var(--ui-list-item-bare-list-style, none);
+@ui-list-bare-padding: 0;
+@ui-list-item-bare-list-style: none;
 
 // inline list variables
-@ui-list-inline-padding: var(--ui-list-inline-padding, 0);
-@ui-list-item-inline-margin: var(--ui-list-item-inline-margin, 0 var(--ui-large, 2em) 0 0);
+@ui-list-inline-padding: 0;
+@ui-list-item-inline-margin: 0 @ui-large 0 0;
 
 .ui-list {
 	font-family: @ui-list-font-family;
