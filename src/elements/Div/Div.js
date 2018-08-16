@@ -35,7 +35,7 @@ const Div = ({
 };
 
 Div.propTypes = {
-	children: PropTypes.node.isRequired,
+	children: PropTypes.node,
 	/** Creates a 3D card style */
 	card: PropTypes.bool,
 	/** Creates a subsection with bolder seperation styles */
