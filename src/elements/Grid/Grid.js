@@ -16,9 +16,7 @@ const renderGridItems = (items, widths = [], blocks, stacked, gutter) => (
 	Children.map(items, (child, i) => {
 		if(!child) return null;
 
-		const colSize = widths[i]
-			? widths[i]
-			: 1;
+		const colSize = widths[i] || 1;
 
 		const classes = classNames(
 				'ui-grid-item',
@@ -36,8 +34,10 @@ const renderGridItems = (items, widths = [], blocks, stacked, gutter) => (
 		if(blocks) {
 			// margins plus extra percent ensures that only the desired number of blocks will be placed on the line
 			style.flex = `0 0 ${100 / blocks}%`;
+			style.maxWidth = `${100 / blocks}%`;
 		} else if(!stacked) {
-			style.flex = `${colSize} 1 0`;
+			// style.flex = `${colSize} 1 0`;
+			style.flexGrow = colSize;
 		}
 
 		return cloneElement(child, {
