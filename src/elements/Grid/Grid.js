@@ -36,7 +36,6 @@ const renderGridItems = (items, widths = [], blocks, stacked, gutter) => (
 			style.flex = `0 0 ${100 / blocks}%`;
 			style.maxWidth = `${100 / blocks}%`;
 		} else if(!stacked) {
-			// style.flex = `${colSize} 1 0`;
 			style.flexGrow = colSize;
 		}
 
