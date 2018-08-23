@@ -1,4 +1,6 @@
 export { default as Grid } from './elements/Grid/Grid';
+export { default as FlexRow } from './elements/FlexRow/FlexRow';
+export { default as Flex } from './elements/Flex/Flex';
 export { default as Div } from './elements/Div/Div';
 export { default as Button } from './elements/Button/Button';
 export { default as Input } from './elements/Input/Input';
