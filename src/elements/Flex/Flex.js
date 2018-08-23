@@ -22,9 +22,6 @@ const Flex = ({ children, max, fixed, centerY, ...other }) => {
 		style.flexBasis = Number(fixed);
 	}
 
-	/**
-	 * Render the grid items (`renderGridItems` defined below)
-	 */
 	return (
 		<Common
 			{...other}

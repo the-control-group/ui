@@ -5,10 +5,12 @@ import classNames from 'classnames';
 import { getBreakpoint, numberLikeProp } from '../../util/helpers';
 import Common from '../Common/Common';
 
-const FlexRow = ({ children, breakMedium, breakSmall, breakCustom, gutter = 'none', ...other }) => {
+const FlexRow = ({ children, breakMedium, breakSmall, breakCustom, gutter, ...other }) => {
 	const combinedClasses = classNames(
 			'ui-flex-row',
-			`gutter-${gutter}`,
+			{
+				[`gutter-${gutter}`]: gutter
+			},
 			other.classes
 		),
 		breakpoint = getBreakpoint(),
@@ -26,9 +28,6 @@ const FlexRow = ({ children, breakMedium, breakSmall, breakCustom, gutter = 'non
 
 	if(breakCustom && window.innerWidth <= Number(breakCustom)) style.display = 'block';
 
-	/**
-	 * Render the grid items (`renderGridItems` defined below)
-	 */
 	return (
 		<Common
 			{...other}
