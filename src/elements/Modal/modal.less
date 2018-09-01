@@ -7,8 +7,14 @@
 	right: 0;
 	bottom: 0;
 	background-color: black;
-	opacity: .8;
+	opacity: 0;
 	z-index: 90000;
+	transition: opacity 200ms;
+	will-change: opacity;
+
+	&.enter-done {
+		opacity: .8;
+	}
 }
 
 .ui-modal {
@@ -16,12 +22,25 @@
 	max-width: 43.75em; /* 700/16 */
 	top: 7.5em; /* 120/16 */
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translate(-50%, -50%);
 	background: white;
 	z-index: 99999;
 	border-radius: 4px;
 	box-shadow: 2px 3px 9px -2px #666;
 	padding: 1em;
+	opacity: 0;
+	transition: opacity 200ms, transform 250ms;
+	will-change: opacity, transform;
+
+	&.enter-done {
+		transform: translate(-50%);
+		opacity: 1;
+
+		&.exit {
+			opacity: 0;
+			transform: translate(-50%, 150%);
+		}
+	}
 
 	.ui-modal-close {
 		color: @ui-modal-close-color;

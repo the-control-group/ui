@@ -5,6 +5,46 @@ import modalContext from '../../util/modalContext';
 
 const { Provider } = modalContext;
 
+class ModalOverlay extends Component {
+	static propTypes = {
+		show: PropTypes.bool,
+		attemptDismiss: PropTypes.func.isRequired,
+		modalRoot: PropTypes.instanceOf(window.Element).isRequired
+	};
+
+	constructor(props) {
+		super(props);
+
+		this.overlay = React.createRef();
+
+		this.state = {
+			overlayVisible: false
+		};
+	}
+
+	componentDidUpdate(prevProps) {
+		if(!prevProps.show && this.props.show) {
+			this.setState({overlayVisible: true}, () => window.requestAnimationFrame(() => this.overlay.current.classList.add('enter-done')));
+		}
+
+		if(prevProps.show && !this.props.show) {
+			this.overlay.current.classList.remove('enter-done');
+			setTimeout(() => this.setState({overlayVisible: false}), 200);
+		}
+	}
+
+	render() {
+		const { attemptDismiss, modalRoot } = this.props;
+
+		if(!this.state.overlayVisible) return null;
+
+		return createPortal(
+			<div className="ui-modal-overlay" onClick={attemptDismiss} ref={this.overlay} />,
+			modalRoot
+		);
+	}
+}
+
 export default class ModalProvider extends Component {
 	static propTypes = {
 		children: PropTypes.node.isRequired
@@ -31,9 +71,11 @@ export default class ModalProvider extends Component {
 				this.#modalQueue.delete(modal);
 
 				// If the current modal was the one removed, switch to the next modal in line or null
-				if(this.state.currentModal === modal) this.setState({
-					currentModal: this.#modalQueue.values().next().value || null
-				});
+				if(this.state.currentModal === modal) {
+					setTimeout(() => this.setState({
+						currentModal: this.#modalQueue.values().next().value || null
+					}), 200);
+				}
 			},
 			currentModal: null,
 			modalRoot: this.modalRoot
@@ -70,10 +112,7 @@ export default class ModalProvider extends Component {
 
 		return (
 			<Provider value={this.state}>
-				{currentModal && createPortal(
-					<div className="ui-modal-overlay" onClick={this.attemptDismiss} />,
-					this.modalRoot
-				)}
+				<ModalOverlay show={!!currentModal} attemptDismiss={this.attemptDismiss} modalRoot={this.modalRoot} />
 				{children}
 			</Provider>
 		);

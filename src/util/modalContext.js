@@ -1,6 +1,8 @@
 import { createContext } from 'react';
 
 export default createContext({
-	queueModal: () => {},
-	currentModal: ''
+	enqueueModal: () => {},
+	dequeueModal: () => {},
+	currentModal: '',
+	modalRoot: document.body
 });
