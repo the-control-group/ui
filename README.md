@@ -1,3 +1,5 @@
+[![npm (scoped)](https://img.shields.io/npm/v/@the-control-group/ui.svg?style=flat-square)](https://www.npmjs.com/package/@the-control-group/ui)
+
 # ui
 UI kit for pubrec products, built on React
 
