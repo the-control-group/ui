@@ -11,6 +11,8 @@ export { default as TabbedContainer } from './elements/TabbedContainer/TabbedCon
 export { default as TabContent } from './elements/TabContent/TabContent';
 export { default as DropDown } from './elements/DropDown/DropDown';
 export { default as Notification } from './elements/Notification/Notification';
+export { default as Modal } from './elements/Modal/Modal';
+export { default as ModalProvider } from './elements/ModalProvider/ModalProvider';
 
 export { getBreakpoint } from './util/helpers';
 export { isMobile } from './util/helpers';
