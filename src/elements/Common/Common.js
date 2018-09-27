@@ -86,7 +86,10 @@ const Common = ({
 	});
 
 	attributeValues.forEach(v => {
-		if(other[v]) attributes[v] = other[v];
+		// If the "value" attribute is present, it should be added regardless of truthiness
+		if(other[v] || (v === 'value' && other.hasOwnProperty('value'))) {
+			attributes[v] = other[v];
+		}
 	});
 
 	const combinedClasses = classNames(
