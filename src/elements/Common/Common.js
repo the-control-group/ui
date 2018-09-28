@@ -67,7 +67,8 @@ const Common = ({
 			'onSubmit',
 			'onScroll',
 			'name',
-			'value'
+			'value',
+			'maxLength'
 		];
 
 	Object.keys(other).forEach(key => dataAttrRegex.test(key) && attributeValues.push(key));
