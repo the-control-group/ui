@@ -68,7 +68,7 @@ const Common = ({
 			'onScroll',
 			'name',
 			'value',
-			'maxLength'
+			'maxlength'
 		];
 
 	Object.keys(other).forEach(key => dataAttrRegex.test(key) && attributeValues.push(key));
