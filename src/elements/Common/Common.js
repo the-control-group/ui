@@ -69,9 +69,11 @@ const Common = ({
 			'name',
 			'value',
 			'maxlength',
-			'autocomplete',
+			'autoComplete',
 			'onMouseEnter',
-			'onMouseLeave'
+			'onMouseLeave',
+			'onMouseDown',
+			'onMouseUp'
 		];
 
 	Object.keys(other).forEach(key => dataAttrRegex.test(key) && attributeValues.push(key));
