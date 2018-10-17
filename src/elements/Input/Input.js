@@ -18,6 +18,7 @@ const Label = ({ children, htmlFor }) => (
 		{children}
 	</Common>
 );
+/* eslint-enable */
 
 const Input = ({
 	type,
