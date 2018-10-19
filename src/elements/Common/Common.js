@@ -68,6 +68,8 @@ const Common = ({
 			'onScroll',
 			'name',
 			'value',
+			'htmlFor',
+			'hidden',
 			'maxLength',
 			'autoComplete',
 			'onMouseEnter',

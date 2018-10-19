@@ -8,15 +8,17 @@ import classNames from 'classnames';
 
 import Common from '../Common/Common';
 
-const Label = ({ children }) => (
+/* eslint-disable react/prop-types */
+const Label = ({ children, htmlFor }) => (
 	<Common
 		tag="label"
 		className="ui-input-label"
+		htmlFor={htmlFor}
 	>
 		{children}
 	</Common>
 );
-
+/* eslint-enable */
 
 const Input = ({
 	type,
@@ -32,7 +34,11 @@ const Input = ({
 	if(type === 'select') {
 		return (
 			<Fragment>
-				<Label>{label}</Label>
+				{label &&
+					<Label htmlFor={other.id}>
+						{label}
+					</Label>
+				}
 
 				<div className="ui-select-wrap">
 					<Common
@@ -50,7 +56,11 @@ const Input = ({
 
 	return (
 		<Fragment>
-			<Label>{label}</Label>
+			{label &&
+				<Label htmlFor={other.id}>
+					{label}
+				</Label>
+			}
 
 			<Common
 				{...other}
@@ -70,7 +80,10 @@ Input.propTypes = {
 	/** HTML DOM attribute */
 	type: PropTypes.string,
 	/** Text label for input */
-	label: PropTypes.string,
+	label: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.object
+	]),
 	/** Placeholder for input */
 	placeholder: PropTypes.string,
 	/** Object of options for type of `select` */
