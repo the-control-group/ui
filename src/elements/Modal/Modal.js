@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import modalContext from '../../util/modalContext';
+import { isMobile } from '../../util/helpers';
 
 const { Consumer } = modalContext;
 
@@ -18,7 +19,7 @@ class Modal extends Component {
 		modalRoot: PropTypes.instanceOf(window.Element).isRequired,
 		className: PropTypes.string,
 		dismissible: PropTypes.bool,
-		full: PropTypes.bool
+		fullScreen: PropTypes.bool
 	};
 
 	constructor(props) {
@@ -59,7 +60,7 @@ class Modal extends Component {
 			dismissible,
 			modalRoot,
 			className,
-			full
+			fullScreen
 		} = this.props;
 
 		if(!this.state.modalVisible) return null;
@@ -68,7 +69,7 @@ class Modal extends Component {
 			'ui-modal',
 			className,
 			{
-				full
+				fullScreen: fullScreen && isMobile()
 			}
 		);
 

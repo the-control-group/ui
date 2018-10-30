@@ -17,14 +17,13 @@ const Button = ({
 	full,
 	outline,
 	bare,
-	text,
 	secondary,
 	...other
 }) => {
 	const style = outline ? 'outline' : bare ? 'bare' : 'standard';
 
 	const combinedClasses = classNames(
-		text ? 'ui-button-text' : 'ui-button',
+		'ui-button',
 		other.classes,
 		secondary ? 'secondary' : 'primary',
 		style,
