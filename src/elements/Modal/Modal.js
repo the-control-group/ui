@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import modalContext from '../../util/modalContext';
+import { isMobile } from '../../util/helpers';
 
 const { Consumer } = modalContext;
 
@@ -17,7 +18,8 @@ class Modal extends Component {
 		dequeueModal: PropTypes.func.isRequired,
 		modalRoot: PropTypes.instanceOf(window.Element).isRequired,
 		className: PropTypes.string,
-		dismissible: PropTypes.bool
+		dismissible: PropTypes.bool,
+		fullScreen: PropTypes.bool
 	};
 
 	constructor(props) {
@@ -57,14 +59,18 @@ class Modal extends Component {
 			onDismiss,
 			dismissible,
 			modalRoot,
-			className
+			className,
+			fullScreen
 		} = this.props;
 
 		if(!this.state.modalVisible) return null;
 
 		const combinedClasses = classNames(
 			'ui-modal',
-			className
+			className,
+			{
+				fullScreen: fullScreen && isMobile()
+			}
 		);
 
 		return createPortal(

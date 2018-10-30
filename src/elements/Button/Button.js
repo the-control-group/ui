@@ -61,6 +61,8 @@ Button.propTypes = {
 	outline: PropTypes.bool,
 	/** Bare style */
 	bare: PropTypes.bool,
+	/** Text button styles */
+	text: PropTypes.bool,
 	/** Secondary button styles */
 	secondary: PropTypes.bool
 };

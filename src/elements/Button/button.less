@@ -30,9 +30,6 @@
 	display: inline-block;
 	padding: @ui-button-padding;
 
-	border-radius: @ui-button-border-radius;
-	outline: none;
-
 	font-family: @ui-button-font-family;
 	font-weight: @ui-button-font-weight;
 	font-size: @ui-button-font-size;
@@ -41,13 +38,14 @@
 
 	transition: @ui-button-transition;
 	cursor: pointer;
+	outline: none;
 
 	// color scheme for button types
-	&.primary {
+	&.primary:not(.bare) {
 		border: @ui-button-border;
 		background-color: @ui-button-color;
 		border-color: @ui-button-color;
-		color: @ui-button-color;
+		color: @ui-button-font-color;
 
 		&:hover,
 		&:focus,
@@ -63,11 +61,10 @@
 		}
 	}
 
-	&.secondary {
+	&.secondary:not(.bare) {
 		border: @ui-button-secondary-border;
 		background-color: @ui-button-secondary-color;
 		border-color: @ui-button-secondary-color;
-		color: @ui-button-secondary-color;
 
 		&:hover,
 		&:focus,
@@ -97,8 +94,37 @@
 	}
 
 	&.bare {
-		background-color: transparent;
-		border-color: transparent;
+		padding: 0;
+		border: none;
+		background: none;
+
+		&.primary {
+			color: @ui-button-color;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: @ui-button-color-focus;
+			}
+
+			&:active {
+				color: @ui-button-color-active;
+			}
+		}
+
+		&.secondary {
+			color: @ui-button-secondary-color;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: @ui-button-secondary-color-focus;
+			}
+
+			&:active {
+				color: @ui-button-secondary-color-active;
+			}
+		}
 	}
 
 	// sizes
