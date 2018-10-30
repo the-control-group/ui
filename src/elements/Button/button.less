@@ -26,11 +26,8 @@
 @ui-button-secondary-border: 1px solid transparent;
 @ui-button-secondary-font-color: @ui-color-white;
 
-.ui-button {
+.button-common {
 	display: inline-block;
-	padding: @ui-button-padding;
-
-	border-radius: @ui-button-border-radius;
 	outline: none;
 
 	font-family: @ui-button-font-family;
@@ -41,6 +38,46 @@
 
 	transition: @ui-button-transition;
 	cursor: pointer;
+}
+
+.ui-button-text {
+	.button-common();
+	padding: 0;
+	border: none;
+	background: none;
+
+	&.primary {
+		color: @ui-button-color;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: @ui-button-color-focus;
+		}
+
+		&:active {
+			color: @ui-button-color-active;
+		}
+	}
+
+	&.secondary {
+		color: @ui-button-secondary-color;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: @ui-button-secondary-color-focus;
+		}
+
+		&:active {
+			color: @ui-button-secondary-color-active;
+		}
+	}
+}
+
+.ui-button {
+	.button-common();
+	padding: @ui-button-padding;
 
 	// color scheme for button types
 	&.primary {

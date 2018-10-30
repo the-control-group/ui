@@ -37,16 +37,7 @@
 	will-change: opacity, transform;
 	overflow-y: scroll;
 
-	@media (max-width: @break-medium - 1) {
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		transform: scale(0);
-		transform-origin: 50% 50%;
-	}
-
-	@media (min-width: @break-medium) {
+	&:not(.full) {
 		max-width: @ui-modal-max-width;
 		max-height: calc(100% - @ui-modal-top * 2);
 		top: @ui-modal-top;
@@ -56,17 +47,26 @@
 		box-shadow: @ui-modal-box-shadow;
 	}
 
+	&.full {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transform: scale(0);
+		transform-origin: 50% 50%;
+	}
+
 	&.enter-done {
 		opacity: 1;
 
-		@media (max-width: @break-medium - 1) {
+		&.full {
 			transform: none;
 		}
 
 		&.exit {
 			opacity: 0;
 
-			@media (max-width: @break-medium - 1) {
+			&.full {
 				transform: scale(0);
 			}
 		}
@@ -80,10 +80,10 @@
 		font-size: 20px;
 		cursor: pointer;
 		user-select: none;
+	}
 
-		@media (max-width: @break-medium - 1) {
-			font-size: 32px;
-			right: 0.75em;
-		}
+	&.ui-modal-close.full {
+		font-size: 32px;
+		right: 0.75em;
 	}
 }

@@ -17,7 +17,8 @@ class Modal extends Component {
 		dequeueModal: PropTypes.func.isRequired,
 		modalRoot: PropTypes.instanceOf(window.Element).isRequired,
 		className: PropTypes.string,
-		dismissible: PropTypes.bool
+		dismissible: PropTypes.bool,
+		full: PropTypes.bool
 	};
 
 	constructor(props) {
@@ -57,14 +58,18 @@ class Modal extends Component {
 			onDismiss,
 			dismissible,
 			modalRoot,
-			className
+			className,
+			full
 		} = this.props;
 
 		if(!this.state.modalVisible) return null;
 
 		const combinedClasses = classNames(
 			'ui-modal',
-			className
+			className,
+			{
+				full
+			}
 		);
 
 		return createPortal(
