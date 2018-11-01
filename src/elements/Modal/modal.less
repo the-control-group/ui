@@ -37,7 +37,7 @@
 	will-change: opacity, transform;
 	overflow-y: scroll;
 
-	&:not(.full) {
+	&:not(.fullScreen) {
 		max-width: @ui-modal-max-width;
 		max-height: calc(100% - @ui-modal-top * 2);
 		top: @ui-modal-top;
@@ -47,7 +47,7 @@
 		box-shadow: @ui-modal-box-shadow;
 	}
 
-	&.full {
+	&.fullScreen {
 		top: 0;
 		left: 0;
 		right: 0;
@@ -59,14 +59,14 @@
 	&.enter-done {
 		opacity: 1;
 
-		&.full {
+		&.fullScreen {
 			transform: none;
 		}
 
 		&.exit {
 			opacity: 0;
 
-			&.full {
+			&.fullScreen {
 				transform: scale(0);
 			}
 		}
@@ -82,7 +82,7 @@
 		user-select: none;
 	}
 
-	&.ui-modal-close.full {
+	&.ui-modal-close.fullScreen {
 		font-size: 32px;
 		right: 0.75em;
 	}
