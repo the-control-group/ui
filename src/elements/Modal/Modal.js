@@ -69,7 +69,7 @@ class Modal extends Component {
 			'ui-modal',
 			className,
 			{
-				fullScreen: fullScreen && isMobile()
+				'full-screen': fullScreen && isMobile()
 			}
 		);
 
