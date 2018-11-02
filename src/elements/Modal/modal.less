@@ -9,6 +9,7 @@
 @ui-modal-overlay-background: @ui-color-black;
 @ui-modal-overlay-opacity: .8;
 @ui-modal-overlay-z-index: 90000;
+@ui-modal-fullscreen-margin: 2em;
 
 .ui-modal-overlay {
 	position: fixed;
@@ -36,8 +37,9 @@
 	transition: opacity 200ms, transform 250ms;
 	will-change: opacity, transform;
 	overflow-y: scroll;
+	width: calc(100% - @ui-modal-fullscreen-margin * 2);
 
-	&:not(.full) {
+	&:not(.full-screen) {
 		max-width: @ui-modal-max-width;
 		max-height: calc(100% - @ui-modal-top * 2);
 		top: @ui-modal-top;
@@ -47,7 +49,8 @@
 		box-shadow: @ui-modal-box-shadow;
 	}
 
-	&.full {
+	&.full-screen {
+		width: 100%;
 		top: 0;
 		left: 0;
 		right: 0;
@@ -59,14 +62,14 @@
 	&.enter-done {
 		opacity: 1;
 
-		&.full {
+		&.full-screen {
 			transform: none;
 		}
 
 		&.exit {
 			opacity: 0;
 
-			&.full {
+			&.full-screen {
 				transform: scale(0);
 			}
 		}
@@ -82,7 +85,7 @@
 		user-select: none;
 	}
 
-	&.ui-modal-close.full {
+	&.ui-modal-close.full-screen {
 		font-size: 32px;
 		right: 0.75em;
 	}
