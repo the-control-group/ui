@@ -24,11 +24,15 @@ const Input = ({
 	type,
 	label,
 	options = {},
+	bare,
 	...other
 }) => {
 	const combinedClasses = classNames(
 		'ui-input',
-		other.classes
+		other.classes,
+		{
+			bare
+		}
 	);
 
 	if(type === 'select') {
@@ -40,7 +44,7 @@ const Input = ({
 					</Label>
 				}
 
-				<div className="ui-select-wrap">
+				<div className={classNames('ui-select-wrap', { bare })}>
 					<Common
 						{...other}
 						classes={combinedClasses}
@@ -84,6 +88,7 @@ Input.propTypes = {
 		PropTypes.string,
 		PropTypes.object
 	]),
+	bare: PropTypes.bool,
 	/** Placeholder for input */
 	placeholder: PropTypes.string,
 	/** Object of options for type of `select` */

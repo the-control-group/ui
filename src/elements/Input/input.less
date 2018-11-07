@@ -65,6 +65,15 @@
 	&::placeholder {
 		color: @ui-input-placeholder-color;
 	}
+
+	&.bare {
+		border: none;
+		background-color: transparent;
+
+		&:focus {
+			border: none;
+		}
+	}
 }
 
 .ui-select-wrap {
@@ -80,5 +89,9 @@
 		right: 0.75em;
 		top: 50%;
 		margin-top: -3px;
+	}
+
+	&.bare:after {
+		display: none;
 	}
 }
