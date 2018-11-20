@@ -1,0 +1,84 @@
+/**
+ * toggle styles
+ */
+
+// general variables
+@ui-toggle-border: 1px solid transparent;
+@ui-toggle-border-radius: 15px;
+@ui-toggle-font-family: @ui-font-sans-serif;
+@ui-toggle-font-weight: 700;
+@ui-toggle-font-size: @ui-font-x-small;
+@ui-toggle-text-transform: uppercase;
+@ui-toggle-letter-spacing: 0.5px;
+@ui-toggle-padding: .1em;
+
+// primary toggle variables
+@ui-toggle-color: @ui-color-gray-dark;
+@ui-toggle-color-focus: @ui-color-gray-darker;
+@ui-toggle-color-active: @ui-color-gray-darkest;
+@ui-toggle-font-color: @ui-color-white;
+
+.ui-toggle {
+	display: inline-block;
+	padding: @ui-toggle-padding;
+
+	border-radius: @ui-toggle-border-radius;
+	outline: none;
+
+	font-family: @ui-toggle-font-family;
+	font-weight: @ui-toggle-font-weight;
+	font-size: @ui-toggle-font-size;
+	text-transform: @ui-toggle-text-transform;
+	letter-spacing: @ui-toggle-letter-spacing;
+
+	text-align: center;
+
+	cursor: pointer;
+
+	position: relative;
+
+	width: 68px;
+
+	background-color: @ui-color-gray-light;
+
+	&:before {
+		display: block;
+    	content: "OFF";
+		text-indent: 23px;
+    }
+
+	&:after {
+		display: block;
+	    content: " ";
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    margin-top: auto;
+	    margin-bottom: auto;
+	    background: @ui-color-gray-lighter;
+	    width: 26px;
+	    height: 26px;
+	    border-radius: 100%;
+	    box-shadow: 0 2px 1.96px 0.04px rgba(0,0,0,.2);
+	    transition: left .2s ease-in-out, background .1s ease-in-out;
+	}
+
+	&.loading {
+		opacity: 0.5;
+		cursor: not-allowed;
+		cursor: progress;
+		pointer-events: none;
+	}
+
+	&.on {
+		&:before {
+			content: "ON";
+			text-indent: -20px;
+		}
+		&:after {
+			left: 42px;
+			background: @ui-color-green;
+		}
+	}
+}
