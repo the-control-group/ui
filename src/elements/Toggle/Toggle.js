@@ -35,7 +35,7 @@ const Toggle = ({
 Toggle.propTypes = {
 	loading: PropTypes.bool,
 	/** loading state */
-	checked: PropTypes.bool.isRequired,
+	checked: PropTypes.bool.isRequired
 	/** position state */
 };
 
