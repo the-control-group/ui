@@ -17,8 +17,10 @@ const Toggle = ({
 	const combinedClasses = classNames(
 		'ui-toggle',
 		other.classes,
-		checked && 'on',
-		loading && 'loading'
+		{
+			'on': checked,
+			loading
+		}
 	);
 
 	return (
