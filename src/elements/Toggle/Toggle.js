@@ -18,7 +18,7 @@ const Toggle = ({
 		'ui-toggle',
 		other.classes,
 		{
-			'on': checked,
+			on: checked,
 			loading
 		}
 	);
