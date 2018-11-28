@@ -25,6 +25,9 @@ const Input = ({
 	label,
 	options = {},
 	bare,
+	name,
+	checked,
+	value,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -54,6 +57,27 @@ const Input = ({
 						{Object.keys(options).map((keyName, keyIndex) => <option key={keyIndex} value={keyName}>{options[keyName]}</option>)};
 					</Common>
 				</div>
+			</Fragment>
+		);
+	}
+
+	if(type === 'radio' || type === 'checkbox') {
+		return (
+			<Fragment>
+				<Common
+					{...other}
+					classes={combinedClasses}
+					tag="input"
+					type={type}
+					name={name}
+					checked={checked}
+					value={value}
+				/>
+				{label &&
+					<label htmlFor={other.id}>
+						{label}
+					</label>
+				}
 			</Fragment>
 		);
 	}

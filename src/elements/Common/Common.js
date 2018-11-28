@@ -57,6 +57,7 @@ const Common = ({
 		attributeValues = [
 			'id',
 			'disabled',
+			'checked',
 			'type',
 			'placeholder',
 			'onClick',
