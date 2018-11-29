@@ -25,9 +25,6 @@ const Input = ({
 	label,
 	options = {},
 	bare,
-	name,
-	checked,
-	value,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -69,9 +66,6 @@ const Input = ({
 					classes={combinedClasses}
 					tag="input"
 					type={type}
-					name={name}
-					checked={checked}
-					value={value}
 				/>
 				{label &&
 					<label htmlFor={other.id}>
