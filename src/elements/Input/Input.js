@@ -27,6 +27,7 @@ const Input = ({
 	bare,
 	name,
 	id,
+	checked,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -71,6 +72,7 @@ const Input = ({
 					name={name}
 					label={label}
 					id={id}
+					checked={checked}
 				/>
 				{label &&
 					<label htmlFor={other.id}>
@@ -135,6 +137,13 @@ Input.propTypes = {
 		if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
 			return new Error(
 				'Id attribute is required for radio and checkbox inputs'
+			);
+		}
+	},
+	checked: (props, propName) => {
+		if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
+			return new Error(
+				'Checked attribute is required for radio and checkbox inputs'
 			);
 		}
 	}
