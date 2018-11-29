@@ -109,6 +109,7 @@ Input.propTypes = {
 	/** HTML DOM attribute */
 	type: PropTypes.string,
 	bare: PropTypes.bool,
+	name: PropTypes.string.isRequired,
 	/** Placeholder for input */
 	placeholder: PropTypes.string,
 	/** Object of options for type of `select` */
@@ -123,13 +124,6 @@ Input.propTypes = {
 		if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
 			return new Error(
 				'Label is required for radio and checkbox inputs'
-			);
-		}
-	},
-	name: (props, propName) => {
-		if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
-			return new Error(
-				'Name attribute is required for radio and checkbox inputs'
 			);
 		}
 	},
