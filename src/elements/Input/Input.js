@@ -75,7 +75,7 @@ const Input = ({
 					checked={checked}
 				/>
 				{label &&
-					<label htmlFor={other.id}>
+					<label htmlFor={id}>
 						{label}
 					</label>
 				}
