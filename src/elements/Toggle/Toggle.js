@@ -27,9 +27,10 @@ const Toggle = ({
 		<Common
 			{...other}
 			classes={combinedClasses}
-			tag="div"
-			data-checked={checked}
-			data-value={value}
+			tag="input"
+			type="checkbox"
+			checked={checked}
+			value={value}
 		/>
 	);
 };

@@ -22,7 +22,6 @@
 	display: inline-block;
 	padding: @ui-toggle-padding;
 
-	border-radius: @ui-toggle-border-radius;
 	outline: none;
 
 	font-family: @ui-toggle-font-family;
@@ -39,12 +38,16 @@
 
 	width: 68px;
 
-	background-color: @ui-color-gray-light;
 
 	&:before {
+		border-radius: @ui-toggle-border-radius;
+		background-color: @ui-color-gray-light;
 		display: block;
     	content: "OFF";
 		text-indent: 23px;
+		line-height: 20px;
+		position: relative;
+		top: -3px;
     }
 
 	&:after {
