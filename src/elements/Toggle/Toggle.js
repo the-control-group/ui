@@ -29,7 +29,6 @@ const Toggle = ({
 			classes={combinedClasses}
 			tag="input"
 			type="checkbox"
-			checked={checked}
 			value={value}
 		/>
 	);
