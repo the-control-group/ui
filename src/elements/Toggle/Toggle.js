@@ -11,15 +11,14 @@ import Common from '../Common/Common';
 const Toggle = ({
 	checked,
 	value,
-	loading,
+	disabled,
 	...other
 }) => {
 	const combinedClasses = classNames(
 		'ui-toggle',
 		other.classes,
 		{
-			on: checked,
-			loading
+			on: checked
 		}
 	);
 
@@ -30,16 +29,17 @@ const Toggle = ({
 			tag="input"
 			type="checkbox"
 			value={value}
+			disabled={disabled}
 		/>
 	);
 };
 
 Toggle.propTypes = {
-	loading: PropTypes.bool,
-	/** loading state */
+	disabled: PropTypes.bool,
+	/** disabled state */
 	checked: PropTypes.bool.isRequired,
 	/** position state */
-	value: PropTypes.string.isRequired
+	value: PropTypes.string
 	/** string state */
 };
 
