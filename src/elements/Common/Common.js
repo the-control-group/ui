@@ -76,8 +76,7 @@ const Common = ({
 			'onMouseEnter',
 			'onMouseLeave',
 			'onMouseDown',
-			'onMouseUp',
-			'checked'
+			'onMouseUp'
 		];
 
 	Object.keys(other).forEach(key => dataAttrRegex.test(key) && attributeValues.push(key));
