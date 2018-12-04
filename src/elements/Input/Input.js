@@ -25,6 +25,9 @@ const Input = ({
 	label,
 	options = {},
 	bare,
+	name,
+	id,
+	checked,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -58,6 +61,28 @@ const Input = ({
 		);
 	}
 
+	if(type === 'radio' || type === 'checkbox') {
+		return (
+			<Fragment>
+				<Common
+					{...other}
+					classes={combinedClasses}
+					tag="input"
+					type={type}
+					name={name}
+					label={label}
+					id={id}
+					checked={checked}
+				/>
+				{label &&
+					<label htmlFor={id}>
+						{label}
+					</label>
+				}
+			</Fragment>
+		);
+	}
+
 	return (
 		<Fragment>
 			{label &&
@@ -83,12 +108,8 @@ Label.propTypes = {
 Input.propTypes = {
 	/** HTML DOM attribute */
 	type: PropTypes.string,
-	/** Text label for input */
-	label: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.object
-	]),
 	bare: PropTypes.bool,
+	name: PropTypes.string.isRequired,
 	/** Placeholder for input */
 	placeholder: PropTypes.string,
 	/** Object of options for type of `select` */
@@ -96,6 +117,27 @@ Input.propTypes = {
 		if (props.type === 'select' && (props[propName] === undefined)) {
 			return new Error(
 				'Options object is required for select input.'
+			);
+		}
+	},
+	label: (props, propName) => {
+		if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
+			return new Error(
+				'Label is required for radio and checkbox inputs'
+			);
+		}
+	},
+	id: (props, propName) => {
+		if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
+			return new Error(
+				'Id attribute is required for radio and checkbox inputs'
+			);
+		}
+	},
+	checked: (props, propName) => {
+		if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
+			return new Error(
+				'Checked attribute is required for radio and checkbox inputs'
 			);
 		}
 	}

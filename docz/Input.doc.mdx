@@ -22,6 +22,21 @@ import { Input } from '../src';
 	<Input type="select" label="Select Example" options={{A:'Option #1', B:'Option #2', C:'Option #3'}} />
 </Playground>
 
+## Radio Input:
+
+<Playground>
+	<Input type="radio" label="Radio Button 1 Long Label With Multiple Lines of Text" id="radio-button-id-1" name="radio-button-name" />
+	<Input type="radio" label="Radio Button 2" id="radio-button-id-2" name="radio-button-name" checked="false" />
+	<Input type="radio" label="Radio Button 3" id="radio-button-id-3" name="radio-button-name" checked="false" />
+</Playground>
+
+## Checkbox Input:
+
+<Playground>
+	<Input type="checkbox" label="Checkbox 1" id="checkbox-id-1" name="checkbox-name" checked="true" />
+	<Input type="checkbox" label="Checkbox 2 Long Label With Multiple Lines of Text" id="checkbox-id-2" name="checkbox-name" checked="false" />
+</Playground>
+
 ## PropTypes:
 
 <PropsTable of={Input} />
