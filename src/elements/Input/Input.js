@@ -95,6 +95,8 @@ const Input = ({
 				{...other}
 				classes={combinedClasses}
 				tag="input"
+				name={name}
+				id={id}
 				type={type}
 			/>
 		</Fragment>
