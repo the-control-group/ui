@@ -50,11 +50,15 @@ const Input = ({
 				<div className={classNames('ui-select-wrap', { bare })}>
 					<Common
 						{...other}
+						id={id}
+						name={name}
 						classes={combinedClasses}
 						tag="select"
 						type={type}
 					>
-						{Object.keys(options).map((keyName, keyIndex) => <option key={keyIndex} value={keyName}>{options[keyName]}</option>)};
+						{Object.keys(options).map((keyName, keyIndex) =>
+							<option key={keyIndex} value={keyName}>{options[keyName]}</option>
+						)}
 					</Common>
 				</div>
 			</Fragment>
