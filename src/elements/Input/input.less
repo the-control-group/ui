@@ -44,8 +44,8 @@
 	-moz-appearance: none;
 	-webkit-appearance: none;
 
-	&[type="text"],
-	select& {
+	&:not([type="radio"]),
+	&:not([type="checkbox"]) {
 		display: inline-block;
 		width: 100%;
 		padding: @ui-input-padding;
