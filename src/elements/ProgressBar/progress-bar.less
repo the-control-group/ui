@@ -1,0 +1,20 @@
+/**
+ * Progress Bar
+ */
+
+@ui-progress-bar-background: @ui-color-gray-light;
+@ui-progress-bar-filler: @ui-color-green;
+
+.ui-progress-bar {
+  	position: relative;
+  	height: 20px;
+  	width: 100%;
+  	background: @ui-progress-bar-background;
+
+	.filler {
+	  	background: @ui-progress-bar-filler;
+	  	height: 100%;
+	  	border-radius: inherit;
+	  	transition: width .2s ease-in;
+	}
+}
