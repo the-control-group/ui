@@ -118,7 +118,7 @@ export default class ProgressBar extends React.Component {
 
 	startSegmentBar(segment) {
 		const interval = setInterval(this.timer, (segment.duration / segment.percentage));
-		this.setState({ interval: interval });
+		this.setState({ interval });
 	}
 
 	render() {
