@@ -32,9 +32,7 @@ class TabbedContainer extends Component {
 		const { activeIndex } = this.state,
 			{ children } = this.props;
 
-		const tabs = React.Children.map(children, (child, i) => (
-			React.cloneElement(child, { active: activeIndex === i })
-		));
+		const activeTab = React.Children.toArray(children)[activeIndex];
 
 		return (
 			<Div className={classNames('ui-tabs-container', { desktop: !isMobile() })}>
@@ -51,7 +49,7 @@ class TabbedContainer extends Component {
 				</List>
 
 				<Div className="ui-tabs-content">
-					{tabs}
+					{activeTab}
 				</Div>
 			</Div>
 		);

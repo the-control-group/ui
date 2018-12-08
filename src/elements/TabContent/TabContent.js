@@ -4,27 +4,15 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
-import Div from '../Div/Div';
-
-const TabContent = (props) => {
-	const classes = classNames('ui-tab-panel', {'active-tab': props.active});
-
-	return (
-		<Div className={classes}>
-			{props.children}
-		</Div>
-	);
-};
-
-TabContent.defaultProps = {
-	active: false
-};
+const TabContent = ({ children }) => (
+	<div className="ui-tab-panel">
+		{children}
+	</div>
+);
 
 TabContent.propTypes = {
-	children: PropTypes.node.isRequired,
-	active: PropTypes.bool
+	children: PropTypes.node.isRequired
 };
 
 export default TabContent;
