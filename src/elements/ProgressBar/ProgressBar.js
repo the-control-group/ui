@@ -15,7 +15,6 @@ export default class ProgressBar extends React.Component {
 		completeDelay: PropTypes.number	// Delay in milliseconds before onComplete fires when the loader is complete
 	};
 
-
 	static defaultProps = {
 		increments: 4,
 		autoStart: true,
@@ -42,7 +41,9 @@ export default class ProgressBar extends React.Component {
 
 	componentDidMount() {
 		if(this.props.autoStart) {
-			this.startProgressBar();
+			setTimeout(() => {
+				this.startProgressBar();
+			}, this.props.delay);
 		}
 	}
 
@@ -76,17 +77,14 @@ export default class ProgressBar extends React.Component {
 		for (let n = 0; n < this.props.increments; n++) {
 			let segmentPercentage = 0,
 				segmentDuration = 0;
-			// Create the segment time and length
+
+			// Create the segment duration and length
 			if (n === (this.props.increments - 1)) {
 				segmentDuration = timeRemaining;
 				segmentPercentage = percentageRemaining;
 			} else {
-				if (percentageRemaining > 0) {
-					segmentPercentage =  Math.floor(Math.random() * (percentageRemaining - 1)) + 1;
-				}
-				if (timeRemaining > 0) {
-					segmentDuration =  Math.floor(Math.random() * (timeRemaining - 1)) + 1;
-				}
+				segmentPercentage = Math.floor(Math.random() * (percentageRemaining - 1)) + 1;
+				segmentDuration = Math.floor(Math.random() * (timeRemaining - 1)) + 1;
 			}
 
 			segments[n] = {
@@ -105,6 +103,7 @@ export default class ProgressBar extends React.Component {
 		const segments = this.createSegments();
 
 		let segmentTimeout = 0;
+
 		segments.map((segment) => {
 			setTimeout(() => {
 				if (this.state.interval) {
@@ -118,6 +117,7 @@ export default class ProgressBar extends React.Component {
 
 	startSegmentBar(segment) {
 		const interval = setInterval(this.timer, (segment.duration / segment.percentage));
+
 		this.setState({ interval });
 	}
 
