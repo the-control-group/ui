@@ -41,9 +41,7 @@ export default class ProgressBar extends React.Component {
 
 	componentDidMount() {
 		if(this.props.autoStart) {
-			setTimeout(() => {
-				this.startProgressBar();
-			}, this.props.delay);
+			setTimeout(this.startProgressBar, this.props.delay);
 		}
 	}
 
@@ -60,9 +58,7 @@ export default class ProgressBar extends React.Component {
 			clearInterval(this.state.interval);
 
 			if (this.props.onComplete) {
-				setTimeout(() => {
-					this.props.onComplete();
-				}, this.props.completeDelay);
+				setTimeout(this.props.onComplete, this.props.completeDelay);
 			}
 		}
 	}
