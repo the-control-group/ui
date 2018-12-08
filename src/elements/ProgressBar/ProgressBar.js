@@ -28,8 +28,6 @@ export default class ProgressBar extends React.Component {
 
 		this.state = {
 			percentage: 0,
-			currentSegment: 0,
-			segments: [],
 			interval: null
 		};
 
