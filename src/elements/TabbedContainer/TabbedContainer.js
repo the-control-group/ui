@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { isMobile } from '../../util/helpers';
-import Div from '../Div/Div';
 import List from '../List/List';
 import TabNavItem from '../TabNavItem/TabNavItem';
 
@@ -32,12 +31,10 @@ class TabbedContainer extends Component {
 		const { activeIndex } = this.state,
 			{ children } = this.props;
 
-		const tabs = React.Children.map(children, (child, i) => (
-			React.cloneElement(child, { active: activeIndex === i })
-		));
+		const activeTab = React.Children.toArray(children)[activeIndex];
 
 		return (
-			<Div className={classNames('ui-tabs-container', { desktop: !isMobile() })}>
+			<div className={classNames('ui-tabs-container', { desktop: !isMobile() })}>
 				<List inline className="ui-tabs-nav">
 					{React.Children.map(children, (child, i) => (
 						<TabNavItem
@@ -50,10 +47,10 @@ class TabbedContainer extends Component {
 					))}
 				</List>
 
-				<Div className="ui-tabs-content">
-					{tabs}
-				</Div>
-			</Div>
+				<div className="ui-tabs-content">
+					{activeTab}
+				</div>
+			</div>
 		);
 	}
 }
