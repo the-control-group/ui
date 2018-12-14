@@ -29,8 +29,7 @@ export default class ProgressBar extends React.Component {
 		super(props);
 
 		this.state = {
-			percentage: 0,
-			interval: null
+			percentage: 0
 		};
 
 		this.timer = this.timer.bind(this);
