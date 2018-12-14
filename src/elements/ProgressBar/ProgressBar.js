@@ -7,20 +7,22 @@ import PropTypes from 'prop-types';
 
 export default class ProgressBar extends React.Component {
 	static propTypes = {
-		onComplete: PropTypes.func,		// A function to call when the loader finishes
-		increments: PropTypes.number,	// The number of increments you want to break the loader into
-		autoStart: PropTypes.bool,		// Start the animation immediately after initialization
-		duration: PropTypes.number,		// Time in milliseconds the loader should run for
-		delay: PropTypes.number,		// Delay before auto-starting the animation
-		completeDelay: PropTypes.number	// Delay in milliseconds before onComplete fires when the loader is complete
+		onComplete: PropTypes.func,				// A function to call when the loader finishes
+		increments: PropTypes.number,			// The number of increments you want to break the loader into
+		autoStart: PropTypes.bool,				// Start the animation immediately after initialization
+		duration: PropTypes.number.isRequired,	// Time in milliseconds the loader should run for
+		delay: PropTypes.number,				// Delay before auto-starting the animation
+		completeDelay: PropTypes.number,		// Delay in milliseconds before onComplete fires when the loader is complete
+		height: PropTypes.number				// Height of progress bar in px
 	};
 
 	static defaultProps = {
+		onComplete: () => {},
 		increments: 4,
 		autoStart: true,
-		duration: 10000, //milliseconds
-		delay: 0, //milliseconds
-		completeDelay: 0 //milliseconds
+		delay: 0, // milliseconds
+		completeDelay: 0, // milliseconds
+		height: 20 // px
 	};
 
 	constructor(props) {
@@ -35,6 +37,7 @@ export default class ProgressBar extends React.Component {
 		this.startProgressBar = this.startProgressBar.bind(this);
 		this.createSegments = this.createSegments.bind(this);
 		this.startSegmentBar = this.startSegmentBar.bind(this);
+		this.interval = null;
 	}
 
 	componentDidMount() {
@@ -44,20 +47,17 @@ export default class ProgressBar extends React.Component {
 	}
 
 	componentWillUnmount() {
-		if(this.state.interval) {
-			clearInterval(this.state.interval);
-		}
+		clearInterval(this.interval);
 	}
 
 	timer() {
-		this.setState({ percentage: this.state.percentage + 1 });
+		this.setState({
+			percentage: this.state.percentage + 1
+		});
 
-		if (this.state.percentage === 100) {
-			clearInterval(this.state.interval);
-
-			if (this.props.onComplete) {
-				setTimeout(this.props.onComplete, this.props.completeDelay);
-			}
+		if (this.state.percentage >= 100) {
+			clearInterval(this.interval);
+			setTimeout(this.props.onComplete, this.props.completeDelay);
 		}
 	}
 
@@ -81,10 +81,10 @@ export default class ProgressBar extends React.Component {
 				segmentDuration = Math.floor(Math.random() * (timeRemaining - 1)) + 1;
 			}
 
-			segments[n] = {
+			segments.push({
 				duration: segmentDuration,
 				percentage: segmentPercentage
-			};
+			});
 
 			timeRemaining -= segmentDuration;
 			percentageRemaining -= segmentPercentage;
@@ -98,11 +98,9 @@ export default class ProgressBar extends React.Component {
 
 		let segmentTimeout = 0;
 
-		segments.map((segment) => {
+		segments.forEach(segment => {
 			setTimeout(() => {
-				if (this.state.interval) {
-					clearInterval(this.state.interval);
-				}
+				clearInterval(this.interval);
 				this.startSegmentBar(segment);
 			}, segmentTimeout);
 			segmentTimeout += segment.duration;
@@ -110,15 +108,13 @@ export default class ProgressBar extends React.Component {
 	}
 
 	startSegmentBar(segment) {
-		const interval = setInterval(this.timer, (segment.duration / segment.percentage));
-
-		this.setState({ interval });
+		this.interval = setInterval(this.timer, (segment.duration / segment.percentage));
 	}
 
 	render() {
 		return (
 			<div>
-				<div className="ui-progress-bar">
+				<div className="ui-progress-bar" style={{ height: `${this.props.height}px` }}>
 					<div className="filler" style={{ width: `${this.state.percentage}%` }} />
 				</div>
 			</div>
