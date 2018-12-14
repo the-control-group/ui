@@ -13,7 +13,7 @@ export default class ProgressBar extends React.Component {
 		duration: PropTypes.number.isRequired,	// Time in milliseconds the loader should run for
 		delay: PropTypes.number,				// Delay before auto-starting the animation
 		completeDelay: PropTypes.number,		// Delay in milliseconds before onComplete fires when the loader is complete
-		height: PropTypes.number				// Height of progress bar in px
+		height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]) // Height of progress bar in px
 	};
 
 	static defaultProps = {
@@ -52,12 +52,12 @@ export default class ProgressBar extends React.Component {
 	timer() {
 		this.setState({
 			percentage: this.state.percentage + 1
+		}, () => {
+			if (this.state.percentage >= 100) {
+				clearInterval(this.interval);
+				setTimeout(this.props.onComplete, this.props.completeDelay);
+			}
 		});
-
-		if (this.state.percentage >= 100) {
-			clearInterval(this.interval);
-			setTimeout(this.props.onComplete, this.props.completeDelay);
-		}
 	}
 
 	createSegments() {
@@ -113,7 +113,7 @@ export default class ProgressBar extends React.Component {
 	render() {
 		return (
 			<div>
-				<div className="ui-progress-bar" style={{ height: `${this.props.height}px` }}>
+				<div className="ui-progress-bar" style={{ height: Number(this.props.height) }}>
 					<div className="filler" style={{ width: `${this.state.percentage}%` }} />
 				</div>
 			</div>
