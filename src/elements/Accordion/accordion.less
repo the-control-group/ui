@@ -1,0 +1,38 @@
+/**
+ * Accordion
+ */
+
+@ui-accordion-background: @ui-color-turquoise;
+@ui-accordion-border: 1px solid @ui-color-turquoise-dark;
+@ui-accordion-toggle-color: @ui-color-blue;
+
+.ui-accordion {
+	background: @ui-accordion-background;
+	border: @ui-accordion-border;
+	padding: @ui-small;
+
+	.title {
+		font-weight: bold;
+	}
+
+	.ui-accordion-toggle {
+		color: @ui-accordion-toggle-color;
+		text-transform: capitalize;
+		cursor: pointer;
+
+		.arrow {
+			border: 2px solid @ui-color-blue;
+			border-radius: 50%;
+			line-height: 1.25em;
+			width: 1.25em;
+			height: 1.25em;
+			font-size: 1em;
+			text-align: center;
+			font-weight: bold;
+
+			&.arrow-down {
+				transform: rotate(180deg);
+			}
+		}
+	}
+}
