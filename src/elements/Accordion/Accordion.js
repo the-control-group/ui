@@ -15,15 +15,22 @@ class Accordion extends Component {
 		children: PropTypes.node.isRequired,
 		title: PropTypes.node.isRequired,
 		className: PropTypes.string,
-		expaned: PropTypes.bool
+		expanded: PropTypes.bool,
+		notification: PropTypes.bool
 	};
 
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			showContent: true
-		};
+		if (this.props.expanded) {
+			this.state = {
+				showContent: true
+			};
+		} else {
+			this.state = {
+				showContent: false
+			};
+		}
 
 		this.toggleAccordion = this.toggleAccordion.bind(this);
 	}
@@ -35,14 +42,15 @@ class Accordion extends Component {
 	}
 
 	render() {
-		const { title, children, className } = this.props,
+		const { title, children, className, notification } = this.props,
 			{ showContent } = this.state,
-			itemWidths = showContent && !isMobile() ? [3, 7, 2] : [10, 2],
+			itemWidths = showContent && !isMobile() && notification ? [3, 7, 2] : [10, 2],
 			toggleText = showContent ? 'hide' : 'show',
 			toggleIconClass = showContent ? 'arrow arrow-up' : 'arrow arrow-down';
 
 		const combinedClasses = classNames(
 			'ui-accordion',
+			this.props.notification && 'notification',
 			className
 		);
 
@@ -66,7 +74,7 @@ class Accordion extends Component {
 					</Div>
 				</Grid>
 				{showContent && isMobile() &&
-					<Div>{children}</Div>
+					<Div className="accordion-content">{children}</Div>
 				}
 			</Div>
 		);
