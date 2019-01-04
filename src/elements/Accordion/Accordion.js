@@ -16,7 +16,7 @@ class Accordion extends Component {
 		title: PropTypes.node.isRequired,
 		className: PropTypes.string,
 		expanded: PropTypes.bool,
-		notification: PropTypes.bool
+		notification: PropTypes.bool // this is used to style accordion as a notification
 	};
 
 	constructor(props) {
@@ -63,7 +63,7 @@ class Accordion extends Component {
 					<Div className="title">
 						{title}
 					</Div>
-					{showContent && !isMobile() &&
+					{showContent && !isMobile() && notification &&
 						<Div>{children}</Div>
 					}
 					<Div onClick={this.toggleAccordion} right className="ui-accordion-toggle">
@@ -73,7 +73,7 @@ class Accordion extends Component {
 						</Grid>
 					</Div>
 				</Grid>
-				{showContent && isMobile() &&
+				{showContent && (isMobile() || !notification) &&
 					<Div className="accordion-content">{children}</Div>
 				}
 			</Div>
