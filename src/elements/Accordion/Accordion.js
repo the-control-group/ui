@@ -62,12 +62,12 @@ class Accordion extends Component {
 					{showContent && !isMobile() && notificationStyle &&
 						<Div>{children}</Div>
 					}
-					<div onClick={this.toggleAccordion} right className="ui-accordion-toggle">
+					<Div onClick={this.toggleAccordion} right className="ui-accordion-toggle">
 						<Grid gutter="xx-small" itemWidths={[10, 2]}>
 							<Div>{toggleText}</Div>
 							<Div><Div className={toggleIconClass}>^</Div></Div>
 						</Grid>
-					</div>
+					</Div>
 				</Grid>
 				{showContent && (isMobile() || !notificationStyle) &&
 					<div className="accordion-content">{children}</div>
