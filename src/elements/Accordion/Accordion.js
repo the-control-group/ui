@@ -15,22 +15,16 @@ class Accordion extends Component {
 		children: PropTypes.node.isRequired,
 		title: PropTypes.node.isRequired,
 		className: PropTypes.string,
-		expanded: PropTypes.bool,
-		notification: PropTypes.bool // this is used to style accordion as a notification
+		defaultExpanded: PropTypes.bool,
+		notificationStyle: PropTypes.bool // this is used to style accordion as a notification
 	};
 
 	constructor(props) {
 		super(props);
 
-		if (this.props.expanded) {
-			this.state = {
-				showContent: true
-			};
-		} else {
-			this.state = {
-				showContent: false
-			};
-		}
+		this.state = {
+			showContent: this.props.defaultExpanded
+		};
 
 		this.toggleAccordion = this.toggleAccordion.bind(this);
 	}
@@ -42,20 +36,22 @@ class Accordion extends Component {
 	}
 
 	render() {
-		const { title, children, className, notification } = this.props,
+		const { title, children, className, notificationStyle } = this.props,
 			{ showContent } = this.state,
-			itemWidths = showContent && !isMobile() && notification ? [3, 7, 2] : [10, 2],
+			itemWidths = showContent && !isMobile() && notificationStyle ? [3, 7, 2] : [10, 2],
 			toggleText = showContent ? 'hide' : 'show',
 			toggleIconClass = showContent ? 'arrow arrow-up' : 'arrow arrow-down';
 
 		const combinedClasses = classNames(
 			'ui-accordion',
-			this.props.notification && 'notification',
-			className
+			className,
+			{
+				'notification-style': this.props.notificationStyle
+			}
 		);
 
 		return (
-			<Div className={combinedClasses}>
+			<div className={combinedClasses}>
 				<Grid
 					gutter="xx-small"
 					itemWidths={itemWidths}
@@ -63,20 +59,20 @@ class Accordion extends Component {
 					<Div className="title">
 						{title}
 					</Div>
-					{showContent && !isMobile() && notification &&
+					{showContent && !isMobile() && notificationStyle &&
 						<Div>{children}</Div>
 					}
-					<Div onClick={this.toggleAccordion} right className="ui-accordion-toggle">
+					<div onClick={this.toggleAccordion} right className="ui-accordion-toggle">
 						<Grid gutter="xx-small" itemWidths={[10, 2]}>
 							<Div>{toggleText}</Div>
 							<Div><Div className={toggleIconClass}>^</Div></Div>
 						</Grid>
-					</Div>
+					</div>
 				</Grid>
-				{showContent && (isMobile() || !notification) &&
-					<Div className="accordion-content">{children}</Div>
+				{showContent && (isMobile() || !notificationStyle) &&
+					<div className="accordion-content">{children}</div>
 				}
-			</Div>
+			</div>
 		);
 	}
 }
