@@ -69,8 +69,8 @@ class Accordion extends Component {
 						</Grid>
 					</Div>
 				</Grid>
-				{showContent && (isMobile() || !notificationStyle) &&
-					<div className="accordion-content">{children}</div>
+				{(isMobile() || !notificationStyle) &&
+					<div className={showContent ? 'accordion-content visible' : 'accordion-content'}>{children}</div>
 				}
 			</div>
 		);

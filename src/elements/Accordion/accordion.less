@@ -9,23 +9,22 @@
 
 .ui-accordion {
 	border-top:  @ui-accordion-border;
-	padding: @ui-small @ui-small 0;
-	margin: 0 -@ui-small;
+	padding: @ui-small 0;
+
+	&:last-child {
+		padding-bottom: 0;
+	}
 
 	&.notification-style {
 		background: @ui-accordion-background;
 		border: @ui-accordion-notification-border;
 		margin: 0;
 		padding: @ui-small;
-
-		.title {
-			color: @color-black;
-		}
 	}
 
 	.title {
 		font-weight: bold;
-		color: @ui-color-blue;
+		color: @ui-color-black;
 	}
 
 	.ui-accordion-toggle {
@@ -42,14 +41,31 @@
 			font-size: 1em;
 			text-align: center;
 			font-weight: 700;
+			transition: transform 0.5s ease;
 
 			&.arrow-down {
-				transform: rotate(180deg);
+				transform: rotate(-180deg);
+				transition: transform 0.5s ease;
 			}
 		}
 	}
 
 	.accordion-content {
-		margin-top: @ui-x-small;
+		margin: 0;
+		padding: 0;
+		opacity: 0;
+		font-size: 0;
+		transition: opacity 0.5s,
+                font-size 0.5s,
+                margin 0.5s;
+
+		&.visible {
+			margin-top: @ui-x-small;
+			font-size: 1em;
+			opacity: 1;
+			transition: font-size 0.5s,
+                margin 0.5s,
+                opacity 0.5s;
+		}
 	}
 }
