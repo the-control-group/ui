@@ -40,7 +40,8 @@ const Flex = ({ children, max, fixed, centerY, ...other }) => {
 Flex.propTypes = {
 	children: PropTypes.node,
 	max: numberLikeProp,
-	fixed: numberLikeProp
+	fixed: numberLikeProp,
+	centerY: PropTypes.bool
 };
 
 export default Flex;

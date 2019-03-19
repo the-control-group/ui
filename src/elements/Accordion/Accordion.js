@@ -65,10 +65,11 @@ class Accordion extends Component {
 					<Div onClick={this.toggleAccordion} right className="ui-accordion-toggle">
 						<Grid gutter="xx-small" itemWidths={[10, 2]}>
 							<Div>{toggleText}</Div>
-							<Div><Div className={toggleIconClass}>^</Div></Div>
+							<Div><Div className={toggleIconClass}><img src={require('../../images/caret-down.svg')} style={{height: 20, width: 20}} /></Div></Div>
 						</Grid>
 					</Div>
 				</Grid>
+
 				{(isMobile() || !notificationStyle) &&
 					<div className={showContent ? 'accordion-content visible' : 'accordion-content'}>{children}</div>
 				}
