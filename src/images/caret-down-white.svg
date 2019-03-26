@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -5 26 26">
+  <defs>
+    <style>
+      .caret-down-cls-1 {
+        fill: #ffffff;
+      }
+      .caret-down-border {
+      	stroke: #ffffff;
+      }
+    </style>
+  </defs>
+  <circle class="caret-down-border" cx="8" cy="8" r="12" stroke-width="2" fill="none"/>
+  <path class="caret-down-cls-1" d="M14.133,0,16,1.79,8,9.459,0,1.79,1.867,0,8,5.88Z" transform="translate(0 4) rotate(0)"/>
+</svg>

@@ -6,21 +6,31 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Div from '../Div/Div';
-import Grid from '../Grid/Grid';
+import FlexRow from '../FlexRow/FlexRow';
+import Flex from '../Flex/Flex';
+import Button from '../Button/Button';
 import { isMobile } from '../../util/helpers';
 
 class Accordion extends Component {
 	static propTypes = {
 		children: PropTypes.node.isRequired,
-		title: PropTypes.node.isRequired,
+		header: PropTypes.node.isRequired,
 		className: PropTypes.string,
 		defaultExpanded: PropTypes.bool,
-		notificationStyle: PropTypes.bool // this is used to style accordion as a notification
+		toggleTextShow: PropTypes.string,
+		toggleTextHide: PropTypes.string,
+		buttonStyleToggle: PropTypes.bool
 	};
+
+	static defaultProps = {
+		toggleTextShow: 'Show',
+		toggleTextHide: 'Hide'
+	}
 
 	constructor(props) {
 		super(props);
+
+		this.accordionContent = React.createRef();
 
 		this.state = {
 			showContent: this.props.defaultExpanded
@@ -30,49 +40,56 @@ class Accordion extends Component {
 	}
 
 	toggleAccordion() {
-		this.setState({
-			showContent: !this.state.showContent
-		});
+		if(!this.state.showContent) {
+			this.setState({
+				showContent: true
+			}, () => {
+				window.requestAnimationFrame(() => {
+					this.accordionContent.current.parentNode.style.transitionDuration = `${this.accordionContent.current.clientHeight * 2}ms`;
+					this.accordionContent.current.parentNode.style.height = `${this.accordionContent.current.clientHeight}px`;
+				});
+			});
+		} else {
+			this.accordionContent.current.parentNode.style.height = 0;
+			setTimeout(() => {
+				this.setState({showContent: false});
+			}, this.accordionContent.current.clientHeight * 2);
+		}
 	}
 
 	render() {
-		const { title, children, className, notificationStyle } = this.props,
+		const { header, children, className, toggleTextShow, toggleTextHide, buttonStyleToggle } = this.props,
 			{ showContent } = this.state,
-			itemWidths = showContent && !isMobile() && notificationStyle ? [3, 7, 2] : [10, 2],
-			toggleText = showContent ? 'hide' : 'show',
+			toggleText = showContent ? toggleTextShow : toggleTextHide,
 			toggleIconClass = showContent ? 'arrow arrow-up' : 'arrow arrow-down';
 
-		const combinedClasses = classNames(
-			'ui-accordion',
-			className,
-			{
-				'notification-style': this.props.notificationStyle
-			}
-		);
-
 		return (
-			<div className={combinedClasses}>
-				<Grid
-					gutter="xx-small"
-					itemWidths={itemWidths}
-				>
-					<Div className="title">
-						{title}
-					</Div>
-					{showContent && !isMobile() && notificationStyle &&
-						<Div>{children}</Div>
-					}
-					<Div onClick={this.toggleAccordion} right className="ui-accordion-toggle">
-						<Grid gutter="xx-small" itemWidths={[10, 2]}>
-							<Div>{toggleText}</Div>
-							<Div><Div className={toggleIconClass}><img src={require('../../images/caret-down.svg')} style={{height: 20, width: 20}} /></Div></Div>
-						</Grid>
-					</Div>
-				</Grid>
+			<div className={classNames('ui-accordion', className)}>
+				<div className="ui-accordion-header">
+					<FlexRow breakMedium>
+						<Flex>{header}</Flex>
+						<Flex right={!isMobile()} max="200">
+							{buttonStyleToggle &&
+								<Button className="ui-accordion-toggle button-toggle" onClick={this.toggleAccordion} mini>
+									<span>{toggleText}</span>
+									<img className={toggleIconClass} src={require('../../images/caret-down-white.svg')} style={{height: 20, width: 20}} />
+								</Button>
+							}
+							{!buttonStyleToggle &&
+								<div className="ui-accordion-toggle" onClick={this.toggleAccordion}>
+									<span>{toggleText}</span>
+									<img className={toggleIconClass} src={require('../../images/caret-down.svg')} style={{height: 20, width: 20}} />
+								</div>
+							}
+						</Flex>
+					</FlexRow>
+				</div>
 
-				{(isMobile() || !notificationStyle) &&
-					<div className={showContent ? 'accordion-content visible' : 'accordion-content'}>{children}</div>
-				}
+				<div className="ui-accordion-content-wrapper">
+					<div className="ui-accordion-content" ref={this.accordionContent}>
+						{showContent && children}
+					</div>
+				</div>
 			</div>
 		);
 	}
