@@ -101,9 +101,9 @@ class Accordion extends Component {
 		return (
 			<div className={classNames('ui-accordion', className)}>
 				<div className="ui-accordion-header">
-					<FlexRow breakMedium>
+					<FlexRow breakMedium={buttonStyleToggle}>
 						<Flex>{header}</Flex>
-						<Flex right={!isMobile()} max="200">
+						<Flex right={!buttonStyleToggle || !isMobile()} max="200">
 							{buttonStyleToggle &&
 								<Button className="ui-accordion-toggle button-toggle" onClick={this.toggleAccordion} mini ref={this.accordionToggle}>
 									<span>{toggleText}</span>
