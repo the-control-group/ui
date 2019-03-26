@@ -3,10 +3,9 @@
  */
 
 .ui-accordion {
-	padding: @ui-small 0;
-
-	&:last-child {
-		padding-bottom: 0;
+	.ui-accordion-header {
+		padding: @ui-small 0;
+		box-sizing: border-box;
 	}
 
 	.ui-accordion-toggle {
@@ -21,6 +20,7 @@
 		&.button-toggle {
 			span {
 				line-height: 1.5em;
+				color: @ui-color-white;
 			}
 		}
 
@@ -39,6 +39,7 @@
 	}
 
 	.ui-accordion-content-wrapper {
+		box-sizing: border-box;
 		overflow: hidden;
 		transition-property: height;
 		height: 0;
