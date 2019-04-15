@@ -14,8 +14,24 @@ import { isMobile } from '../../util/helpers';
 class Accordion extends Component {
 	static propTypes = {
 		children: PropTypes.node.isRequired,
-		header: PropTypes.node.isRequired,
+		title: (props, propName, componentName, ...args) => {
+			if(!props.title && !props.header) {
+				return new Error(`One of props 'title' or 'header' was not specified in '${componentName}'`);
+			}
+
+			if(props.title) return new Error('`title` is deprecated; use `header` instead');
+
+			return PropTypes.node(props, propName, componentName, ...args);
+		},
+		header: (props, propName, componentName, ...args) => {
+			if(!props.title && !props.header) {
+				return new Error(`One of props 'title' or 'header' was not specified in '${componentName}'`);
+			}
+
+			return PropTypes.node(props, propName, componentName, ...args);
+		},
 		className: PropTypes.string,
+		notificationStyle: PropTypes.bool,
 		defaultExpanded: PropTypes.bool,
 		toggleTextShow: PropTypes.string,
 		toggleTextHide: PropTypes.string,
@@ -44,17 +60,18 @@ class Accordion extends Component {
 	toggleAccordion() {
 		if(this.disableToggle) return;
 
+		this.disableToggle = true;
 		if(!this.state.showContent) {
 			this.setState({
 				showContent: true,
 				toggle: 'hide'
 			}, () => {
 				window.requestAnimationFrame(() => {
-					this.disableToggle = true;
+					const transitionDuration = Math.max(this.accordionContent.current.clientHeight * 2, 300);
 
 					// Set fixed height (based on height of content) and set transition-duration for .ui-accordion-content-wrapper.
 					// We need fixed height for CSS Transition to work and to animate slide down of accordion.
-					this.accordionContent.current.parentNode.style.transitionDuration = `${this.accordionContent.current.clientHeight * 2}ms`;
+					this.accordionContent.current.parentNode.style.transitionDuration = `${transitionDuration}ms`;
 					this.accordionContent.current.parentNode.style.height = `${this.accordionContent.current.clientHeight}px`;
 
 					// Set auto height for .ui-accordion-content-wrapper after animation is complete.
@@ -62,7 +79,7 @@ class Accordion extends Component {
 					setTimeout(() => {
 						this.disableToggle = false;
 						this.accordionContent.current.parentNode.style.height = 'auto';
-					}, this.accordionContent.current.clientHeight * 2);
+					}, transitionDuration);
 				});
 			});
 		} else {
@@ -71,8 +88,6 @@ class Accordion extends Component {
 			});
 
 			window.requestAnimationFrame(() => {
-				this.disableToggle = true;
-
 				// Set height back to fixed for .ui-accordion-content-wrapper so we can animate slide up.
 				this.accordionContent.current.parentNode.style.height = `${this.accordionContent.current.clientHeight}px`;
 
@@ -93,16 +108,18 @@ class Accordion extends Component {
 	}
 
 	render() {
-		const { header, children, className, toggleTextShow, toggleTextHide, buttonStyleToggle } = this.props,
+		const { title, header, children, className, notificationStyle, toggleTextShow, toggleTextHide, buttonStyleToggle } = this.props,
 			{ showContent, toggle } = this.state,
 			toggleText = toggle === 'show' ? toggleTextShow : toggleTextHide,
 			toggleIconClass = toggle === 'hide' ? 'arrow arrow-up' : 'arrow arrow-down';
 
 		return (
-			<div className={classNames('ui-accordion', className)}>
+			<div className={classNames('ui-accordion', className, {'notification-style': notificationStyle})}>
 				<div className="ui-accordion-header">
 					<FlexRow breakMedium={buttonStyleToggle}>
-						<Flex>{header}</Flex>
+						<Flex>
+							{header || <div className="title">{title}</div>}
+						</Flex>
 						<Flex right={!buttonStyleToggle || !isMobile()} max="200">
 							{buttonStyleToggle &&
 								<Button className="ui-accordion-toggle button-toggle" onClick={this.toggleAccordion} mini ref={this.accordionToggle}>
