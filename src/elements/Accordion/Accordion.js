@@ -11,6 +11,28 @@ import Flex from '../Flex/Flex';
 import Button from '../Button/Button';
 import { isMobile } from '../../util/helpers';
 
+const AccordionCaret = ({ white, up }) => (
+	<object className={classNames('ui-accordion-caret', { white, up })}>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -5 26 26" preserveAspectRatio="xMaxYMax meet">
+			<defs>
+				<style>
+					{`
+					.caret-cls-1 { fill: #000; }
+					.caret-border { stroke: #000; }
+					`}
+				</style>
+			</defs>
+			<circle className="caret-border" cx="8" cy="8" r="12" strokeWidth="2" fill="none"/>
+			<path className="caret-cls-1" d="M14.133,0,16,1.79,8,9.459,0,1.79,1.867,0,8,5.88Z" transform="translate(0 4) rotate(0)"/>
+		</svg>
+	</object>
+);
+
+AccordionCaret.propTypes = {
+	white: PropTypes.bool,
+	up: PropTypes.bool
+};
+
 class Accordion extends Component {
 	static propTypes = {
 		children: PropTypes.node.isRequired,
@@ -87,31 +109,28 @@ class Accordion extends Component {
 				toggle: 'show'
 			});
 
+			// Set height back to fixed for .ui-accordion-content-wrapper so we can animate slide up.
+			this.accordionContent.current.parentNode.style.height = `${this.accordionContent.current.clientHeight}px`;
+
+			// Set height and transition-duration for slide up animation.
 			window.requestAnimationFrame(() => {
-				// Set height back to fixed for .ui-accordion-content-wrapper so we can animate slide up.
-				this.accordionContent.current.parentNode.style.height = `${this.accordionContent.current.clientHeight}px`;
+				this.accordionContent.current.parentNode.style.height = 0;
 
-				// Set height and transition-duration for slide up animation.
+				// Remove content from DOM after animation is complete
 				setTimeout(() => {
-					this.accordionContent.current.parentNode.style.height = 0;
-				}, 10); // Need tiny timeout here
+					this.setState({
+						showContent: false
+					});
+					this.disableToggle = false;
+				}, this.accordionContent.current.clientHeight * 2);
 			});
-
-			// Remove content from DOM after animation is complete
-			setTimeout(() => {
-				this.setState({
-					showContent: false
-				});
-				this.disableToggle = false;
-			}, this.accordionContent.current.clientHeight * 2);
 		}
 	}
 
 	render() {
 		const { title, header, children, className, notificationStyle, toggleTextShow, toggleTextHide, buttonStyleToggle } = this.props,
 			{ showContent, toggle } = this.state,
-			toggleText = toggle === 'show' ? toggleTextShow : toggleTextHide,
-			toggleIconClass = toggle === 'hide' ? 'arrow arrow-up' : 'arrow arrow-down';
+			toggleText = toggle === 'show' ? toggleTextShow : toggleTextHide;
 
 		return (
 			<div className={classNames('ui-accordion', className, {'notification-style': notificationStyle})}>
@@ -121,16 +140,15 @@ class Accordion extends Component {
 							{header || <div className="title">{title}</div>}
 						</Flex>
 						<Flex right={!buttonStyleToggle || !isMobile()} max="200">
-							{buttonStyleToggle &&
-								<Button className="ui-accordion-toggle button-toggle" onClick={this.toggleAccordion} mini ref={this.accordionToggle}>
+							{buttonStyleToggle
+								? <Button className="ui-accordion-toggle button-toggle" onClick={this.toggleAccordion} mini ref={this.accordionToggle}>
 									<span>{toggleText}</span>
-									<img className={toggleIconClass} src={require('../../images/caret-down-white.svg')} style={{height: 20, width: 20}} />
+									<AccordionCaret white up={toggle === 'hide'} />
 								</Button>
-							}
-							{!buttonStyleToggle &&
-								<div className="ui-accordion-toggle" onClick={this.toggleAccordion} ref={this.accordionToggle}>
+
+								: <div className="ui-accordion-toggle" onClick={this.toggleAccordion} ref={this.accordionToggle}>
 									<span>{toggleText}</span>
-									<img className={toggleIconClass} src={require('../../images/caret-down.svg')} style={{height: 20, width: 20}} />
+									<AccordionCaret up={toggle === 'hide'} />
 								</div>
 							}
 						</Flex>
