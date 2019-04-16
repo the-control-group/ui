@@ -1,22 +1,25 @@
 /**
  * Accordion
  */
-
 @ui-accordion-background: @ui-color-turquoise;
 @ui-accordion-notification-border: 2px solid @ui-color-turquoise-dark;
-@ui-accordion-border: 2px solid @ui-color-gray-light;
 @ui-accordion-toggle-color: @ui-color-blue;
 
 .ui-accordion {
-	border-top:  @ui-accordion-border;
-	padding: @ui-small @ui-small 0;
-	margin: 0 -@ui-small;
+	.ui-accordion-header {
+		padding: @ui-small 0;
+		box-sizing: border-box;
+	}
 
 	&.notification-style {
 		background: @ui-accordion-background;
 		border: @ui-accordion-notification-border;
 		margin: 0;
 		padding: @ui-small;
+
+		.ui-accordion-header {
+			padding: 0;
+		}
 
 		.title {
 			color: @color-black;
@@ -29,27 +32,60 @@
 	}
 
 	.ui-accordion-toggle {
-		color: @ui-accordion-toggle-color;
 		text-transform: capitalize;
 		cursor: pointer;
 
-		.arrow {
-			border: 2px solid @ui-accordion-toggle-color;
-			border-radius: 50%;
-			line-height: 1.25em;
-			width: 1.25em;
-			height: 1.25em;
-			font-size: 1em;
-			text-align: center;
-			font-weight: 700;
+		span {
+			vertical-align: top;
+			color: @ui-color-blue;
+		}
 
-			&.arrow-down {
-				transform: rotate(180deg);
+		&.button-toggle {
+			span {
+				line-height: 1.5em;
+				color: @ui-color-white;
 			}
 		}
 	}
 
-	.accordion-content {
-		margin-top: @ui-x-small;
+	.ui-accordion-caret {
+		display: inline-block;
+		width: 1.25em;
+		height: 1.25em;
+		transition: transform 0.5s ease;
+		margin-left: 0.5em;
+
+		&.up {
+			transform: rotate(180deg);
+		}
+
+		svg {
+			.caret-cls-1 {
+				fill: @ui-color-blue;
+			}
+
+			.caret-border {
+				stroke: @ui-color-blue;
+			}
+		}
+
+		&.white {
+			svg {
+				.caret-cls-1 {
+					fill: @ui-color-white;
+				}
+
+				.caret-border {
+					stroke: @ui-color-white;
+				}
+			}
+		}
+	}
+
+	.ui-accordion-content-wrapper {
+		box-sizing: border-box;
+		overflow: hidden;
+		transition-property: height;
+		height: 0;
 	}
 }
