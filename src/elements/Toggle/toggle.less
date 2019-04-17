@@ -20,67 +20,65 @@
 
 .ui-toggle {
 	display: inline-block;
-	padding: @ui-toggle-padding;
 
-	outline: none;
+	input[type="checkbox"] {
+		display: none;
 
-	font-family: @ui-toggle-font-family;
-	font-weight: @ui-toggle-font-weight;
-	font-size: @ui-toggle-font-size;
-	text-transform: @ui-toggle-text-transform;
-	letter-spacing: @ui-toggle-letter-spacing;
+		+ label {
+			padding: @ui-toggle-padding;
+			font-family: @ui-toggle-font-family;
+			font-weight: @ui-toggle-font-weight;
+			font-size: @ui-toggle-font-size;
+			text-transform: @ui-toggle-text-transform;
+			letter-spacing: @ui-toggle-letter-spacing;
+			text-align: center;
+			cursor: pointer;
+			position: relative;
+			width: 4.25em; /* 68/16 */
+			-webkit-user-select: none;
+			user-select: none;
+			border-radius: @ui-toggle-border-radius;
+			background-color: @ui-color-gray-light;
+			display: block;
+			text-indent: 1.4375em; /* 23/16 */
+			line-height: 1.25em; /* 20/16 */
+			position: relative;
+			top: -0.1875em; /* 3/16 */
 
-	text-align: center;
-
-	cursor: pointer;
-
-	position: relative;
-
-	width: 68px;
-
-
-	&:before {
-		border-radius: @ui-toggle-border-radius;
-		background-color: @ui-color-gray-light;
-		display: block;
-    	content: "OFF";
-		text-indent: 23px;
-		line-height: 20px;
-		position: relative;
-		top: -3px;
-    }
-
-	&:after {
-		display: block;
-	    content: " ";
-	    position: absolute;
-	    top: 0;
-	    bottom: 0;
-	    left: 0;
-	    margin-top: auto;
-	    margin-bottom: auto;
-	    background: @ui-color-gray-lighter;
-	    width: 26px;
-	    height: 26px;
-	    border-radius: 100%;
-	    box-shadow: 0 2px 1.96px 0.04px rgba(0,0,0,.2);
-	    transition: left .2s ease-in-out, background .1s ease-in-out;
-	}
-
-	&:disabled {
-		opacity: 0.5;
-		cursor: progress;
-		pointer-events: none;
-	}
-
-	&.on {
-		&:before {
-			content: "ON";
-			text-indent: -20px;
+			&:after {
+				display: block;
+			    content: '';
+			    position: absolute;
+			    top: 0;
+			    bottom: 0;
+			    left: 0;
+			    margin-top: auto;
+			    margin-bottom: auto;
+			    background: @ui-color-gray-lighter;
+			    width: 1.625em; /* 26/16 */
+			    height: 1.625em; /* 26/16 */
+			    border-radius: 100%;
+			    box-shadow: 0 2px 1.96px 0.04px rgba(0,0,0,.2);
+			    transition: transform 200ms, background 100ms;
+			}
 		}
-		&:after {
-			left: 42px;
-			background: @ui-color-green;
+
+		&:disabled {
+			+ label {
+				opacity: 0.5;
+				cursor: progress;
+			}
+		}
+
+		&:checked {
+			+ label {
+				text-indent: -1.25em; /* 20/16 */
+
+				&:after {
+					transform: translateX((2.625em + @ui-toggle-padding)); /* 42/16 */
+					background: @ui-color-green;
+				}
+			}
 		}
 	}
 }

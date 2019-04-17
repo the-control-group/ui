@@ -11,36 +11,33 @@ import Common from '../Common/Common';
 const Toggle = ({
 	checked,
 	value,
+	onChange,
 	disabled,
 	...other
 }) => {
 	const combinedClasses = classNames(
-		'ui-toggle',
-		other.classes,
-		{
-			on: checked
-		}
-	);
+			'ui-toggle',
+			other.classes
+		),
+		toggleId = `checkbox-toggle-${value.replace(/\s/g, '_')}`;
 
 	return (
 		<Common
 			{...other}
 			classes={combinedClasses}
-			tag="input"
-			type="checkbox"
-			value={value}
-			disabled={disabled}
-		/>
+			tag="div"
+		>
+			<input id={toggleId} type="checkbox" checked={checked} value={value} disabled={disabled} onChange={onChange} />
+			<label htmlFor={toggleId}>{checked ? 'On' : 'Off'}</label>
+		</Common>
 	);
 };
 
 Toggle.propTypes = {
-	disabled: PropTypes.bool,
-	/** disabled state */
 	checked: PropTypes.bool.isRequired,
-	/** position state */
-	value: PropTypes.string
-	/** string state */
+	onChange: PropTypes.func.isRequired,
+	value: PropTypes.string.isRequired,
+	disabled: PropTypes.bool
 };
 
 export default Toggle;

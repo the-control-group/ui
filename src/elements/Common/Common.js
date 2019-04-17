@@ -95,8 +95,8 @@ const Common = ({
 	});
 
 	attributeValues.forEach(v => {
-		// If the "value" attribute is present, it should be added regardless of truthiness
-		if(other[v] || (v === 'value' && other.hasOwnProperty('value'))) {
+		// If the "value" or "checked" attribute is present, it should be added regardless of truthiness
+		if(other[v] || (v === 'value' && other.hasOwnProperty('value')) || (v === 'checked' && other.hasOwnProperty('checked'))) {
 			attributes[v] = other[v];
 		}
 	});
