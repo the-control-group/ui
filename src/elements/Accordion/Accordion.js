@@ -53,6 +53,7 @@ class Accordion extends Component {
 			return PropTypes.node(props, propName, componentName, ...args);
 		},
 		className: PropTypes.string,
+		headerClassName: PropTypes.string,
 		notificationStyle: PropTypes.bool,
 		defaultExpanded: PropTypes.bool,
 		toggleTextShow: PropTypes.string,
@@ -128,13 +129,13 @@ class Accordion extends Component {
 	}
 
 	render() {
-		const { title, header, children, className, notificationStyle, toggleTextShow, toggleTextHide, buttonStyleToggle } = this.props,
+		const { title, header, children, className, headerClassName, notificationStyle, toggleTextShow, toggleTextHide, buttonStyleToggle } = this.props,
 			{ showContent, toggle } = this.state,
 			toggleText = toggle === 'show' ? toggleTextShow : toggleTextHide;
 
 		return (
 			<div className={classNames('ui-accordion', className, {'notification-style': notificationStyle})}>
-				<div className="ui-accordion-header">
+				<div className={classNames('ui-accordion-header', headerClassName)}>
 					<FlexRow breakMedium={buttonStyleToggle}>
 						<Flex>
 							{header || <div className="title">{title}</div>}
