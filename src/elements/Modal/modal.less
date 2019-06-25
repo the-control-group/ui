@@ -1,7 +1,7 @@
 @ui-modal-background: @ui-color-white;
 @ui-modal-padding: 1em;
 @ui-modal-z-index: 99999;
-@ui-modal-border-radius: 4px;
+@ui-modal-border-radius: 0;
 @ui-modal-max-width: 43.75em; /* 700/16 */
 @ui-modal-top: 7.5em;
 @ui-modal-box-shadow: 2px 3px 9px -2px @ui-color-black;
@@ -78,9 +78,9 @@
 	.ui-modal-close {
 		color: @ui-modal-close-color;
 		position: absolute;
-		right: .5em;
-		top: .5em;
-		font-size: 20px;
+		right: 0.5em;
+		top: 0.25em;
+		font-size: 2em;
 		cursor: pointer;
 		user-select: none;
 	}
@@ -88,5 +88,9 @@
 	&.ui-modal-close.full-screen {
 		font-size: 32px;
 		right: 0.75em;
+	}
+
+	p {
+		letter-spacing: 0.5px;
 	}
 }

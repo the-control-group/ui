@@ -28,6 +28,7 @@ const Input = ({
 	name,
 	id,
 	checked,
+	rows,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -87,6 +88,27 @@ const Input = ({
 		);
 	}
 
+	if(type === 'textarea') {
+		return (
+			<Fragment>
+				{label &&
+					<Label htmlFor={other.id}>
+						{label}
+					</Label>
+				}
+
+				<Common
+					{...other}
+					classes={combinedClasses}
+					tag="textarea"
+					name={name}
+					id={id}
+					rows={rows || 4}
+				/>
+			</Fragment>
+		);
+	}
+
 	return (
 		<Fragment>
 			{label &&
@@ -116,6 +138,10 @@ Input.propTypes = {
 	type: PropTypes.string,
 	bare: PropTypes.bool,
 	name: PropTypes.string.isRequired,
+	rows: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number
+	]),
 	/** Placeholder for input */
 	placeholder: PropTypes.string,
 	/** Object of options for type of `select` */
