@@ -68,6 +68,7 @@ const Common = ({
 			'onSubmit',
 			'onScroll',
 			'name',
+			'defaultValue',
 			'value',
 			'htmlFor',
 			'hidden',

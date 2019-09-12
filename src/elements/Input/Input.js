@@ -57,8 +57,14 @@ const Input = ({
 						tag="select"
 						type={type}
 					>
-						{Object.keys(options).map((keyName, keyIndex) =>
-							<option key={keyIndex} value={keyName}>{options[keyName]}</option>
+						{Array.isArray(options) ? (
+							options.map(keyName =>
+								<option key={keyName} value={keyName}>{keyName}</option>
+							)
+						) : (
+							Object.keys(options).map((keyName, keyIndex) =>
+								<option key={keyIndex} value={keyName}>{options[keyName]}</option>
+							)
 						)}
 					</Common>
 				</div>
