@@ -90,8 +90,9 @@ class Accordion extends Component {
 				toggle: 'hide'
 			}, () => {
 				window.requestAnimationFrame(() => {
-					const transitionDuration = Math.max(this.accordionContent.current.clientHeight * 2, 300) > 5000 ?
-						  5000 : Math.max(this.accordionContent.current.clientHeight * 2, 300);
+					const transitionDuration = Math.max(this.accordionContent.current.clientHeight, 300) > 5000
+						? 5000
+						: Math.max(this.accordionContent.current.clientHeight, 300);
 
 					// Set fixed height (based on height of content) and set transition-duration for .ui-accordion-content-wrapper.
 					// We need fixed height for CSS Transition to work and to animate slide down of accordion.
@@ -127,7 +128,7 @@ class Accordion extends Component {
 						showContent: false
 					});
 					this.disableToggle = false;
-				}, this.accordionContent.current.clientHeight * 2);
+				}, this.accordionContent.current.clientHeight);
 			});
 		}
 	}
