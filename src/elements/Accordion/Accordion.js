@@ -96,12 +96,14 @@ class Accordion extends Component {
 					// We need fixed height for CSS Transition to work and to animate slide down of accordion.
 					this.accordionContent.current.parentNode.style.transitionDuration = `${transitionDuration}ms`;
 					this.accordionContent.current.parentNode.style.height = `${this.accordionContent.current.clientHeight}px`;
+					this.accordionContent.current.parentNode.style.overflow = 'hidden';
 
 					// Set auto height for .ui-accordion-content-wrapper after animation is complete.
 					// We can't keep fixed height here because accordion may have other accordions inside of it and height of content may change.
 					setTimeout(() => {
 						this.disableToggle = false;
 						this.accordionContent.current.parentNode.style.height = 'auto';
+						this.accordionContent.current.parentNode.style.overflow = 'visible';
 					}, transitionDuration);
 				});
 			});
@@ -112,6 +114,7 @@ class Accordion extends Component {
 
 			// Set height back to fixed for .ui-accordion-content-wrapper so we can animate slide up.
 			this.accordionContent.current.parentNode.style.height = `${this.accordionContent.current.clientHeight}px`;
+			this.accordionContent.current.parentNode.style.overflow = 'hidden';
 
 			// Set height and transition-duration for slide up animation.
 			window.requestAnimationFrame(() => {
