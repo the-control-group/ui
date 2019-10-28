@@ -98,9 +98,11 @@ const Common = ({
 
 	attributeValues.forEach(v => {
 		// If the "value" or "checked" attribute is present, it should be added regardless of truthiness
+		/* eslint-disable */
 		if(other[v] || (v === 'value' && other.hasOwnProperty('value')) || (v === 'checked' && other.hasOwnProperty('checked'))) {
 			attributes[v] = other[v];
 		}
+		/* eslint-enable */
 	});
 
 	const combinedClasses = classNames(
