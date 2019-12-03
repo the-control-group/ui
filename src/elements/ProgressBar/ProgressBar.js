@@ -132,7 +132,7 @@ export default class ProgressBar extends React.Component {
 	}
 
 	skipProgressBar() {
-		if(this.state.pressedKKey && this.state.pressedKKey) {
+		if(this.state.pressedKKey && this.state.pressedControlKey) {
 			this.setState({
 				percentage: 100
 			}, () => {
