@@ -66,8 +66,9 @@ Button.propTypes = {
 	/** Text button styles */
 	text: PropTypes.bool,
 	/** Secondary button styles */
-	secondary: PropTypes.bool
+	secondary: PropTypes.bool,
 	/* Ghost Style */
+	ghost: PropTypes.bool
 };
 
 export default Button;
