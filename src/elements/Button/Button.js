@@ -18,6 +18,7 @@ const Button = ({
 	outline,
 	bare,
 	secondary,
+	ghost,
 	...other
 }) => {
 	const style = outline ? 'outline' : bare ? 'bare' : 'standard';
@@ -29,7 +30,8 @@ const Button = ({
 		style,
 		mini && 'mini',
 		full && 'full',
-		loading && 'loading'
+		loading && 'loading',
+		ghost && 'ghost'
 	);
 
 	return (
@@ -64,7 +66,9 @@ Button.propTypes = {
 	/** Text button styles */
 	text: PropTypes.bool,
 	/** Secondary button styles */
-	secondary: PropTypes.bool
+	secondary: PropTypes.bool,
+	/* Ghost Style */
+	ghost: PropTypes.bool
 };
 
 export default Button;
