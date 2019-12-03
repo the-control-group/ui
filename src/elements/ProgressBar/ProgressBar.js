@@ -29,13 +29,17 @@ export default class ProgressBar extends React.Component {
 		super(props);
 
 		this.state = {
-			percentage: 0
+			percentage: 0,
+			pressedKKey: false,
+			pressedControlKey: false
 		};
 
 		this.timer = this.timer.bind(this);
 		this.startProgressBar = this.startProgressBar.bind(this);
 		this.createSegments = this.createSegments.bind(this);
 		this.startSegmentBar = this.startSegmentBar.bind(this);
+		this.skipProgressBar = this.skipProgressBar.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
 		this.interval = null;
 	}
 
@@ -43,10 +47,13 @@ export default class ProgressBar extends React.Component {
 		if(this.props.autoStart) {
 			setTimeout(this.startProgressBar, this.props.delay);
 		}
+
+		window.addEventListener('keydown', this.handleKeyDown);
 	}
 
 	componentWillUnmount() {
 		clearInterval(this.interval);
+		window.removeEventListener('keydown', this.handleKeyDown);
 	}
 
 	timer() {
@@ -108,6 +115,31 @@ export default class ProgressBar extends React.Component {
 
 	startSegmentBar(segment) {
 		this.interval = setInterval(this.timer, (segment.duration / segment.percentage));
+	}
+
+	handleKeyDown(event) {
+		if(event.key === 'Control') {
+			this.setState({
+				pressedControlKey: true
+			}, this.skipProgressBar);
+		}
+
+		if(event.key === 'k') {
+			this.setState({
+				pressedKKey: true
+			}, this.skipProgressBar);
+		}
+	}
+
+	skipProgressBar() {
+		if(this.state.pressedKKey && this.state.pressedControlKey) {
+			this.setState({
+				percentage: 100
+			}, () => {
+				clearInterval(this.interval);
+				setTimeout(this.props.onComplete, this.props.completeDelay);
+			});
+		}
 	}
 
 	render() {
