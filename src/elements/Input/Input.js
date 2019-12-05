@@ -63,7 +63,7 @@ const Input = ({
 							)
 						) : (
 							Object.keys(options).map((keyName, keyIndex) =>
-								<option key={keyIndex} value={keyName}>{options[keyName]}</option>
+								<option key={keyIndex} value={keyName} disabled={keyName.includes('disabled')}>{options[keyName]}</option>
 							)
 						)}
 					</Common>

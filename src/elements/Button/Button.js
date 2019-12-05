@@ -18,15 +18,17 @@ const Button = ({
 	outline,
 	bare,
 	secondary,
+	tertiary,
+	plain,
 	ghost,
 	...other
 }) => {
-	const style = outline ? 'outline' : bare ? 'bare' : 'standard';
+	const style = outline ? 'outline' : bare ? 'bare' : plain ? '' : 'standard';
 
 	const combinedClasses = classNames(
 		'ui-button',
 		other.classes,
-		secondary ? 'secondary' : 'primary',
+		secondary ? 'secondary' : tertiary ? 'tertiary' : plain ? '' : 'primary',
 		style,
 		mini && 'mini',
 		full && 'full',
@@ -67,8 +69,10 @@ Button.propTypes = {
 	text: PropTypes.bool,
 	/** Secondary button styles */
 	secondary: PropTypes.bool,
-	/* Ghost Style */
-	ghost: PropTypes.bool
+	/** Tertiary button styles */
+	tertiary: PropTypes.bool,
+	/* No styles */
+	plain: PropTypes.bool
 };
 
 export default Button;

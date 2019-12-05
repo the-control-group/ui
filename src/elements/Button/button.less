@@ -26,6 +26,13 @@
 @ui-button-secondary-border: 1px solid transparent;
 @ui-button-secondary-font-color: @ui-color-white;
 
+// tertiary button variables
+@ui-button-tertiary-color: @ui-color-yellow;
+@ui-button-tertiary-color-focus: darken(@ui-color-yellow, 5%);
+@ui-button-tertiary-color-active: darken(@ui-color-yellow, 5%);
+@ui-button-tertiary-border: 1px solid transparent;
+@ui-button-tertiary-font-color: @ui-color-black;
+
 .ui-button {
 	display: inline-block;
 	padding: @ui-button-padding;
@@ -59,6 +66,19 @@
 			background-color: @ui-button-color-active;
 			border-color: @ui-button-color-active;
 		}
+
+		&.outline {
+			background: transparent;
+			border-color: @ui-button-color;
+			color: @ui-button-color;
+
+			&:hover,
+			&:focus,
+			&:active {
+				border-color: @ui-button-color-focus;
+				color: @ui-button-color-focus;
+			}
+		}
 	}
 
 	&.secondary:not(.bare) {
@@ -78,6 +98,51 @@
 			background-color: @ui-button-secondary-color-active;
 			border-color: @ui-button-secondary-color-active;
 		}
+
+		&.outline {
+			background: transparent;
+			border-color: @ui-button-secondary-color;
+			color: @ui-button-secondary-color;
+
+			&:hover,
+			&:focus,
+			&:active {
+				border-color: @ui-button-secondary-color-focus;
+				color: @ui-button-secondary-color-focus;
+			}
+		}
+	}
+
+	&.tertiary:not(.bare) {
+		color: @ui-button-tertiary-font-color;
+		border: @ui-button-tertiary-border;
+		background-color: @ui-button-tertiary-color;
+		border-color: @ui-button-tertiary-color;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: @ui-button-tertiary-color-focus;
+			border-color: @ui-button-tertiary-color-focus;
+		}
+
+		&:active {
+			background-color: @ui-button-tertiary-color-active;
+			border-color: @ui-button-tertiary-color-active;
+		}
+
+		&.outline {
+			background: transparent;
+			border-color: @ui-button-tertiary-color;
+			color: @ui-button-tertiary-color;
+
+			&:hover,
+			&:focus,
+			&:active {
+				border-color: @ui-button-tertiary-color-focus;
+				color: @ui-button-tertiary-color-focus;
+			}
+		}
 	}
 
 	// variants
@@ -87,10 +152,6 @@
 		&.secondary {
 			color: @ui-button-secondary-font-color
 		}
-	}
-
-	&.outline {
-		background-color: transparent;
 	}
 
 	&.bare {
@@ -110,12 +171,6 @@
 			&:active {
 				color: @ui-button-color-active;
 			}
-
-			&.ghost {
-				padding: @ui-button-padding;
-				border: @ui-button-border;
-				border-color: @ui-button-color;
-			}
 		}
 
 		&.secondary {
@@ -130,11 +185,19 @@
 			&:active {
 				color: @ui-button-secondary-color-active;
 			}
+		}
 
-			&.ghost {
-				padding: @ui-button-padding;
-				border: @ui-button-secondary-border;
-				border-color: @ui-button-secondary-color;
+		&.tertiary {
+			color: @ui-button-tertiary-color;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: @ui-button-tertiary-color-focus;
+			}
+
+			&:active {
+				color: @ui-button-tertiary-color-active;
 			}
 		}
 	}
