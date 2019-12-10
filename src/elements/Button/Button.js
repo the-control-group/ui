@@ -20,7 +20,6 @@ const Button = ({
 	secondary,
 	tertiary,
 	plain,
-	ghost,
 	...other
 }) => {
 	const style = outline ? 'outline' : bare ? 'bare' : plain ? '' : 'standard';
@@ -32,8 +31,7 @@ const Button = ({
 		style,
 		mini && 'mini',
 		full && 'full',
-		loading && 'loading',
-		ghost && 'ghost'
+		loading && 'loading'
 	);
 
 	return (
