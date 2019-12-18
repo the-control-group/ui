@@ -90,8 +90,8 @@ class Accordion extends Component {
 				toggle: 'hide'
 			}, () => {
 				window.requestAnimationFrame(() => {
-					const transitionDuration = Math.max(this.accordionContent.current.clientHeight, 300) > 5000
-						? 5000
+					const transitionDuration = Math.max(this.accordionContent.current.clientHeight, 300) > 2000
+						? 1000
 						: Math.max(this.accordionContent.current.clientHeight, 300);
 
 					// Set fixed height (based on height of content) and set transition-duration for .ui-accordion-content-wrapper.
