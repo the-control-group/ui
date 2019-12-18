@@ -122,13 +122,17 @@ class Accordion extends Component {
 			window.requestAnimationFrame(() => {
 				this.accordionContent.current.parentNode.style.height = 0;
 
+				const closeTransitionDuration = Math.max(this.accordionContent.current.clientHeight, 300) > 2000
+					? 1000
+					: Math.max(this.accordionContent.current.clientHeight, 300);
+
 				// Remove content from DOM after animation is complete
 				setTimeout(() => {
 					this.setState({
 						showContent: false
 					});
 					this.disableToggle = false;
-				}, this.accordionContent.current.clientHeight);
+				}, closeTransitionDuration);
 			});
 		}
 	}
