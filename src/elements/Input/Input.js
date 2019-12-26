@@ -29,6 +29,7 @@ const Input = ({
 	id,
 	checked,
 	rows,
+	defaultValue,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -56,6 +57,7 @@ const Input = ({
 						classes={combinedClasses}
 						tag="select"
 						type={type}
+						defaultValue={defaultValue}
 					>
 						{Array.isArray(options) ? (
 							options.map(keyName =>
