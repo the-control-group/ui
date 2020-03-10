@@ -146,6 +146,7 @@ Input.propTypes = {
 	type: PropTypes.string,
 	bare: PropTypes.bool,
 	name: PropTypes.string.isRequired,
+	defaultValue: PropTypes.string,
 	rows: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number
