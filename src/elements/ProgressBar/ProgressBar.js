@@ -31,7 +31,10 @@ export default class ProgressBar extends React.Component {
 		this.state = {
 			percentage: 0,
 			pressedKKey: false,
-			pressedControlKey: false
+			pressedControlKey: false,
+			segmentStartTime: '',
+			currentSegment: null,
+			percentageForNextSegment: 0
 		};
 
 		this.timer = this.timer.bind(this);
@@ -57,10 +60,15 @@ export default class ProgressBar extends React.Component {
 	}
 
 	timer() {
+		const { segmentStartTime, currentSegment, percentage, percentageForNextSegment } = this.state;
+
 		this.setState({
-			percentage: this.state.percentage + 1
+			// Sometimes state doesn't get updated fast enough and it slows down the progress bar. Need to use Date.now() to get the timestamp in milliseconds for accurate timer
+			percentage: Date.now() >= segmentStartTime + currentSegment.duration
+				? percentageForNextSegment
+				: percentage + 1
 		}, () => {
-			if (this.state.percentage >= 100) {
+			if (percentage >= 100) {
 				clearInterval(this.interval);
 				setTimeout(this.props.onComplete, this.props.completeDelay);
 			}
@@ -114,6 +122,12 @@ export default class ProgressBar extends React.Component {
 	}
 
 	startSegmentBar(segment) {
+		this.setState({
+			segmentStartTime: Date.now(),
+			percentageForNextSegment: this.state.percentageForNextSegment + segment.percentage,
+			currentSegment: segment
+		});
+
 		this.interval = setInterval(this.timer, (segment.duration / segment.percentage));
 	}
 
