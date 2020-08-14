@@ -14,6 +14,7 @@ class Modal extends Component {
 		currentModal: PropTypes.object,
 		children: PropTypes.node.isRequired,
 		onDismiss: PropTypes.func,
+		onExit: PropTypes.func,
 		enqueueModal: PropTypes.func.isRequired,
 		dequeueModal: PropTypes.func.isRequired,
 		modalRoot: PropTypes.instanceOf(window.Element).isRequired,
@@ -49,8 +50,12 @@ class Modal extends Component {
 
 			this.modal.current.classList.add('exit');
 
-			setTimeout(() => this.setState({modalVisible: false}), 300);
+			this.visibilityTimer = setTimeout(() => this.setState({modalVisible: false}, () => this.props.onExit && this.props.onExit()), 300);
 		}
+	}
+
+	componentWillUnmount() {
+		clearTimeout(this.visibilityTimer);
 	}
 
 	render() {
