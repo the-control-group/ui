@@ -13,11 +13,13 @@ const Toggle = ({
 	value,
 	onChange,
 	disabled,
+	invert,
 	...other
 }) => {
 	const combinedClasses = classNames(
 			'ui-toggle',
-			other.classes
+			other.classes,
+			invert && 'invert'
 		),
 		toggleId = `checkbox-toggle-${value.replace(/\s/g, '_')}`;
 
