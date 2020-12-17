@@ -58,7 +58,8 @@ class Accordion extends Component {
 		defaultExpanded: PropTypes.bool,
 		toggleTextShow: PropTypes.string,
 		toggleTextHide: PropTypes.string,
-		buttonStyleToggle: PropTypes.bool
+		buttonStyleToggle: PropTypes.bool,
+		onOpen: PropTypes.func
 	};
 
 	static defaultProps = {
@@ -85,6 +86,8 @@ class Accordion extends Component {
 
 		this.disableToggle = true;
 		if(!this.state.showContent) {
+			if (this.props.onOpen) this.props.onOpen();
+
 			this.setState({
 				showContent: true,
 				toggle: 'hide'
