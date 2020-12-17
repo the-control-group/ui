@@ -81,4 +81,30 @@
 			}
 		}
 	}
+
+	&.invert {
+		input[type="checkbox"] {
+			+ label {
+				color: @ui-color-white;
+				background-color: @ui-color-gray-medium;
+				text-transform: capitalize;
+
+				&:after {
+					background: @ui-color-gray-light;
+					border: 1px solid @ui-color-white;
+					box-shadow: none;
+				}
+			}
+
+			&:checked {
+				+ label {
+					background-color: @ui-color-green;
+
+					&:after {
+						background: @ui-color-gray-light;
+					}
+				}
+			}
+		}
+	}
 }
