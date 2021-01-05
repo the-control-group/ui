@@ -3,6 +3,7 @@
  */
 const largeBreakpoint = 1025,
 	mediumBreakpoint = 768,
+	extraSmallBreakpoint = 575,
 	viewportWidth = window.innerWidth;
 
 export const getBreakpoint = () => {
@@ -13,6 +14,10 @@ export const getBreakpoint = () => {
 
 export const isMobile = () => {
 	return viewportWidth < largeBreakpoint;
+};
+
+export const isXsBreakpoint = () => {
+	return viewportWidth <= extraSmallBreakpoint;
 };
 
 // Custom PropType to accept number strings and numbers for a number field

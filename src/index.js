@@ -17,5 +17,4 @@ export { default as ModalProvider } from './elements/ModalProvider/ModalProvider
 export { default as ProgressBar } from './elements/ProgressBar/ProgressBar';
 export { default as Accordion } from './elements/Accordion/Accordion';
 
-export { getBreakpoint } from './util/helpers';
-export { isMobile } from './util/helpers';
+export { getBreakpoint, isMobile, isXsBreakpoint } from './util/helpers';
