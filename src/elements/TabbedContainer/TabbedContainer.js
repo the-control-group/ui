@@ -29,12 +29,12 @@ class TabbedContainer extends Component {
 
 	render() {
 		const { activeIndex } = this.state,
-			{ children } = this.props;
+			{ children, stackLarge } = this.props;
 
 		const activeTab = React.Children.toArray(children)[activeIndex];
 
 		return (
-			<div className={classNames('ui-tabs-container', { desktop: !isMobile() })}>
+			<div className={classNames('ui-tabs-container', { desktop: (!isMobile() && !stackLarge) })}>
 				<List inline className="ui-tabs-nav">
 					{React.Children.map(children, (child, i) => (
 						<TabNavItem
@@ -56,7 +56,8 @@ class TabbedContainer extends Component {
 }
 
 TabbedContainer.propTypes = {
-	children: PropTypes.node.isRequired
+	children: PropTypes.node.isRequired,
+	stackLarge: PropTypes.bool
 };
 
 export default TabbedContainer;
