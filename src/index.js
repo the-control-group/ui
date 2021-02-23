@@ -1,3 +1,4 @@
+// Make these available to import directly from the package root
 export { default as Grid } from './elements/Grid/Grid';
 export { default as FlexRow } from './elements/FlexRow/FlexRow';
 export { default as Flex } from './elements/Flex/Flex';
