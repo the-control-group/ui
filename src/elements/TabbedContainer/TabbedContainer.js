@@ -37,13 +37,15 @@ class TabbedContainer extends Component {
 			<div className={classNames('ui-tabs-container', { desktop: (!isMobile() && !mobileDesign) })}>
 				<List inline className="ui-tabs-nav">
 					{React.Children.map(children, (child, i) => (
-						<TabNavItem
-							{...child.props}
-							tabId={i}
-							changeTab={this.changeTab}
-							active={i === activeIndex}
-							width={`${100 / children.length}%`}
-						/>
+						//This check will allow empty nodes to be skipped over
+						child &&
+							<TabNavItem
+								{...child.props}
+								tabId={i}
+								changeTab={this.changeTab}
+								active={i === activeIndex}
+								width={`${100 / children.length}%`}
+							/>
 					))}
 				</List>
 
