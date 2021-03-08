@@ -10,7 +10,7 @@ class TabbedContainer extends Component {
 	constructor(props) {
 		super(props);
 
-		const children = React.Children.toArray(this.props.children).filter(c => !!c),
+		const children = React.Children.toArray(this.props.children).filter(Boolean),
 			defaultActiveIndex = Math.max(children.findIndex(c => c.props.defaultActive), 0);
 
 		this.state = {
@@ -31,7 +31,7 @@ class TabbedContainer extends Component {
 	render() {
 		const { activeIndex } = this.state,
 			{ mobileDesign } = this.props,
-			children = React.Children.toArray(this.props.children).filter(c => !!c),
+			children = React.Children.toArray(this.props.children).filter(Boolean),
 			activeTab = children.filter(c => !!c)[activeIndex];
 
 		return (
