@@ -10,7 +10,8 @@ class TabbedContainer extends Component {
 	constructor(props) {
 		super(props);
 
-		const defaultActiveIndex = Math.max(React.Children.toArray(this.props.children).findIndex(c => c.props.defaultActive), 0);
+		const children = React.Children.toArray(this.props.children).filter(Boolean),
+			defaultActiveIndex = Math.max(children.findIndex(c => c.props.defaultActive), 0);
 
 		this.state = {
 			activeIndex: defaultActiveIndex
@@ -29,23 +30,22 @@ class TabbedContainer extends Component {
 
 	render() {
 		const { activeIndex } = this.state,
-			{ children, mobileDesign } = this.props;
-
-		const activeTab = React.Children.toArray(children)[activeIndex];
+			{ mobileDesign } = this.props,
+			children = React.Children.toArray(this.props.children).filter(Boolean),
+			activeTab = children.filter(c => !!c)[activeIndex];
 
 		return (
 			<div className={classNames('ui-tabs-container', { desktop: (!isMobile() && !mobileDesign) })}>
 				<List inline className="ui-tabs-nav">
-					{React.Children.map(children, (child, i) => (
-						//This check will allow empty nodes to be skipped over
-						child &&
-							<TabNavItem
-								{...child.props}
-								tabId={i}
-								changeTab={this.changeTab}
-								active={i === activeIndex}
-								width={`${100 / children.length}%`}
-							/>
+					{children.map((child, i) => (
+						<TabNavItem
+							key={i}
+							{...child.props}
+							tabId={i}
+							changeTab={this.changeTab}
+							active={i === activeIndex}
+							width={`${100 / children.length}%`}
+						/>
 					))}
 				</List>
 
