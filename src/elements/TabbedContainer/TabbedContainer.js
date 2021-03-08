@@ -10,7 +10,7 @@ class TabbedContainer extends Component {
 	constructor(props) {
 		super(props);
 
-        const defaultActiveIndex = Math.max(React.Children.toArray(this.props.children).findIndex(c => c.props.defaultActive), 0);
+		const defaultActiveIndex = Math.max(React.Children.toArray(this.props.children).findIndex(c => c.props.defaultActive), 0);
 
 		this.state = {
 			activeIndex: defaultActiveIndex
