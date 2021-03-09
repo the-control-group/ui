@@ -13,4 +13,4 @@ This package does not come transpiled - the importing library is responsible for
 - Make a new branch called `release/x.x.x` for the version number
 - run `npm version <major|minor|patch>` to automatically update `package.json`, `package-lock.json`, and create a git tag
 - be sure to push the branch with the `--tags` option
-- after merging into `master`, create a new release from the pushed tag and GitHub actions will publich to `npm` and GH package registry
+- after merging into `master`, create a new release from the pushed tag and GitHub actions will publish to `npm` and GH package registry
