@@ -74,11 +74,22 @@ class Accordion extends Component {
 		this.disableToggle = false;
 
 		this.state = {
-			showContent: this.props.defaultExpanded,
-			toggle: this.props.defaultExpanded ? 'hide' : 'show'
+			showContent: false,
+			toggle: 'show'
 		};
 
 		this.toggleAccordion = this.toggleAccordion.bind(this);
+	}
+
+	componentDidMount() {
+		if (this.props.defaultExpanded) {
+			this.setState({
+				showContent: true,
+				toggle: 'hide'
+			});
+
+			this.accordionContent.current.parentNode.style.height = 'auto';
+		}
 	}
 
 	toggleAccordion() {
