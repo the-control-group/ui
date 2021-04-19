@@ -87,8 +87,6 @@ class Accordion extends Component {
 				showContent: true,
 				toggle: 'hide'
 			});
-
-			this.accordionContent.current.parentNode.style.height = 'auto';
 		}
 	}
 
@@ -148,7 +146,7 @@ class Accordion extends Component {
 	}
 
 	render() {
-		const { title, header, children, className, headerClassName, notificationStyle, toggleTextShow, toggleTextHide, buttonStyleToggle } = this.props,
+		const { title, header, children, className, headerClassName, notificationStyle, toggleTextShow, toggleTextHide, buttonStyleToggle, defaultExpanded } = this.props,
 			{ showContent, toggle } = this.state,
 			toggleText = toggle === 'show' ? toggleTextShow : toggleTextHide;
 
@@ -175,7 +173,7 @@ class Accordion extends Component {
 					</FlexRow>
 				</div>
 
-				<div className="ui-accordion-content-wrapper">
+				<div className={classNames('ui-accordion-content-wrapper', defaultExpanded && 'default-expanded')}>
 					<div className="ui-accordion-content" ref={this.accordionContent}>
 						{showContent && children}
 					</div>
