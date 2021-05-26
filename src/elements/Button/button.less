@@ -33,6 +33,9 @@
 @ui-button-tertiary-border: 1px solid transparent;
 @ui-button-tertiary-font-color: @ui-color-black;
 
+// pill button vatiables
+@ui-button-pill-border-radius: 2em;
+
 .ui-button {
 	display: inline-block;
 	padding: @ui-button-padding;
@@ -222,5 +225,9 @@
 
 	&.loading {
 		cursor: progress;
+	}
+
+	&.pill {
+		border-radius: @ui-button-pill-border-radius;
 	}
 }

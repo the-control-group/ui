@@ -20,6 +20,7 @@ const Button = ({
 	secondary,
 	tertiary,
 	plain,
+	pill,
 	...other
 }) => {
 	const style = outline ? 'outline' : bare ? 'bare' : plain ? '' : 'standard';
@@ -31,7 +32,8 @@ const Button = ({
 		style,
 		mini && 'mini',
 		full && 'full',
-		loading && 'loading'
+		loading && 'loading',
+		pill && 'pill'
 	);
 
 	return (
@@ -70,7 +72,9 @@ Button.propTypes = {
 	/** Tertiary button styles */
 	tertiary: PropTypes.bool,
 	/* No styles */
-	plain: PropTypes.bool
+	plain: PropTypes.bool,
+	/* Pill style (border radius) */
+	pill: PropTypes.bool
 };
 
 export default Button;
