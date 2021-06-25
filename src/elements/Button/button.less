@@ -39,6 +39,8 @@
 @ui-button-outline-background-focus: transparent;
 @ui-button-outline-secondary-background: transparent;
 @ui-button-outline-secondary-background-focus: transparent;
+@ui-button-outline-tertiary-background: transparent;
+@ui-button-outline-tertiary-background-focus: transparent;
 
 // pill button vatiables
 @ui-button-pill-border-radius: 2em;
@@ -145,7 +147,7 @@
 		}
 
 		&.outline {
-			background: transparent;
+			background: @ui-button-outline-tertiary-background;
 			border-color: @ui-button-tertiary-color;
 			color: @ui-button-tertiary-color;
 
@@ -154,6 +156,7 @@
 			&:active {
 				border-color: @ui-button-tertiary-color-focus;
 				color: @ui-button-tertiary-color-focus;
+				background: @ui-button-outline-tertiary-background-focus;
 			}
 		}
 	}
