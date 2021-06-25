@@ -37,6 +37,8 @@
 // outline button variables
 @ui-button-outline-background: transparent;
 @ui-button-outline-background-focus: transparent;
+@ui-button-outline-secondary-background: transparent;
+@ui-button-outline-secondary-background-focus: transparent;
 
 // pill button vatiables
 @ui-button-pill-border-radius: 2em;
@@ -110,7 +112,7 @@
 		}
 
 		&.outline {
-			background: transparent;
+			background: @ui-button-outline-secondary-background;
 			border-color: @ui-button-secondary-color;
 			color: @ui-button-secondary-color;
 
@@ -119,6 +121,7 @@
 			&:active {
 				border-color: @ui-button-secondary-color-focus;
 				color: @ui-button-secondary-color-focus;
+				background: @ui-button-outline-secondary-background-focus;
 			}
 		}
 	}
