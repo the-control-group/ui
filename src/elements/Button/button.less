@@ -18,6 +18,7 @@
 @ui-button-color-focus: @ui-color-gray-darker;
 @ui-button-color-active: @ui-color-gray-darkest;
 @ui-button-font-color: @ui-color-white;
+@ui-button-border-color: @ui-button-color;
 
 // secondary button variables
 @ui-button-secondary-color: @ui-color-gray-dark;
@@ -32,6 +33,14 @@
 @ui-button-tertiary-color-active: darken(@ui-color-yellow, 5%);
 @ui-button-tertiary-border: 1px solid transparent;
 @ui-button-tertiary-font-color: @ui-color-black;
+
+// outline button variables
+@ui-button-outline-background: transparent;
+@ui-button-outline-background-focus: transparent;
+@ui-button-outline-secondary-background: transparent;
+@ui-button-outline-secondary-background-focus: transparent;
+@ui-button-outline-tertiary-background: transparent;
+@ui-button-outline-tertiary-background-focus: transparent;
 
 // pill button vatiables
 @ui-button-pill-border-radius: 2em;
@@ -55,7 +64,7 @@
 	&.primary:not(.bare) {
 		border: @ui-button-border;
 		background: @ui-button-color;
-		border-color: @ui-button-color;
+		border-color: @ui-button-border-color;
 		color: @ui-button-font-color;
 
 		&:hover,
@@ -72,7 +81,7 @@
 		}
 
 		&.outline {
-			background: transparent;
+			background: @ui-button-outline-background;
 			border-color: @ui-button-color;
 			color: @ui-button-color;
 
@@ -81,6 +90,7 @@
 			&:active {
 				border-color: @ui-button-color-focus;
 				color: @ui-button-color-focus;
+				background: @ui-button-outline-background-focus;
 			}
 		}
 	}
@@ -104,7 +114,7 @@
 		}
 
 		&.outline {
-			background: transparent;
+			background: @ui-button-outline-secondary-background;
 			border-color: @ui-button-secondary-color;
 			color: @ui-button-secondary-color;
 
@@ -113,6 +123,7 @@
 			&:active {
 				border-color: @ui-button-secondary-color-focus;
 				color: @ui-button-secondary-color-focus;
+				background: @ui-button-outline-secondary-background-focus;
 			}
 		}
 	}
@@ -136,7 +147,7 @@
 		}
 
 		&.outline {
-			background: transparent;
+			background: @ui-button-outline-tertiary-background;
 			border-color: @ui-button-tertiary-color;
 			color: @ui-button-tertiary-color;
 
@@ -145,6 +156,7 @@
 			&:active {
 				border-color: @ui-button-tertiary-color-focus;
 				color: @ui-button-tertiary-color-focus;
+				background: @ui-button-outline-tertiary-background-focus;
 			}
 		}
 	}
