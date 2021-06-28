@@ -102,8 +102,8 @@ class Accordion extends Component {
 				toggle: 'hide'
 			}, () => {
 				window.requestAnimationFrame(() => {
-					const transitionDuration = Math.max(this.accordionContent.current.clientHeight, 300) > 5000
-						? 5000
+					const transitionDuration = Math.max(this.accordionContent.current.clientHeight, 300) > 1500
+						? 1500
 						: Math.max(this.accordionContent.current.clientHeight, 300);
 
 					// Set fixed height (based on height of content) and set transition-duration for .ui-accordion-content-wrapper.
@@ -134,13 +134,17 @@ class Accordion extends Component {
 			window.requestAnimationFrame(() => {
 				this.accordionContent.current.parentNode.style.height = 0;
 
+				const closeTransitionDuration = Math.max(this.accordionContent.current.clientHeight, 300) > 1500
+					? 1500
+					: Math.max(this.accordionContent.current.clientHeight, 300);
+
 				// Remove content from DOM after animation is complete
 				setTimeout(() => {
 					this.setState({
 						showContent: false
 					});
 					this.disableToggle = false;
-				}, this.accordionContent.current.clientHeight);
+				}, closeTransitionDuration);
 			});
 		}
 	}
