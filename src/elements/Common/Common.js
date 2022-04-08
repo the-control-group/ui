@@ -78,7 +78,8 @@ const Common = ({
 			'onMouseLeave',
 			'onMouseDown',
 			'onMouseUp',
-			'rows'
+			'rows',
+			'autoFocus'
 		];
 
 	Object.keys(other).forEach(key => dataAttrRegex.test(key) && attributeValues.push(key));
