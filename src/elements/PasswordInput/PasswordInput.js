@@ -7,8 +7,10 @@
  import classNames from 'classnames';
  
  import Common from '../Common/Common';
- import Toggle from '@the-control-group/ui/lib/elements/Toggle/Toggle';
  import FlexRow from '@the-control-group/ui/lib/elements/FlexRow/FlexRow';
+ import Button from '@the-control-group/ui/lib/elements/Button/Button';
+ import Div from '@the-control-group/ui/lib/elements/Div/Div';
+ 
  
  /* eslint-disable react/prop-types */
  const Label = ({ children, htmlFor }) => (
@@ -28,12 +30,18 @@
 	 id,
 	 ...other
  }) => {
+ 
 	 const combinedClasses = classNames(
 		 'password-ui-input',
 		 other.classes,
 		 {
 			 bare
 		 }
+	 );
+ 
+	 const showPasswordClass = classNames(
+		 'show-password',
+ 
 	 );
  
 	 const [showPassword, setShowPassword] = useState(false);
@@ -52,8 +60,15 @@
 				 type={showPassword ? 'text' : 'password'}
 			 />
 			 <FlexRow>
-				 <Label>Show Password</Label>
-				 <Toggle onChange={() => setShowPassword(!showPassword)} value={'showPassword'} checked={showPassword} />
+				 <Div>
+					 <Button
+						 classes={showPasswordClass}
+						 bare
+						 onClick={() => setShowPassword(!showPassword)} 
+						 >
+						 {showPassword ? 'Hide Password' : 'Show Password'}
+					 </Button>
+				 </Div>
 			 </FlexRow>
 		 </Fragment>
 	 );
