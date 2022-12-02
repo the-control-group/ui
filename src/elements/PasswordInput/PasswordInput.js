@@ -1,5 +1,5 @@
 /**
- * Input
+ * Password Input
  */
 
 import React, { Fragment, useState } from 'react';
@@ -67,13 +67,6 @@ Input.propTypes = {
 	/** HTML DOM attribute */
 	bare: PropTypes.bool,
 	name: PropTypes.string.isRequired,
-	id: (props, propName) => {
-		if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
-			return new Error(
-				'Id attribute is required for radio and checkbox inputs'
-			);
-		}
-	},
 };
 
 export default Input;
