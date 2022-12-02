@@ -41,7 +41,6 @@
  
 	 const showPasswordClass = classNames(
 		 'show-password',
- 
 	 );
  
 	 const [showPassword, setShowPassword] = useState(false);
