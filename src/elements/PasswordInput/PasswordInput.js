@@ -24,7 +24,7 @@
  );
  /* eslint-enable */
  
- const Input = ({
+ const PasswordInput = ({
 	 bare,
 	 name,
 	 id,
@@ -77,7 +77,7 @@
 	 children: PropTypes.node.isRequired
  };
  
- Input.propTypes = {
+ PasswordInput.propTypes = {
 	 /** HTML DOM attribute */
 	 bare: PropTypes.bool,
 	 name: PropTypes.string.isRequired,
@@ -90,5 +90,5 @@
 	 },
  };
  
- export default Input;
+ export default PasswordInput;
  
