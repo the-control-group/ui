@@ -81,13 +81,7 @@
 	 /** HTML DOM attribute */
 	 bare: PropTypes.bool,
 	 name: PropTypes.string.isRequired,
-	 id: (props, propName) => {
-		 if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
-			 return new Error(
-				 'Id attribute is required for radio and checkbox inputs'
-			 );
-		 }
-	 },
+	 id: PropTypes.string,
  };
  
  export default PasswordInput;
