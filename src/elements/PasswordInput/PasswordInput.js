@@ -1,5 +1,5 @@
 /**
- * Input
+ * Password Input
  */
 
  import React, { Fragment, useState } from 'react';
