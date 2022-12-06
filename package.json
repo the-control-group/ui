@@ -1,6 +1,6 @@
 {
 	"name": "@the-control-group/ui",
-	"version": "1.9.3",
+	"version": "1.9.2",
 	"description": "UI kit based on ReactJS for TCG projects",
 	"main": "lib/index.js",
 	"files": [
