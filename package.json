@@ -1,6 +1,6 @@
 {
 	"name": "@the-control-group/ui",
-	"version": "1.9.2",
+	"version": "1.9.3",
 	"description": "UI kit based on ReactJS for TCG projects",
 	"main": "lib/index.js",
 	"files": [
@@ -28,8 +28,6 @@
 		"babel-eslint": "^10.0.3",
 		"classnames": "^2.2.6",
 		"cpx": "^1.5.0",
-		"docz": "^1.3.2",
-		"docz-plugin-css": "^0.11.0",
 		"eslint": "^6.6.0",
 		"eslint-plugin-react": "^7.11.1",
 		"prop-types": "^15.6.2",
