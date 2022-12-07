@@ -47,8 +47,11 @@ const PasswordInput = ({
   
 	return (
 		<Fragment>
-              
-			<Label htmlFor={other.id}>{label}</Label>
+			{label &&
+				<Label htmlFor={other.id}>
+					{label}
+				</Label>
+			}
   
 			<Common
 				{...other}
@@ -86,4 +89,3 @@ PasswordInput.propTypes = {
 };
   
 export default PasswordInput;
-  
