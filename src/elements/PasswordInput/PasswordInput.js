@@ -47,7 +47,7 @@ const PasswordInput = ({
   
 	return (
 		<Fragment>
-			{label &&
+			{!!label &&
 				<Label htmlFor={other.id}>
 					{label}
 				</Label>
