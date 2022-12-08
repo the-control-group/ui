@@ -28,6 +28,7 @@ const PasswordInput = ({
 	bare,
 	name,
 	id,
+	label,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -46,8 +47,11 @@ const PasswordInput = ({
   
 	return (
 		<Fragment>
-              
-			<Label htmlFor={other.id}>Password</Label>
+			{!!label &&
+				<Label htmlFor={other.id}>
+					{label}
+				</Label>
+			}
   
 			<Common
 				{...other}
@@ -80,8 +84,8 @@ PasswordInput.propTypes = {
 	/** HTML DOM attribute */
 	bare: PropTypes.bool,
 	name: PropTypes.string.isRequired,
+	label: PropTypes.string.isRequired,
 	id: PropTypes.string
 };
   
 export default PasswordInput;
-  
