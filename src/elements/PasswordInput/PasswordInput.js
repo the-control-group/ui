@@ -13,7 +13,7 @@ import Div from '@the-control-group/ui/lib/elements/Div/Div';
   
   
 /* eslint-disable react/prop-types */
-const Label = ({ children, htmlFor }) => (
+const Label = ({ children, htmlForl, label}) => (
 	<Common
 		tag="label"
 		className="ui-input-label"
@@ -28,6 +28,7 @@ const PasswordInput = ({
 	bare,
 	name,
 	id,
+	label,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -47,7 +48,7 @@ const PasswordInput = ({
 	return (
 		<Fragment>
               
-			<Label htmlFor={other.id}>Password</Label>
+			<Label htmlFor={other.id}>{label}</Label>
   
 			<Common
 				{...other}
@@ -78,9 +79,10 @@ Label.propTypes = {
   
 PasswordInput.propTypes = {
 	/** HTML DOM attribute */
-	bare: PropTypes.bool,
+	label: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
-	id: PropTypes.string
+	bare: PropTypes.bool,
+	id: PropTypes.string,
 };
   
 export default PasswordInput;
