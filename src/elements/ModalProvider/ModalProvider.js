@@ -28,7 +28,9 @@ class ModalOverlay extends Component {
 		}
 
 		if(prevProps.show && !this.props.show) {
-			this.overlay.current !== null && this.overlay.current.classList.remove('enter-done');
+			if(this.overlay.current !== null) {
+				this.overlay.current.classList.remove('enter-done');
+			} 
 			setTimeout(() => this.setState({overlayVisible: false}), 200);
 		}
 	}
