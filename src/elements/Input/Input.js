@@ -30,6 +30,7 @@ const Input = ({
 	checked,
 	rows,
 	defaultValue,
+	checkSensitiveInfo,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -97,6 +98,10 @@ const Input = ({
 	}
 
 	if(type === 'textarea') {
+		if (checkSensitiveInfo) {
+			/** Checks for SSN and CC#s that 9-19 characters long, ignoring dashes and spaces */
+			other.value = other.value.replace(/(\d[ -]*){9,19}/, '[REDACTED]');
+		}
 		return (
 			<Fragment>
 				{label &&
