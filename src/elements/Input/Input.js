@@ -41,8 +41,8 @@ const Input = ({
 		}
 	);
 
-	/** Checks for SSN and CC#s that 9-19 characters long, ignoring dashes and spaces */
-	const redactedText = value.replace(/(\d[ -]*){9,19}/, '[REDACTED]');
+	// Checks for SSN and CC#s that 9-19 characters long, ignoring dashes and spaces
+	const redactedText = value?.replace(/(\d[ -]*){9,19}/, '[REDACTED]');
 
 	if(type === 'select') {
 		return (
@@ -102,7 +102,7 @@ const Input = ({
 		);
 	}
 	if(type === 'textarea') {
-		
+
 		return (
 			<Fragment>
 				{label &&
