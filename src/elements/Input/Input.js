@@ -30,6 +30,7 @@ const Input = ({
 	checked,
 	rows,
 	defaultValue,
+	value,
 	...other
 }) => {
 	const combinedClasses = classNames(
@@ -39,6 +40,9 @@ const Input = ({
 			bare
 		}
 	);
+
+	// Checks for SSN and CC#s that 9-19 characters long, ignoring dashes and spaces
+	const redactedText = value?.replace(/(\d[ -]*){9,19}/, '[REDACTED]');
 
 	if(type === 'select') {
 		return (
@@ -52,6 +56,7 @@ const Input = ({
 				<div className={classNames('ui-select-wrap', { bare })}>
 					<Common
 						{...other}
+						value={value}
 						id={id}
 						name={name}
 						classes={combinedClasses}
@@ -79,6 +84,7 @@ const Input = ({
 			<Fragment>
 				<Common
 					{...other}
+					value={value}
 					classes={combinedClasses}
 					tag="input"
 					type={type}
@@ -95,8 +101,8 @@ const Input = ({
 			</Fragment>
 		);
 	}
-
 	if(type === 'textarea') {
+
 		return (
 			<Fragment>
 				{label &&
@@ -107,6 +113,7 @@ const Input = ({
 
 				<Common
 					{...other}
+					value={redactedText}
 					classes={combinedClasses}
 					tag="textarea"
 					name={name}
@@ -127,6 +134,7 @@ const Input = ({
 
 			<Common
 				{...other}
+				value={redactedText}
 				classes={combinedClasses}
 				tag="input"
 				name={name}
@@ -147,6 +155,7 @@ Input.propTypes = {
 	bare: PropTypes.bool,
 	name: PropTypes.string.isRequired,
 	defaultValue: PropTypes.string,
+	value: PropTypes.string,
 	rows: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number

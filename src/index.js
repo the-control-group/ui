@@ -19,6 +19,7 @@ export { default as Modal } from './elements/Modal/Modal';
 export { default as ModalProvider } from './elements/ModalProvider/ModalProvider';
 export { default as ProgressBar } from './elements/ProgressBar/ProgressBar';
 export { default as Accordion } from './elements/Accordion/Accordion';
+export { default as SSNInput } from './elements/SSNInput/SSNInput';
 
 export { getBreakpoint } from './util/helpers';
 export { isMobile } from './util/helpers';
