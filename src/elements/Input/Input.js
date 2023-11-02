@@ -136,10 +136,10 @@ const Input = ({
 					{...other}
 					value={value}
 					classes={combinedClasses}
-					tag="textarea"
+					tag="input"
 					name={name}
 					id={id}
-					rows={rows || 4}
+					type={type}
 				/>
 			</Fragment>
 		);
