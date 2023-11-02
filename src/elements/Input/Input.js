@@ -42,7 +42,8 @@ const Input = ({
 	);
 
 	// Checks for SSN and CC#s that 9-19 characters long, ignoring dashes and spaces
-	const redactedText = value?.replace(/(\d[ -]*){9,19}/, '[REDACTED]');
+	const redactedText = typeof value === 'string' ? value?.replace(/(\d[ -]*){9,19}/, '[REDACTED]') : value;
+
 
 	if(type === 'select') {
 		return (
