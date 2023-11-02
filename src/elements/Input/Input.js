@@ -123,6 +123,28 @@ const Input = ({
 		);
 	}
 
+	if(type === 'email') {
+		return (
+			<Fragment>
+				{label &&
+					<Label htmlFor={other.id}>
+						{label}
+					</Label>
+				}
+
+				<Common
+					{...other}
+					value={value}
+					classes={combinedClasses}
+					tag="textarea"
+					name={name}
+					id={id}
+					rows={rows || 4}
+				/>
+			</Fragment>
+		);
+	}
+
 	return (
 		<Fragment>
 			{label &&
