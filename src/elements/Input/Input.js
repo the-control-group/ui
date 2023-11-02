@@ -102,7 +102,6 @@ const Input = ({
 		);
 	}
 	if(type === 'textarea') {
-
 		return (
 			<Fragment>
 				{label &&

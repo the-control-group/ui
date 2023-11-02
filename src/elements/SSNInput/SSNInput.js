@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 import Common from '../Common/Common';
 
-const formatSSN = (ssn) =>  {
+const formatSSN = (ssn) => {
 	const numValue = ssn.replace(/[^0-9]/g, '').substr(-9),
 		numGroups = numValue.match(/([0-9]{0,3}){1}([0-9]{0,2})?([0-9]{0,4})?/);
 
@@ -35,7 +35,7 @@ const formatSSN = (ssn) =>  {
 	}
 
 	return formattedSSN;
-}
+};
 
 /* eslint-disable react/prop-types */
 const Label = ({ children, htmlFor }) => (
@@ -97,7 +97,7 @@ SSNInput.propTypes = {
 	name: PropTypes.string.isRequired,
 	value: PropTypes.string,
 	/** Placeholder for input */
-	placeholder: PropTypes.string,
+	placeholder: PropTypes.string
 };
 
 export default SSNInput;
