@@ -33,6 +33,7 @@ jobs:
         with:
           comment-summary-in-pr: always
           fail-on-scopes: runtime, development, unknown
+          allow-dependencies-licenses: pkg:githubactions/the-control-group/reusable-github-workflows/.github/workflows/generate_tf_docs.yml
           allow-licenses: >-
             MIT,
             Apache-2.0,
