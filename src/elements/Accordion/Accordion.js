@@ -94,6 +94,7 @@ class Accordion extends Component {
 		if(this.disableToggle) return;
 
 		this.disableToggle = true;
+		let contentHeight;
 		if(!this.state.showContent) {
 			if (this.props.onOpen) this.props.onOpen();
 
@@ -102,7 +103,7 @@ class Accordion extends Component {
 				toggle: 'hide'
 			}, () => {
 				window.requestAnimationFrame(() => {
-					const contentHeight = this.accordionContent.current.clientHeight;
+					contentHeight = this.accordionContent.current.clientHeight;
 					let transitionDuration = Math.max(contentHeight, 300);
 
 					// If content height is greater than 1000px, reduce the transition duration to 1s
@@ -130,7 +131,7 @@ class Accordion extends Component {
 				toggle: 'show'
 			});
 
-			const contentHeight = this.accordionContent.current.clientHeight;
+			contentHeight = this.accordionContent.current.clientHeight;
 			// Set height back to fixed for .ui-accordion-content-wrapper so we can animate slide up.
 			this.accordionContent.current.parentNode.style.height = `${contentHeight}px`;
 			this.accordionContent.current.parentNode.style.overflow = 'hidden';
