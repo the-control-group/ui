@@ -94,6 +94,7 @@ class Accordion extends Component {
 		if(this.disableToggle) return;
 
 		this.disableToggle = true;
+		let contentHeight;
 		if(!this.state.showContent) {
 			if (this.props.onOpen) this.props.onOpen();
 
@@ -102,14 +103,18 @@ class Accordion extends Component {
 				toggle: 'hide'
 			}, () => {
 				window.requestAnimationFrame(() => {
-					const transitionDuration = Math.max(this.accordionContent.current.clientHeight, 300) > 5000
-						? 5000
-						: Math.max(this.accordionContent.current.clientHeight, 300);
+					contentHeight = this.accordionContent.current.clientHeight;
+					let transitionDuration = Math.max(contentHeight, 300);
+
+					// If content height is greater than 1000px, reduce the transition duration to 1s
+					if (contentHeight > 1000) {
+						transitionDuration = 1000;
+					}
 
 					// Set fixed height (based on height of content) and set transition-duration for .ui-accordion-content-wrapper.
 					// We need fixed height for CSS Transition to work and to animate slide down of accordion.
 					this.accordionContent.current.parentNode.style.transitionDuration = `${transitionDuration}ms`;
-					this.accordionContent.current.parentNode.style.height = `${this.accordionContent.current.clientHeight}px`;
+					this.accordionContent.current.parentNode.style.height = `${contentHeight}px`;
 					this.accordionContent.current.parentNode.style.overflow = 'hidden';
 
 					// Set auto height for .ui-accordion-content-wrapper after animation is complete.
@@ -126,12 +131,20 @@ class Accordion extends Component {
 				toggle: 'show'
 			});
 
+			contentHeight = this.accordionContent.current.clientHeight;
 			// Set height back to fixed for .ui-accordion-content-wrapper so we can animate slide up.
-			this.accordionContent.current.parentNode.style.height = `${this.accordionContent.current.clientHeight}px`;
+			this.accordionContent.current.parentNode.style.height = `${contentHeight}px`;
 			this.accordionContent.current.parentNode.style.overflow = 'hidden';
 
 			// Set height and transition-duration for slide up animation.
 			window.requestAnimationFrame(() => {
+				let transitionDuration = Math.max(contentHeight, 300);
+
+				// If content height is greater than 1000px, reduce the transition duration to 1s
+				if (transitionDuration > 1000) {
+					transitionDuration = 1000;
+				}
+
 				this.accordionContent.current.parentNode.style.height = 0;
 
 				// Remove content from DOM after animation is complete
@@ -140,7 +153,7 @@ class Accordion extends Component {
 						showContent: false
 					});
 					this.disableToggle = false;
-				}, this.accordionContent.current.clientHeight);
+				}, transitionDuration);
 			});
 		}
 	}
