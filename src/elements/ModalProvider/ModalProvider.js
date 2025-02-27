@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
 import modalContext from '../../util/modalContext';
 
 const { Provider } = modalContext;
 
 class ModalOverlay extends Component {
-	static propTypes = {
-		show: PropTypes.bool,
-		attemptDismiss: PropTypes.func.isRequired,
-		modalRoot: PropTypes.instanceOf(window.Element).isRequired
-	};
-
 	constructor(props) {
 		super(props);
 
@@ -48,10 +41,6 @@ class ModalOverlay extends Component {
 }
 
 export default class ModalProvider extends Component {
-	static propTypes = {
-		children: PropTypes.node.isRequired
-	};
-
 	#modalQueue = new Set();
 
 	constructor(props) {

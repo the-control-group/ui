@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { isMobile } from '../../util/helpers';
@@ -56,10 +55,5 @@ class TabbedContainer extends Component {
 		);
 	}
 }
-
-TabbedContainer.propTypes = {
-	children: PropTypes.node.isRequired,
-	mobileDesign: PropTypes.bool
-};
 
 export default TabbedContainer;

@@ -3,7 +3,6 @@
  */
 
 import React, { cloneElement } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Common from '../Common/Common';
@@ -34,11 +33,6 @@ const DropDown = ({
 			</ul>
 		</Common>
 	);
-};
-
-DropDown.propTypes = {
-	children: PropTypes.node.isRequired,
-	title: PropTypes.node.isRequired
 };
 
 export default DropDown;

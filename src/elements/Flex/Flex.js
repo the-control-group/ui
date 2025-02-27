@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { numberLikeProp } from '../../util/helpers';
@@ -35,13 +34,6 @@ const Flex = ({ children, max, fixed, centerY, ...other }) => {
 			{children}
 		</Common>
 	);
-};
-
-Flex.propTypes = {
-	children: PropTypes.node,
-	max: numberLikeProp,
-	fixed: numberLikeProp,
-	centerY: PropTypes.bool
 };
 
 export default Flex;

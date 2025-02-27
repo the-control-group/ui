@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Common from '../Common/Common';
@@ -33,13 +32,6 @@ const Toggle = ({
 			<label htmlFor={toggleId}>{checked ? 'On' : 'Off'}</label>
 		</Common>
 	);
-};
-
-Toggle.propTypes = {
-	checked: PropTypes.bool.isRequired,
-	onChange: PropTypes.func.isRequired,
-	value: PropTypes.string.isRequired,
-	disabled: PropTypes.bool
 };
 
 export default Toggle;

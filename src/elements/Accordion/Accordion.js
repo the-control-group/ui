@@ -3,7 +3,6 @@
  */
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import FlexRow from '../FlexRow/FlexRow';
@@ -28,45 +27,7 @@ const AccordionCaret = ({ white, up }) => (
 	</object>
 );
 
-AccordionCaret.propTypes = {
-	white: PropTypes.bool,
-	up: PropTypes.bool
-};
-
 class Accordion extends Component {
-	static propTypes = {
-		children: PropTypes.node.isRequired,
-		title: (props, propName, componentName, ...args) => {
-			if(!props.title && !props.header) {
-				return new Error(`One of props 'title' or 'header' was not specified in '${componentName}'`);
-			}
-
-			if(props.title) return new Error('`title` is deprecated; use `header` instead');
-
-			return PropTypes.node(props, propName, componentName, ...args);
-		},
-		header: (props, propName, componentName, ...args) => {
-			if(!props.title && !props.header) {
-				return new Error(`One of props 'title' or 'header' was not specified in '${componentName}'`);
-			}
-
-			return PropTypes.node(props, propName, componentName, ...args);
-		},
-		className: PropTypes.string,
-		headerClassName: PropTypes.string,
-		notificationStyle: PropTypes.bool,
-		defaultExpanded: PropTypes.bool,
-		toggleTextShow: PropTypes.string,
-		toggleTextHide: PropTypes.string,
-		buttonStyleToggle: PropTypes.bool,
-		onOpen: PropTypes.func
-	};
-
-	static defaultProps = {
-		toggleTextShow: 'Show',
-		toggleTextHide: 'Hide'
-	}
-
 	constructor(props) {
 		super(props);
 

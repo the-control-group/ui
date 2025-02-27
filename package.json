@@ -3,6 +3,32 @@
 	"version": "1.10.5",
 	"description": "UI kit based on ReactJS for TCG projects",
 	"main": "lib/index.js",
+	"exports": {
+		".": "./lib/index.js",
+		"./elements/Accordion": "./lib/components/Accordion.js",
+		"./elements/Button": "./lib/components/Button.js",
+		"./elements/CodeInput": "./lib/components/CodeInput.js",
+		"./elements/Common": "./lib/components/Common.js",
+		"./elements/Div": "./lib/components/Div.js",
+		"./elements/DropDown": "./lib/components/DropDown.js",
+		"./elements/Flex": "./lib/components/Flex.js",
+		"./elements/FlexRow": "./lib/components/FlexRow.js",
+		"./elements/Grid": "./lib/components/Grid.js",
+		"./elements/Heading": "./lib/components/Heading.js",
+		"./elements/Input": "./lib/components/Input.js",
+		"./elements/List": "./lib/components/List.js",
+		"./elements/Modal": "./lib/components/Modal.js",
+		"./elements/ModalProvider": "./lib/components/ModalProvider.js",
+		"./elements/Notification": "./lib/components/Notification.js",
+		"./elements/PasswordInput": "./lib/components/PasswordInput.js",
+		"./elements/ProgressBar": "./lib/components/ProgressBar.js",
+		"./elements/SSNInput": "./lib/components/SSNInput.js",
+		"./elements/TabbedContainer": "./lib/components/TabbedContainer.js",
+		"./elements/TabContent": "./lib/components/TabContent.js",
+		"./elements/TabNavItem": "./lib/components/TabNavItem.js",
+		"./elements/Text": "./lib/components/Text.js",
+		"./elements/Toggle": "./lib/components/Toggle.js"
+	},
 	"files": [
 		"lib"
 	],
@@ -26,17 +52,12 @@
 	"homepage": "https://github.com/the-control-group/ui#readme",
 	"devDependencies": {
 		"babel-eslint": "^10.0.3",
-		"classnames": "^2.2.6",
 		"cpx": "^1.5.0",
 		"eslint": "^6.6.0",
-		"eslint-plugin-react": "^7.11.1",
-		"prop-types": "^15.6.2",
-		"react": "^16.4.2",
-		"react-dom": "^16.4.2"
+		"eslint-plugin-react": "^7.11.1"
 	},
 	"peerDependencies": {
 		"classnames": ">=2",
-		"prop-types": ">=15",
 		"react": ">=16",
 		"react-dom": ">=16"
 	}

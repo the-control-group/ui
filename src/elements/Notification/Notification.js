@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Common from '../Common/Common';
 
 export default class Notification extends Component {
-	static propTypes = {
-		children: PropTypes.node.isRequired,
-		onDismiss: PropTypes.func.isRequired,
-		timer: PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.number
-		])
-	};
-
 	constructor(props) {
 		super(props);
 	}

@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Common from '../Common/Common';
@@ -32,16 +31,6 @@ const Div = ({
 			{children}
 		</Common>
 	);
-};
-
-Div.propTypes = {
-	children: PropTypes.node,
-	/** Creates a 3D card style */
-	card: PropTypes.bool,
-	/** Creates a subsection with bolder seperation styles */
-	subsection: PropTypes.bool,
-	/** Creates an item with seperation styles */
-	item: PropTypes.bool
 };
 
 export default Div;

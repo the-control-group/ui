@@ -5,7 +5,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { getBreakpoint } from '../../util/helpers';
@@ -122,14 +121,6 @@ const Common = ({
 			{children && children}
 		</Tag>
 	);
-};
-
-Common.propTypes = {
-	children: PropTypes.node,
-	/** HTML element to return */
-	tag: PropTypes.string,
-	/** String of class names */
-	classes: PropTypes.string
 };
 
 export default Common;

@@ -88,16 +88,4 @@ const SSNInput = ({
 	);
 };
 
-Label.propTypes = {
-	children: PropTypes.node.isRequired
-};
-
-SSNInput.propTypes = {
-	type: PropTypes.string,
-	name: PropTypes.string.isRequired,
-	value: PropTypes.string,
-	/** Placeholder for input */
-	placeholder: PropTypes.string
-};
-
 export default SSNInput;

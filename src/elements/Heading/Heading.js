@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Common from '../Common/Common';
@@ -30,12 +29,6 @@ const Heading = (props) => {
 			{children}
 		</Common>
 	);
-};
-
-Heading.propTypes = {
-	children: PropTypes.node.isRequired,
-	/** Heading Level */
-	level: PropTypes.string.isRequired
 };
 
 export default Heading;

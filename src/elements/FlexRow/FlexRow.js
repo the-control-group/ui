@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { getBreakpoint, numberLikeProp } from '../../util/helpers';
@@ -41,14 +40,6 @@ const FlexRow = ({ children, breakMedium, breakSmall, breakCustom, gutter, ...ot
 			{children}
 		</Common>
 	);
-};
-
-FlexRow.propTypes = {
-	children: PropTypes.node.isRequired,
-	breakMedium: PropTypes.bool,
-	breakSmall: PropTypes.bool,
-	breakCustom: numberLikeProp,
-	gutter: PropTypes.string
 };
 
 export default FlexRow;

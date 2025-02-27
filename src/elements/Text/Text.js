@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Common from '../Common/Common';
@@ -65,36 +64,6 @@ const Text = (props) => {
 			{children}
 		</Common>
 	);
-};
-
-Text.propTypes = {
-	children: PropTypes.node.isRequired,
-	/** Inline caption (span tag) */
-	caption: PropTypes.bool,
-	/** String of class names */
-	classes: PropTypes.string,
-	/** Bold text */
-	bold: PropTypes.bool,
-	/** Italic Text */
-	italic: PropTypes.bool,
-	/** Uppercase Text */
-	uppercase: PropTypes.bool,
-	/** Lowercase Text */
-	lowercase: PropTypes.bool,
-	/** Extra extra small text */
-	smallest: PropTypes.bool,
-	/** Extra small text */
-	smaller: PropTypes.bool,
-	/** Small/normal text (1em) */
-	small: PropTypes.bool,
-	/** Medium text */
-	medium: PropTypes.bool,
-	/** Large text */
-	large: PropTypes.bool,
-	/** Extra large text */
-	larger: PropTypes.bool,
-	/** Extra extra large text */
-	largest: PropTypes.bool
 };
 
 export default Text;

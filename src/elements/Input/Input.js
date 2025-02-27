@@ -3,7 +3,6 @@
  */
 
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Common from '../Common/Common';
@@ -165,54 +164,6 @@ const Input = ({
 			/>
 		</Fragment>
 	);
-};
-
-Label.propTypes = {
-	children: PropTypes.node.isRequired
-};
-
-Input.propTypes = {
-	/** HTML DOM attribute */
-	type: PropTypes.string,
-	bare: PropTypes.bool,
-	name: PropTypes.string.isRequired,
-	defaultValue: PropTypes.string,
-	value: PropTypes.string,
-	rows: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number
-	]),
-	/** Placeholder for input */
-	placeholder: PropTypes.string,
-	/** Object of options for type of `select` */
-	options: (props, propName) => {
-		if (props.type === 'select' && (props[propName] === undefined)) {
-			return new Error(
-				'Options object is required for select input.'
-			);
-		}
-	},
-	label: (props, propName) => {
-		if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
-			return new Error(
-				'Label is required for radio and checkbox inputs'
-			);
-		}
-	},
-	id: (props, propName) => {
-		if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
-			return new Error(
-				'Id attribute is required for radio and checkbox inputs'
-			);
-		}
-	},
-	checked: (props, propName) => {
-		if ((props.type === 'radio' || props.type === 'checkbox') && (props[propName] === undefined)) {
-			return new Error(
-				'Checked attribute is required for radio and checkbox inputs'
-			);
-		}
-	}
 };
 
 export default Input;

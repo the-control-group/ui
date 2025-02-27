@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Common from '../Common/Common';
@@ -36,11 +35,6 @@ const CodeInput = ({
 			</div>
 		</div>
 	);
-};
-
-CodeInput.propTypes = {
-	type: PropTypes.string,
-	characterLength: PropTypes.number
 };
 
 export default CodeInput;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import modalContext from '../../util/modalContext';
 import { isMobile } from '../../util/helpers';
@@ -9,20 +8,6 @@ const { Consumer } = modalContext;
 
 // The Modal conditionally mounts/renders the modal itself and uses context and lifecycle methods to enqueue and dequeue itself
 class Modal extends Component {
-	static propTypes = {
-		show: PropTypes.bool,
-		currentModal: PropTypes.object,
-		children: PropTypes.node.isRequired,
-		onDismiss: PropTypes.func,
-		onExit: PropTypes.func,
-		enqueueModal: PropTypes.func.isRequired,
-		dequeueModal: PropTypes.func.isRequired,
-		modalRoot: PropTypes.instanceOf(window.Element).isRequired,
-		className: PropTypes.string,
-		dismissible: PropTypes.bool,
-		fullScreen: PropTypes.bool
-	};
-
 	constructor(props) {
 		super(props);
 

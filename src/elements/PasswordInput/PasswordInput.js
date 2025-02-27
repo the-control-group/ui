@@ -3,16 +3,14 @@
  */
 
 import React, { Fragment, useState } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
   
 import Common from '../Common/Common';
-import FlexRow from '@the-control-group/ui/lib/elements/FlexRow/FlexRow';
-import Button from '@the-control-group/ui/lib/elements/Button/Button';
-import Div from '@the-control-group/ui/lib/elements/Div/Div';
+import FlexRow from '../FlexRow/FlexRow';
+import Button from '../Button/Button';
+import Div from '../Div/Div';
   
   
-/* eslint-disable react/prop-types */
 const Label = ({ children, htmlFor }) => (
 	<Common
 		tag="label"
@@ -74,18 +72,6 @@ const PasswordInput = ({
 			</FlexRow>
 		</Fragment>
 	);
-};
-  
-Label.propTypes = {
-	children: PropTypes.node.isRequired
-};
-  
-PasswordInput.propTypes = {
-	/** HTML DOM attribute */
-	bare: PropTypes.bool,
-	name: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
-	id: PropTypes.string
 };
   
 export default PasswordInput;

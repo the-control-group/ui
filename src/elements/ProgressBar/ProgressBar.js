@@ -3,28 +3,8 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export default class ProgressBar extends React.Component {
-	static propTypes = {
-		onComplete: PropTypes.func,				// A function to call when the loader finishes
-		increments: PropTypes.number,			// The number of increments you want to break the loader into
-		autoStart: PropTypes.bool,				// Start the animation immediately after initialization
-		duration: PropTypes.number.isRequired,	// Time in milliseconds the loader should run for
-		delay: PropTypes.number,				// Delay before auto-starting the animation
-		completeDelay: PropTypes.number,		// Delay in milliseconds before onComplete fires when the loader is complete
-		height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]) // Height of progress bar in px
-	};
-
-	static defaultProps = {
-		onComplete: () => {},
-		increments: 4,
-		autoStart: true,
-		delay: 0, // milliseconds
-		completeDelay: 0, // milliseconds
-		height: 20 // px
-	};
-
 	constructor(props) {
 		super(props);
 

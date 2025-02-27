@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { isMobile } from '../../util/helpers';
@@ -30,18 +29,6 @@ const TabNavItem = ({ title, titleMobile, active, changeTab, tabId, width }) => 
 			</a>
 		</li>
 	);
-};
-
-TabNavItem.propTypes = {
-	active: PropTypes.bool,
-	title: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.node
-	]),
-	titleMobile: PropTypes.string,
-	changeTab: PropTypes.func,
-	tabId: PropTypes.number,
-	width: PropTypes.string
 };
 
 export default TabNavItem;

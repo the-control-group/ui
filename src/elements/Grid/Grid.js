@@ -3,7 +3,6 @@
  */
 
 import React, { Children, cloneElement } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { getBreakpoint } from '../../util/helpers';
@@ -122,50 +121,6 @@ const Grid = ({
 			{renderGridItems(children, widths, blockGrid, stacked, gutters)}
 		</Common>
 	);
-};
-
-Grid.propTypes = {
-	children: PropTypes.node.isRequired,
-	/** Array numbers, describing each element's column count, for all screen sizes */
-	itemWidths: PropTypes.array,
-	/** Array numbers, describing each element's column count, for small screens */
-	itemWidthsSmall: PropTypes.array,
-	/** Array numbers, describing each element's column count, for medium screens */
-	itemWidthsMedium: PropTypes.array,
-	/** Array numbers, describing each element's column count, for large screens */
-	itemWidthsLarge: PropTypes.array,
-	/** Number of "block columns" to repeat for all screen sizes */
-	blocks: PropTypes.number,
-	/** Number of "block columns" to repeat, for small screens */
-	blocksSmall: PropTypes.number,
-	/** Number of "block columns" to repeat, for medium screens */
-	blocksMedium: PropTypes.number,
-	/** Number of "block columns" to repeat, for large screens */
-	blocksLarge: PropTypes.number,
-	/** Changes flex-direction to `column` on all sreen sizes */
-	stack: PropTypes.bool,
-	/** Changes flex-direction to `column` on small screens */
-	stackSmall: PropTypes.bool,
-	/** Changes flex-direction to `column` on medium screens */
-	stackMedium: PropTypes.bool,
-	/** Changes flex-direction to `column` on large screens */
-	stackLarge: PropTypes.bool,
-	/** Changes flex-direction to `reverse-row`/`reverse-column` if stacked on all scfeen sizes */
-	swap: PropTypes.bool,
-	/** Changes flex-direction to `reverse-row`/`reverse-column` if stacked on small screens */
-	swapSmall: PropTypes.bool,
-	/** Changes flex-direction to `reverse-row`/`reverse-column` if stacked on medium screens */
-	swapMedium: PropTypes.bool,
-	/** Changes flex-direction to `reverse-row`/`reverse-column` if stacked on large screens */
-	swapLarge: PropTypes.bool,
-	/** Gutter width for all screen sizes, using named spacing variables */
-	gutter: PropTypes.string,
-	/** Gutter width for small screens, using named spacing variables */
-	gutterSmall: PropTypes.string,
-	/** Gutter width for medium screens, using named spacing variables */
-	gutterMedium: PropTypes.string,
-	/** Gutter width for large screens, using named spacing variables */
-	gutterLarge: PropTypes.string
 };
 
 export default Grid;
