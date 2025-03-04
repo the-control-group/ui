@@ -3,20 +3,20 @@
  */
 
 // general variables
-@ui-toggle-border: 1px solid transparent;
-@ui-toggle-border-radius: 15px;
-@ui-toggle-font-family: @ui-font-sans-serif;
-@ui-toggle-font-weight: 700;
-@ui-toggle-font-size: @ui-font-x-small;
-@ui-toggle-text-transform: uppercase;
-@ui-toggle-letter-spacing: 0.5px;
-@ui-toggle-padding: .1em;
+@ui-toggle-border: var(--ui-toggle-border, 1px solid transparent);
+@ui-toggle-border-radius: var(--ui-toggle-border-radius, 15px);
+@ui-toggle-font-family: var(--ui-toggle-font-family, @ui-font-sans-serif);
+@ui-toggle-font-weight: var(--ui-toggle-font-weight, 700);
+@ui-toggle-font-size: var(--ui-toggle-font-size, @ui-font-x-small);
+@ui-toggle-text-transform: var(--ui-toggle-text-transform, uppercase);
+@ui-toggle-letter-spacing: var(--ui-toggle-letter-spacing, 0.5px);
+@ui-toggle-padding: var(--ui-toggle-padding, .1em);
 
 // primary toggle variables
-@ui-toggle-color: @ui-color-gray-dark;
-@ui-toggle-color-focus: @ui-color-gray-darker;
-@ui-toggle-color-active: @ui-color-gray-darkest;
-@ui-toggle-font-color: @ui-color-white;
+@ui-toggle-color: var(--ui-toggle-color, @ui-color-gray-dark);
+@ui-toggle-color-focus: var(--ui-toggle-color-focus, @ui-color-gray-darker);
+@ui-toggle-color-active: var(--ui-toggle-color-active, @ui-color-gray-darkest);
+@ui-toggle-font-color: var(--ui-toggle-font-color, @ui-color-white);
 
 .ui-toggle {
 	display: inline-block;
@@ -75,7 +75,7 @@
 				text-indent: -1.25em; /* 20/16 */
 
 				&:after {
-					transform: translateX((2.625em + @ui-toggle-padding)); /* 42/16 */
+					transform: translateX(calc(2.625em + @ui-toggle-padding)); /* 42/16 */
 					background: @ui-color-green;
 				}
 			}
