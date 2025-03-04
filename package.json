@@ -5,41 +5,23 @@
 	"main": "./lib/index.js",
 	"type": "module",
 	"exports": {
-		".": "./lib/index.js",
-		"./elements/Accordion": "./lib/components/Accordion.js",
-		"./elements/Button": "./lib/components/Button.js",
-		"./elements/CodeInput": "./lib/components/CodeInput.js",
-		"./elements/Common": "./lib/components/Common.js",
-		"./elements/Div": "./lib/components/Div.js",
-		"./elements/DropDown": "./lib/components/DropDown.js",
-		"./elements/Flex": "./lib/components/Flex.js",
-		"./elements/FlexRow": "./lib/components/FlexRow.js",
-		"./elements/Grid": "./lib/components/Grid.js",
-		"./elements/Heading": "./lib/components/Heading.js",
-		"./elements/Input": "./lib/components/Input.js",
-		"./elements/List": "./lib/components/List.js",
-		"./elements/Modal": "./lib/components/Modal.js",
-		"./elements/ModalProvider": "./lib/components/ModalProvider.js",
-		"./elements/Notification": "./lib/components/Notification.js",
-		"./elements/PasswordInput": "./lib/components/PasswordInput.js",
-		"./elements/ProgressBar": "./lib/components/ProgressBar.js",
-		"./elements/SSNInput": "./lib/components/SSNInput.js",
-		"./elements/TabbedContainer": "./lib/components/TabbedContainer.js",
-		"./elements/TabContent": "./lib/components/TabContent.js",
-		"./elements/TabNavItem": "./lib/components/TabNavItem.js",
-		"./elements/Text": "./lib/components/Text.js",
-		"./elements/Toggle": "./lib/components/Toggle.js"
+		".": "./lib/index.js"
 	},
 	"files": [
 		"lib"
 	],
+	"sideEffects": [
+		"**/*.css"
+	],
 	"scripts": {
-	  "start": "tsc --allowJs --watch",
-	  "transpile": "rm -rf lib/ && tsc --allowJs",
+	  "build": "vite build",
+	  "vitedev": "vite",
+	  "start": "tsc -b --watch && vite build --watch",
+	  "transpile": "rm -rf lib/ && tsc",
 	  "check:updates": "ncu",
 	  "update:deps": "ncu -u",
 	  "format": "prettier --list-different --write '**/*.{ts,tsx,js}'",
-	  "test": "tsc --allowJs --noEmit && eslint src && prettier '**/*.{ts,tsx,js}' --check && jest src",
+	  "test": "tsc --noEmit && eslint src && prettier '**/*.{ts,tsx,js}' --check && jest src",
 	  "prepublishOnly": "npm run transpile"
 	},
 	"repository": {
@@ -56,19 +38,24 @@
 	  "@types/jest": "^29.5.14",
 	  "@typescript-eslint/eslint-plugin": "^8.25.0",
 	  "@typescript-eslint/parser": "^8.25.0",
+	  "@vitejs/plugin-react": "^4.3.4",
 	  "date-fns": "^4.1.0",
 	  "eslint": "^9.21.0",
 	  "eslint-config-prettier": "^10.0.2",
 	  "eslint-plugin-prettier": "^5.2.3",
 	  "eslint-plugin-react": "^7.37.4",
 	  "eslint-plugin-react-hooks": "^5.1.0",
+	  "glob": "^11.0.1",
 	  "jest": "^29.7.0",
 	  "npm-check-updates": "^17.1.15",
 	  "prettier": "^3.5.2",
 	  "ts-jest": "^29.2.6",
-	  "typescript": "^5.7.3"
+	  "typescript": "^5.7.3",
+	  "vite": "^6.2.0",
+	  "vite-plugin-dts": "^4.5.1",
+	  "vite-plugin-lib-inject-css": "^2.2.1"
 	},
-	"OFFpeerDependencies": {
+	"peerDependencies": {
 		"classnames": "^2.3.1",
 		"react": ">=18",
 		"react-dom": ">=18"

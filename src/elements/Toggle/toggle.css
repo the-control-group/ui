@@ -1,0 +1,77 @@
+.ui-toggle {
+	display: inline-block;
+}
+.ui-toggle input[type="checkbox"] {
+	display: none;
+}
+.ui-toggle input[type="checkbox"] + label {
+	padding: var(--ui-toggle-padding, 0.1em);
+	font-family: var(--ui-toggle-font-family, var(--ui-font-sans-serif, 'Helvetica', Arial, sans-serif));
+	font-weight: var(--ui-toggle-font-weight, 700);
+	font-size: var(--ui-toggle-font-size, var(--ui-font-x-small, 0.9em));
+	text-transform: var(--ui-toggle-text-transform, uppercase);
+	letter-spacing: var(--ui-toggle-letter-spacing, 0.5px);
+	text-align: center;
+	cursor: pointer;
+	width: 4.25em;
+	/* 68/16 */
+	-webkit-user-select: none;
+	user-select: none;
+	border-radius: var(--ui-toggle-border-radius, 15px);
+	background-color: var(--ui-color-gray-light, #e1e1e1);
+	display: block;
+	text-indent: 1.4375em;
+	/* 23/16 */
+	line-height: 1.25em;
+	/* 20/16 */
+	position: relative;
+	top: -0.1875em;
+	/* 3/16 */
+}
+.ui-toggle input[type="checkbox"] + label:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin-top: auto;
+	margin-bottom: auto;
+	background: var(--ui-color-gray-lighter, #f3f3f3);
+	width: 1.625em;
+	/* 26/16 */
+	height: 1.625em;
+	/* 26/16 */
+	border-radius: 100%;
+	box-shadow: 0 2px 1.96px 0.04px rgba(0, 0, 0, 0.2);
+	transition: transform 200ms, background 100ms;
+}
+.ui-toggle input[type="checkbox"]:disabled + label {
+	opacity: 0.5;
+	cursor: progress;
+}
+.ui-toggle input[type="checkbox"]:checked + label {
+	text-indent: -1.25em;
+	/* 20/16 */
+}
+.ui-toggle input[type="checkbox"]:checked + label:after {
+	transform: translateX(calc(2.625em + var(--ui-toggle-padding, 0.1em)));
+	/* 42/16 */
+	background: var(--ui-color-green, MediumSeaGreen);
+}
+.ui-toggle.invert input[type="checkbox"] + label {
+	color: var(--ui-color-white, #ffffff);
+	background-color: var(--ui-color-gray-medium, #b3b3b3);
+	text-transform: capitalize;
+}
+.ui-toggle.invert input[type="checkbox"] + label:after {
+	background: var(--ui-color-gray-light, #e1e1e1);
+	border: 1px solid var(--ui-color-white, #ffffff);
+	box-shadow: none;
+}
+.ui-toggle.invert input[type="checkbox"]:checked + label {
+	background-color: var(--ui-color-green, MediumSeaGreen);
+}
+.ui-toggle.invert input[type="checkbox"]:checked + label:after {
+	background: var(--ui-color-gray-light, #e1e1e1);
+}
